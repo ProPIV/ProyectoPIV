@@ -10,7 +10,7 @@
 	$altura = $_POST['altura'];
 	
 	//Calculo del área
-	$area = $base * $altura / 2
+	$area = $base * $altura / 2;
 ?>
 
 <!doctype html>
