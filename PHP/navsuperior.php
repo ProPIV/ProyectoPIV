@@ -1,16 +1,8 @@
 <nav class="navbar navbar-expand-lg Alineacion navbar-color">
         <button class="btn btn-primary boton_menu" id="menu-toggle"><img src="../Imagenes/Menu.png" alt=""
-            class="boton_img"></button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+            class="boton_img"></button>        
         <div class="logonav col-8">
-          <a class="navbar-brand" href="#"><img src="../Imagenes/Logo.png" alt="Logo" class="Logo"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <a class="navbar-brand" href="#"><img src="../Imagenes/Logo.png" alt="Logo" class="Logo"></a>          
         </div>
         <div class="collapse navbar-collapse Alin-user col-2 Alin-usert" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto " style="padding-left:revert">
@@ -19,7 +11,7 @@
                 aria-haspopup="true" aria-expanded="false">
                 Carlos Aux
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu dropdown-user" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#"><img src="../Imagenes/inicio.png" class="inicio" alt="">Mi
                   informacion</a>
                 <a class="dropdown-item" href="#"><img src="../Imagenes/inicio.png" class="inicio" alt="">Another
