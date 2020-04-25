@@ -1,0 +1,22 @@
+.menusupe{
+    left: 20%;
+}
+.menusupe a{
+    font-size: 80%;
+}
+.menusupe h1{    
+    font-size: 150%;
+    color: #ffff;
+}
+.telIma{
+    width: 2%;
+    float: left;
+}
+.correoIma{
+    margin-top: 1.3%;
+    width: 3%;
+    float: left;
+}
+.body{
+    text-align: center;
+}
