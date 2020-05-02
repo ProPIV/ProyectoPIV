@@ -1,7 +1,7 @@
 <?php 
   $navSuperior = file_get_contents('navSuperior.php');
   $sidebar = file_get_contents('sidebar.php');
-  $contenido = file_get_contents('contenido.php');
+  $contenidoAdmin = file_get_contents('contenidoAdmin.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,7 +21,14 @@
     <?php echo $sidebar; ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
-      <?php echo $contenido; ?>
+      <?php 
+        $rol = 'admon';
+        if ($rol='admon') {
+            echo $contenidoAdmin;
+        }elseif (condition) {
+            echo 'Error';
+        }
+      ?>
     </div>
   </div>
   <!-- Optional JavaScript -->
