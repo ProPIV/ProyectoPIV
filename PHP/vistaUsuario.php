@@ -2,6 +2,7 @@
   $navSuperior = file_get_contents('navSuperior.php');
   $sidebar = file_get_contents('sidebar.php');
   $contenidoAdmin = file_get_contents('contenidoAdmin.php');
+  $contenidoUsuario = file_get_contents('contenidoUsuario.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,11 +23,11 @@
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
       <?php 
-        $rol = 'admon';
-        if ($rol='admon') {
+        $rol = "usuario";
+        if ($rol=="admon") {
             echo $contenidoAdmin;
-        }elseif (condition) {
-            echo 'Error';
+        }elseif ($rol=="usuario") {
+            echo $contenidoUsuario;
         }
       ?>
     </div>
