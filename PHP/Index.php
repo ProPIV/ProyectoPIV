@@ -1,6 +1,7 @@
 <?php 
-  $rol = "user";
+  $rol = "nada";
   $navSuperior = file_get_contents('navSuperior.php');
+  $sidebarAdmin = file_get_contents('admin/sidebarAdmin.php');
   $sidebar = file_get_contents('sidebar.php');
   $sidebarUser = file_get_contents('user/sidebarUser.php');
   $contenidoAdmin = file_get_contents('admin/contenidoAdmin.php');
@@ -23,10 +24,13 @@
   <div class="d-flex toggled" id="wrapper">
     <?php 
       if ($rol=="admin") {
-          echo $sidebar;
+          echo $sidebarAdmin;
       }elseif ($rol=="user") {
           echo $sidebarUser;
-      } 
+      }elseif ($rol=="nada") {
+        echo $sidebar;
+    } 
+
     ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>

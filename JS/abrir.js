@@ -6,7 +6,7 @@ function inicio() {
         $(".Alin-user").toggleClass("Alin-usert");
     });
     $("#opciones a").click(function(e){
-        e.preventDefault();
+       e.preventDefault();
        var url = $(this).attr("href");
        $.post( url,function(resultado) {
                if(url!="#")

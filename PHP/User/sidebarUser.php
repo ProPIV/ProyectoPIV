@@ -9,12 +9,13 @@
                 aria-describedby="inputGroup-sizing-sm" placeholder="Buscar">
         </div>
     </div>
-    <div class="list-group list-group-flush">
+    <div class="list-group list-group-flush" id="opciones">
         <ul>
-            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Usuario</a></li>
-            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Dos</a></li>
-            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Tres</a></li>
-            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Cuatro</a></li>
+            <li>                
+                <a href="#"><img src="../Imagenes/inicio.png" class="inicio opcion a" alt="">Dos</a>
+                <a href="#"><img src="../Imagenes/inicio.png" class="inicio opcion a" alt="">Tres</a>
+                <a href="#"><img src="../Imagenes/inicio.png" class="inicio opcion a" alt="">Cuatro</a>
+            </li>
         </ul>
     </div>
 </div>
