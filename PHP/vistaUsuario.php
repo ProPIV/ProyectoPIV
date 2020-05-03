@@ -23,7 +23,7 @@
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
       <?php 
-        $rol = "admon";
+        $rol = "usuario";
         if ($rol=="admon") {
             echo $contenidoAdmin;
         }elseif ($rol=="usuario") {
