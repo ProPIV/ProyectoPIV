@@ -27,7 +27,6 @@
       }elseif ($rol=="user") {
           echo $sidebarUser;
       } 
-
     ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
