@@ -11,7 +11,7 @@
     </div>
     <div class="list-group list-group-flush">
         <ul>
-            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Inicio</a></li>
+            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Admin</a></li>
             <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Dos</a></li>
             <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Tres</a></li>
             <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Cuatro</a></li>

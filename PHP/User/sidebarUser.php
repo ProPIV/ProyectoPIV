@@ -1,8 +1,3 @@
-<?php
-    $us = "usuario";
-    $admin = "<a href=''><img src='../Imagenes/inicio.png' class='inicio' alt=''>Inicio</a>";
-    $user = "<a href=''><img src='../Imagenes/inicio.png' class='inicio' alt=''>Dos</a>";
-?>
 <div class="nav_tog border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">
         <div class="input-group input-group-sm mb-3 ">
@@ -16,16 +11,10 @@
     </div>
     <div class="list-group list-group-flush">
         <ul>
-            <li>
-                <?php
-                    
-                    if ($us=="admin") {
-                        echo $admin;
-                    }elseif ($us=="user") {
-                        echo $user;
-                    }
-                ?>
-            </li>
+            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Usuario</a></li>
+            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Dos</a></li>
+            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Tres</a></li>
+            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Cuatro</a></li>
         </ul>
     </div>
 </div>

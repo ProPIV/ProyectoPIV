@@ -1,9 +1,10 @@
 <?php 
-  $rol = "usuario";
+  $rol = "user";
   $navSuperior = file_get_contents('navSuperior.php');
   $sidebar = file_get_contents('sidebar.php');
+  $sidebarUser = file_get_contents('user/sidebarUser.php');
   $contenidoAdmin = file_get_contents('admin/contenidoAdmin.php');
-  $contenidoUsuario = file_get_contents('usuario/contenidoUsuario.php');
+  $contenidoUser = file_get_contents('user/contenidoUser.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,19 +16,26 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../CSS/styleUsuario.css">
+  <link rel="stylesheet" href="../CSS/styleUser.css">
   <title>SedeSoft</title>
 </head>
 <body>
   <div class="d-flex toggled" id="wrapper">
-    <?php echo $sidebar; ?>
+    <?php 
+      if ($rol=="admin") {
+          echo $sidebar;
+      }elseif ($rol=="user") {
+          echo $sidebarUser;
+      } 
+
+    ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
       <?php         
         if ($rol=="admin") {
             echo $contenidoAdmin;
-        }elseif ($rol=="usuario") {
-            echo $contenidoUsuario;
+        }elseif ($rol=="user") {
+            echo $contenidoUser;
         }
       ?>
     </div>
