@@ -34,13 +34,16 @@
     ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
-      <?php         
-        if ($rol=="admin") {
-            echo $contenidoAdmin;
-        }elseif ($rol=="user") {
-            echo $contenidoUser;
-        }
-      ?>
+      <div id="contenido">
+        <h3>contenido</h3>
+        <?php         
+          if ($rol=="admin") {
+              echo $contenidoAdmin;
+          }elseif ($rol=="user") {
+              echo $contenidoUser;
+          }
+        ?>        
+      </div>      
     </div>
   </div>
   <!-- Optional JavaScript -->
@@ -53,7 +56,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-  <script src="../js/abrir.js"></script>
+  <script src="../js/funcionesJquery.js"></script>
   <script type="text/javascript">
     $(document).ready(inicio)
   </script>

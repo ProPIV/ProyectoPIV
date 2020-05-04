@@ -11,7 +11,7 @@
     </div>
     <div class="list-group list-group-flush">
         <ul>
-            <a href="admin/Index.php"><img src="../Imagenes/inicio.png" class="inicio" alt="">admin</a>
+            <a href="admin/Index.php" id="cargarAdmin"><img src="../Imagenes/inicio.png" class="inicio" alt="">admin</a>
             <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Dos</a></li>
             <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Tres</a></li>
             <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Cuatro</a></li>
