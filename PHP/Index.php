@@ -4,8 +4,8 @@
   $sidebarAdmin = file_get_contents('admin/sidebarAdmin.php');
   $sidebar = file_get_contents('sidebar.php');
   $sidebarUser = file_get_contents('user/sidebarUser.php');
-  $contenidoAdmin = file_get_contents('admin/contenidoAdmin.php');
-  $contenidoUser = file_get_contents('user/contenidoUser.php');
+  $contenidoAdmin = file_get_contents('admin/Index.php');
+  $contenidoUser = file_get_contents('user/Index.php');
 ?>
 <!doctype html>
 <html lang="en">
