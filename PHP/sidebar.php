@@ -11,10 +11,12 @@
     </div>
     <div class="list-group list-group-flush">
         <ul>
-            <a href="admin/Index.php" id="cargarAdmin"><img src="../Imagenes/inicio.png" class="inicio" alt="">admin</a>
-            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Dos</a></li>
-            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Tres</a></li>
-            <li><a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Cuatro</a></li>
+            <li>
+                <a href="" id="cargarAdmin"><img src="../Imagenes/inicio.png" class="inicio" alt="">admin</a>
+                <a href="" id="cargarUser"><img src="../Imagenes/inicio.png" class="inicio" alt="">usuario</a>
+                <a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Tres</a>
+                <a href=""><img src="../Imagenes/inicio.png" class="inicio" alt="">Cuatro</a>
+            </li>
         </ul>
     </div>
 </div>

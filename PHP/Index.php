@@ -29,20 +29,11 @@
           echo $sidebarUser;
       }elseif ($rol=="nada") {
         echo $sidebar;
-    } 
-
+      } 
     ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
-      <div id="contenido">
-        <h3>contenido</h3>
-        <?php         
-          if ($rol=="admin") {
-              echo $contenidoAdmin;
-          }elseif ($rol=="user") {
-              echo $contenidoUser;
-          }
-        ?>        
+      <div id="contenido">             
       </div>      
     </div>
   </div>
