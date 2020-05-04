@@ -28,7 +28,7 @@
       }elseif ($rol=="user") {
           echo $sidebarUser;
       }elseif ($rol=="nada") {
-        echo $sidebar;
+          echo $sidebar;
       } 
     ?>
     <div id="page-content-wrapper">
