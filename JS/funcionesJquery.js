@@ -7,11 +7,43 @@ function inicio() {
     });
     $("#cargarAdmin").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/admin/Index.php");
+        $("#contenido").load("../php/admin/index.php");
     })
-    $("#cargarUser").click(function(e) {
+    $("#cargarEmpleados").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/Index.php");
+        $("#contenido").load("../php/empleados/index.php");
+    })
+    $("#cargarProveedores").click(function(e) {
+        e.preventDefault();
+        $("#contenido").load("../php/user/index.php");
+    })
+    $("#cargarPaises").click(function(e) {
+        e.preventDefault();
+        $("#contenido").load("../php/user/index.php");
+    })
+    $("#cargarCiudades").click(function(e) {
+        e.preventDefault();
+        $("#contenido").load("../php/user/index.php");
+    })
+    $("#cargarEmpresas").click(function(e) {
+        e.preventDefault();
+        $("#contenido").load("../php/user/index.php");
+    })
+    $("#cargarSucursal").click(function(e) {
+        e.preventDefault();
+        $("#contenido").load("../php/user/index.php");
+    })
+    $("#cargarProcesos").click(function(e) {
+        e.preventDefault();
+        $("#contenido").load("../php/user/index.php");
+    })
+    $("#cargarContratos").click(function(e) {
+        e.preventDefault();
+        $("#contenido").load("../php/user/index.php");
+    })
+    $("#cargarOrganizaciones").click(function(e) {
+        e.preventDefault();
+        $("#contenido").load("../php/user/index.php");
     })
     $("#opciones a").click(function(e){
         e.preventDefault();
