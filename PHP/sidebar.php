@@ -17,11 +17,11 @@
                 <a href="" id="cargarProveedores"><img src="../Imagenes/inicio.png" class="inicio" alt="">Proveedores</a>
                 <a href="" id="cargarPaises"><img src="../Imagenes/inicio.png" class="inicio" alt="">Paises</a>
                 <a href="" id="cargarCiudades"><img src="../Imagenes/inicio.png" class="inicio" alt="">Ciudades</a>
+                <a href="" id="cargarOrganizaciones"><img src="../Imagenes/inicio.png" class="inicio" alt="">Organizaciones</a>
                 <a href="" id="cargarEmpresas"><img src="../Imagenes/inicio.png" class="inicio" alt="">Empresas</a>
                 <a href="" id="cargarSucursal"><img src="../Imagenes/inicio.png" class="inicio" alt="">Sucursal</a>
                 <a href="" id="cargarProcesos"><img src="../Imagenes/inicio.png" class="inicio" alt="">Procesos</a>                
-                <a href="" id="cargarContratos"><img src="../Imagenes/inicio.png" class="inicio" alt="">Contratos</a>                
-                <a href="" id="cargarOrganizaciones"><img src="../Imagenes/inicio.png" class="inicio" alt="">Organizaciones</a>
+                <a href="" id="cargarContratos"><img src="../Imagenes/inicio.png" class="inicio" alt="">Contratos</a>
             </li>
         </ul>
     </div>
