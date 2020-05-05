@@ -58,8 +58,13 @@ body {
     color: #ffffff;
     
 }
-.inicio{
-    padding-right: 3%;
+.other{
+    width: 10%;
+    margin-right: 5%;
+}
+.usuarios{
+    margin-right: 5%;
+    width: 10%;
 }
 .nav_tog ul{
     list-style: none;  

@@ -12,16 +12,16 @@
     <div class="list-group list-group-flush">
         <ul>
             <li>
-                <a href="" id="cargarAdmin"><img src="../Imagenes/inicio.png" class="inicio" alt="">Administrar usuarios</a>
-                <a href="" id="cargarEmpleados"><img src="../Imagenes/inicio.png" class="inicio" alt="">Empleados</a>
-                <a href="" id="cargarProveedores"><img src="../Imagenes/inicio.png" class="inicio" alt="">Proveedores</a>
-                <a href="" id="cargarPaises"><img src="../Imagenes/inicio.png" class="inicio" alt="">Paises</a>
-                <a href="" id="cargarCiudades"><img src="../Imagenes/inicio.png" class="inicio" alt="">Ciudades</a>
-                <a href="" id="cargarOrganizaciones"><img src="../Imagenes/inicio.png" class="inicio" alt="">Organizaciones</a>
-                <a href="" id="cargarEmpresas"><img src="../Imagenes/inicio.png" class="inicio" alt="">Empresas</a>
-                <a href="" id="cargarSucursal"><img src="../Imagenes/inicio.png" class="inicio" alt="">Sucursal</a>
-                <a href="" id="cargarProcesos"><img src="../Imagenes/inicio.png" class="inicio" alt="">Procesos</a>                
-                <a href="" id="cargarContratos"><img src="../Imagenes/inicio.png" class="inicio" alt="">Contratos</a>
+                <a href="" id="cargarAdmin"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Administrar usuarios</a>
+                <a href="" id="cargarEmpleados"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Empleados</a>
+                <a href="" id="cargarProveedores"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Proveedores</a>
+                <a href="" id="cargarPaises"><img src="../Imagenes/Edificios.png" class="other" alt="">Paises</a>
+                <a href="" id="cargarCiudades"><img src="../Imagenes/Edificios.png" class="other" alt="">Ciudades</a>
+                <a href="" id="cargarOrganizaciones"><img src="../Imagenes/Edificios.png" class="other" alt="">Organizaciones</a>
+                <a href="" id="cargarEmpresas"><img src="../Imagenes/Edificios.png" class="other" alt="">Empresas</a>
+                <a href="" id="cargarSucursal"><img src="../Imagenes/Sucursal.png" class="other" alt="">Sucursal</a>
+                <a href="" id="cargarProcesos"><img src="../Imagenes/inicio.png" class="other" alt="">Procesos</a>                
+                <a href="" id="cargarContratos"><img src="../Imagenes/Contratos.png" class="other" alt="">Contratos</a>
             </li>
         </ul>
     </div>
