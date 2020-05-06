@@ -5,7 +5,6 @@
 		private static $db_pass = "";
 		protected $db_name = "proyectopiv";
 		protected $query;
-		protected $query2;
 		protected $rows = array();
 		private $conexion;
 		

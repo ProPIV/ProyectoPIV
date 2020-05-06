@@ -15,11 +15,11 @@ function inicio() {
     })
     $("#cargarProveedores").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/index.php");
+        $("#contenido").load("../PHP/proveedores/index.php");
     })
     $("#cargarPaises").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/index.php");
+        $("#contenido").load("../PHP/user/index.php");
     })
     $("#cargarCiudades").click(function(e) {
         e.preventDefault();

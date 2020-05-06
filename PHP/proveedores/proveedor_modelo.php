@@ -1,32 +1,37 @@
 <?php
     require_once("../modeloAbstractoDB.php");
     class Proveedor extends ModeloAbstractoDB {
-		private $comu_codi;
-		private $comu_nomb;
-		private $muni_codi;
+		private $id_proveedor;
+		private $nombre_proveedor;
+		private $telefono;
+		private $direccion;
 		
 		function __construct() {
 			//$this->db_name = '';
 		}
 
-		public function getComu_codi(){
-			return $this->comu_codi;
+		public function getid_proveedor(){
+			return $this->id_proveedor;
 		}
 
-		public function getComu_nomb(){
-			return $this->comu_nomb;
+		public function getnombre_proveedor(){
+			return $this->nombre_proveedor;
 		}
 		
-		public function getMuni_codi(){
-			return $this->muni_codi;
+		public function gettelefono(){
+			return $this->telefono;
 		}
 
-		public function consultar($comu_codi='') {
-			if($comu_codi !=''):
+		public function getdireccion(){
+			return $this->direccion;
+		}
+
+		public function consultar($id_proveedor='') {
+			if($id_proveedor !=''):
 				$this->query = "
-				SELECT comu_codi, comu_nomb, muni_codi
-				FROM tb_comuna
-				WHERE comu_codi = '$comu_codi' order by comu_codi
+				SELECT *
+				FROM proveedor
+				WHERE id_proveedor = '$id_proveedor' order by id_proveedor
 				";
 				$this->obtener_resultados_query();
 			endif;
@@ -39,27 +44,24 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT comu_codi, comu_nomb, m.muni_nomb
-			FROM tb_comuna as c inner join tb_municipio as m
-			ON (c.muni_codi = m.muni_codi) order by comu_codi
+			SELECT * FROM proveedor
 			";
-			
 			$this->obtener_resultados_query();
 			return $this->rows;
 			
 		}
 		
 		public function nuevo($datos=array()) {
-			if(array_key_exists('comu_codi', $datos)):
+			if(array_key_exists('id_proveedor', $datos)):
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
 				$comu_nomb= utf8_decode($comu_nomb);
 				$this->query = "
-					INSERT INTO tb_comuna
-					(comu_codi, comu_nomb, muni_codi)
+					INSERT INTO proveedor
+					(nombre_proveedor, telefono, direccion)
 					VALUES
-					(NULL, '$comu_nomb', '$muni_codi')
+					('$nombre_proveedor', '$telefono', '$direccion')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -70,21 +72,22 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$comu_nomb= utf8_decode($comu_nomb);
+			$nombre_proveedor= utf8_decode($nombre_proveedor);
 			$this->query = "
-			UPDATE tb_comuna
-			SET comu_nomb='$comu_nomb',
-			muni_codi='$muni_codi'
-			WHERE comu_codi = '$comu_codi'
+			UPDATE proveedor
+			SET nombre_proveedor='$nombre_proveedor',
+			telefono='$telefono',
+			direccion='$direccion'
+			WHERE id_proveedor = '$id_proveedor'
 			";
 			$resultado = $this->ejecutar_query_simple();
 			return $resultado;
 		}
 		
-		public function borrar($comu_codi='') {
+		public function borrar($id_proveedor='') {
 			$this->query = "
-			DELETE FROM tb_comuna
-			WHERE comu_codi = '$comu_codi'
+			DELETE FROM proveedor
+			WHERE id_proveedor = '$id_proveedor'
 			";
 			$resultado = $this->ejecutar_query_simple();
 
