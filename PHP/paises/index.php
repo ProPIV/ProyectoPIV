@@ -2,7 +2,7 @@
 		<!-- div para cargar el formulario para un nuevo user o editar un user -->
 </div>
 
-<div id="user">
+<div id="proveedor">
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
      <!-- tools box -->
