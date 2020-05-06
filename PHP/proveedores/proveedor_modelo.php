@@ -1,6 +1,6 @@
 <?php
     require_once("../modeloAbstractoDB.php");
-    class Comuna extends ModeloAbstractoDB {
+    class Proveedor extends ModeloAbstractoDB {
 		private $comu_codi;
 		private $comu_nomb;
 		private $muni_codi;

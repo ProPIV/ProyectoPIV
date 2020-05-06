@@ -1,6 +1,6 @@
 <?php
  
-require_once 'comuna_modelo.php';
+require_once 'proveedor_modelo.php';
 $datos = $_GET;
 switch ($_GET['accion']){
     case 'editar':
