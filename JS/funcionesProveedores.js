@@ -173,7 +173,7 @@ $(document).ready(() => {
   $("#contenido").off("click","button#grabar");
   $("#titulo").html("Listado de Proveedores");
   dt = $("#tabla").DataTable({
-        "ajax": "php/proveedores/controladorProveedor.php?accion=listar",
+        "ajax": "proveedores/controladorProveedor.php?accion=listar",
         "columns": [
             { "data": "id_proveedor"},
             { "data": "nombre_proveedor"},
