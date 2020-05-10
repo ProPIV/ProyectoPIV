@@ -33,4 +33,4 @@
 </table>
 
 </div><!-- /.box-body -->  
-<script src="js/funcionesOrganizaciones.js"></script>
+<script src="../js/funcionesOrganizaciones.js"></script>
