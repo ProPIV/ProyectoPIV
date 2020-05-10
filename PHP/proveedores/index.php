@@ -1,4 +1,3 @@
-<div class="col-sm-10">
 <div id="nuevo-editar" class="hide">
 		<!-- div para cargar el formulario para un nuevo user o editar un user -->
 </div>
@@ -15,7 +14,7 @@
                   
 </div><!-- /.box-header -->
 
-<div class="box box-default">
+<div class="box-body">
              
 <table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
@@ -35,5 +34,4 @@
 </table>
 
 </div><!-- /.box-body -->  
-<script src="../JS/funcionesProveedores.js"></script>
-</div>
+<script src="../js/funcionesProveedores.js"></script>

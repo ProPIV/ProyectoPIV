@@ -18,12 +18,8 @@ function inicio() {
         $("#contenido").load("../PHP/proveedores/index.php");
     })
     $("#cargarPaises").click(function(e) {
-        e.preventDefault();
-<<<<<<< HEAD
+        e.preventDefault();        
         $("#contenido").load("../php/paises/index.php");
-=======
-        $("#contenido").load("../PHP/paises/index.php");
->>>>>>> 9d484421f9bfb810d32c094f1407b2c8f2caa5c9
     })
     $("#cargarCiudades").click(function(e) {
         e.preventDefault();

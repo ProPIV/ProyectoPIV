@@ -33,7 +33,15 @@
     ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
-      <div id="contenido">             
+      <div class="panel-group hide" id="contenedor"><div class="panel panel-primary">
+            <div class="panel-heading" id="titulo"></div>
+            <div class="panel-body">
+                
+                <div class="form-group" id="contenido">        
+                    
+                </div>
+            </div>
+        </div>             
       </div>      
     </div>
   </div>
