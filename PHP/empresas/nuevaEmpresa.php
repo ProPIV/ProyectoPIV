@@ -1,7 +1,7 @@
 <!-- quick email widget -->
-<div id="seccion-comuna">
+<div id="seccion-empresas">
 	<div class="box-header">
-    	<i class="fa fa-building" aria-hidden="true">Gestión de Comuna</i>
+    	<i class="fa fa-building" aria-hidden="true">Gestión de Empresas</i>
         <!-- tools box -->
         <div class="pull-right box-tools">
         	<button class="btn btn-info btn-sm btncerrar2" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
@@ -19,38 +19,47 @@
             <div class="panel-heading">Datos</div>
             <div class="panel-body">
     
-                <form class="form-horizontal" role="form"  id="fcomuna">
+                <form class="form-horizontal" role="form"  id="fempresas">
 
 
  					<div class="form-group">
-                        <label class="control-label col-sm-2" for="comu_codi">Codigo:</label>
+                        <label class="control-label col-sm-2" for="id_empresa">ID Empresa:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="comu_codi" name="comu_codi" placeholder="Ingrese Codigo"
+                            <input type="text" class="form-control" id="id_empresa" name="id_empresa" placeholder="Ingrese ID"
                             value = "" readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="comu_nomb">Nombre:</label>
+                        <label class="control-label col-sm-2" for="nombre_empresa">Nombre Empresa:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="comu_nomb" name="comu_nomb" placeholder="Ingrese Nombre comuna"
+                            <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" placeholder="Ingrese Nombre Empresa"
                             value = "">
                         </div>
                     </div>
 					
 					
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="muni_codi">Municipio:</label>
+                        <label class="control-label col-sm-2" for="id_sede">ID Sede:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="muni_codi" name="muni_codi">
-                         
-							</select>	
+                            <select class="form-control" id="id_sede" name="id_sede">
+							
+							</select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="id_proveedor">ID Proveedor:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="id_proveedor" name="id_proveedor">
+							
+							</select>
                         </div>
                     </div>
 
 					 <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" id="grabar" class="btn btn-primary" data-toggle="tooltip" title="Grabar Comuna">Grabar Comuna</button>
+                            <button type="button" id="grabar" class="btn btn-primary" data-toggle="tooltip" title="Grabar Empresa">Grabar Empresa</button>
                             <button type="button" id="cerrar" class="btn btn-success btncerrar2" data-toggle="tooltip" title="Cancelar">Cancelar</button>
                         </div>
                     </div>

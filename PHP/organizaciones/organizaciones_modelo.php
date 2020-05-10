@@ -21,12 +21,12 @@
 			return $this->id_empresa;
 		}
 
-		public function consultar($comu_codi='') {
-			if($comu_codi !=''):
+		public function consultar($id_unidad_organizacional='') {
+			if($id_unidad_organizacional !=''):
 				$this->query = "
-				SELECT comu_codi, comu_nomb, muni_codi
-				FROM tb_comuna
-				WHERE comu_codi = '$comu_codi' order by comu_codi
+				SELECT id_unidad_organizacional, nombre_unidad_organizacional, id_empresa
+				FROM unidad_organizacional
+				WHERE id_unidad_organizacional = '$id_unidad_organizacional' order by id_unidad_organizacional
 				";
 				$this->obtener_resultados_query();
 			endif;
@@ -49,16 +49,16 @@
 		}
 		
 		public function nuevo($datos=array()) {
-			if(array_key_exists('comu_codi', $datos)):
+			if(array_key_exists('id_unidad_organizacional', $datos)):
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$comu_nomb= utf8_decode($comu_nomb);
+				$id_unidad_organizacional= utf8_decode($id_unidad_organizacional);
 				$this->query = "
-					INSERT INTO tb_comuna
-					(comu_codi, comu_nomb, muni_codi)
+					INSERT INTO unidad_organizacional
+					(id_unidad_organizacional, nombre_organizacional, id_empresa)
 					VALUES
-					(NULL, '$comu_nomb', '$muni_codi')
+					('$id_unidad_organizacional', '$nombre_unidad_organizacional', '$id_empresa')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -69,21 +69,21 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$comu_nomb= utf8_decode($comu_nomb);
+			$nombre_unidad_organizacional= utf8_decode($nombre_unidad_organizacional);
 			$this->query = "
-			UPDATE tb_comuna
-			SET comu_nomb='$comu_nomb',
-			muni_codi='$muni_codi'
-			WHERE comu_codi = '$comu_codi'
+			UPDATE unidad_organizacional
+			SET nombre_unidad_organizacional='$nombre_unidad_organizacional',
+			id_empresa='$id_empresa'
+			WHERE id_unidad_organizacional = '$id_unidad_organizacional'
 			";
 			$resultado = $this->ejecutar_query_simple();
 			return $resultado;
 		}
 		
-		public function borrar($comu_codi='') {
+		public function borrar($id_unidad_organizacional='') {
 			$this->query = "
-			DELETE FROM tb_comuna
-			WHERE comu_codi = '$comu_codi'
+			DELETE FROM unidad_organizacional
+			WHERE id_unidad_organizacional = '$id_unidad_organizacional'
 			";
 			$resultado = $this->ejecutar_query_simple();
 

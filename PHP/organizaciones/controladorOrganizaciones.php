@@ -44,15 +44,15 @@ switch ($_GET['accion']){
         $organizaciones = new Organizaciones();
         $organizaciones->consultar($datos['codigo']);
 
-        if($organizaciones->getComu_codi() == null) {
+        if($organizaciones->getid_unidad_organizacional() == null) {
             $respuesta = array(
                 'respuesta' => 'no existe'
             );
         }  else {
             $respuesta = array(
-                'codigo' => $organizaciones->getComu_codi(),
-                'organizaciones$organizaciones' => $organizaciones->getComu_nomb(),
-                'municipio' =>$organizaciones->getMuni_codi(),
+                'codigo' => $organizaciones->getid_unidad_organizacional(),
+                'nombre_unidad_organizacional' => $organizaciones->getnombre_unidad_organizacional(),
+                'id_empresa' =>$organizaciones->getid_empresa(),
                 'respuesta' =>'existe'
             );
         }

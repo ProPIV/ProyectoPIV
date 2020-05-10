@@ -26,7 +26,7 @@
                         <label class="control-label col-sm-2" for="id_unidad_organizacional">ID Organizacion:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="id_unidad_organizacional" name="id_unidad_organizacional" placeholder="Ingrese ID"
-                            value = "" readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12">
+                            value = ""> <!--readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12">-->
                         </div>
                     </div>
 
