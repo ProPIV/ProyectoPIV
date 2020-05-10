@@ -19,10 +19,9 @@
 <table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 		<tr>
-			<th>Cedula</th>
-			<th>Nombre</th>
-            <th>Apellido</th>
-			<th>Area</th>
+			<th>ID Organizacion</th>
+			<th>Nombre Organizacion</th>
+            <th>ID Empresa</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -34,4 +33,4 @@
 </table>
 
 </div><!-- /.box-body -->  
-<script src="js/funcionesUser.js"></script>
+<script src="js/funcionesOrganizaciones.js"></script>

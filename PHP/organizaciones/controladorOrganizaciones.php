@@ -1,19 +1,19 @@
 <?php
  
-require_once 'comuna_modelo.php';
+require_once 'organizaciones_modelo.php';
 $datos = $_GET;
 switch ($_GET['accion']){
     case 'editar':
-        $comuna = new Comuna();
-        $resultado = $comuna->editar($datos);
+        $organizacion = new Organizacion();
+        $resultado = $organizacion->editar($datos);
         $respuesta = array(
                 'respuesta' => $resultado
             );
         echo json_encode($respuesta);
         break;
     case 'nuevo':
-        $comuna = new Comuna();
-		$resultado = $comuna->nuevo($datos);
+        $organizacion = new Organizacion();
+		$resultado = $organizacion->nuevo($datos);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -26,8 +26,8 @@ switch ($_GET['accion']){
         echo json_encode($respuesta);
         break;
     case 'borrar':
-		$comuna = new Comuna();
-		$resultado = $comuna->borrar($datos['codigo']);
+		$organizacion = new Organizacion();
+		$resultado = $organizacion->borrar($datos['codigo']);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -41,18 +41,18 @@ switch ($_GET['accion']){
         break;
 
     case 'consultar':
-        $comuna = new Comuna();
-        $comuna->consultar($datos['codigo']);
+        $organizacion = new Organizacion();
+        $organizacion->consultar($datos['codigo']);
 
-        if($comuna->getComu_codi() == null) {
+        if($organizacion->getComu_codi() == null) {
             $respuesta = array(
                 'respuesta' => 'no existe'
             );
         }  else {
             $respuesta = array(
-                'codigo' => $comuna->getComu_codi(),
-                'comuna' => $comuna->getComu_nomb(),
-                'municipio' =>$comuna->getMuni_codi(),
+                'codigo' => $organizacion->getComu_codi(),
+                'organizacion$organizacion' => $organizacion->getComu_nomb(),
+                'municipio' =>$organizacion->getMuni_codi(),
                 'respuesta' =>'existe'
             );
         }
@@ -60,8 +60,8 @@ switch ($_GET['accion']){
         break;
 
     case 'listar':
-        $comuna = new Comuna();
-        $listado = $comuna->lista();
+        $organizacion = new Organizacion();
+        $listado = $organizacion->lista();
         echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);    
         break;
 }

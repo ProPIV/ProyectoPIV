@@ -1,24 +1,24 @@
 <?php
     require_once("../modeloAbstractoDB.php");
-    class Comuna extends ModeloAbstractoDB {
-		private $comu_codi;
-		private $comu_nomb;
-		private $muni_codi;
+    class Organizacion extends ModeloAbstractoDB {
+		private $id_unidad_organizacional;
+		private $nombre_unidad_organizacional;
+		private $id_empresa;
 		
 		function __construct() {
 			//$this->db_name = '';
 		}
 
-		public function getComu_codi(){
-			return $this->comu_codi;
+		public function getid_unidad_organizacional(){
+			return $this->id_unidad_organizacional;
 		}
 
-		public function getComu_nomb(){
-			return $this->comu_nomb;
+		public function getnombre_unidad_organizacional(){
+			return $this->nombre_unidad_organizacional;
 		}
 		
-		public function getMuni_codi(){
-			return $this->muni_codi;
+		public function getid_empresa(){
+			return $this->id_empresa;
 		}
 
 		public function consultar($comu_codi='') {
@@ -39,9 +39,9 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT comu_codi, comu_nomb, m.muni_nomb
-			FROM tb_comuna as c inner join tb_municipio as m
-			ON (c.muni_codi = m.muni_codi) order by comu_codi
+			SELECT id_unidad_organizacional, nombre_unidad_organizacional, m.id_empresa
+			FROM unidad_organizacional as c inner join empresa as m
+			ON (c.id_empresa = m.id_empresa) order by id_unidad_organizacional
 			";
 			
 			$this->obtener_resultados_query();
