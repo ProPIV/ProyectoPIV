@@ -171,7 +171,7 @@ $(document).ready(() => {
   $("#contenido").off("click","a.borrar");
   $("#contenido").off("click","button#nuevo");
   $("#contenido").off("click","button#grabar");
-  $("#titulo").html("Listado de Proveedores");
+  $("#titulo").html("Listado de Organizaciones");
   dt = $("#tabla").DataTable({
         "ajax": "organizaciones/controladorOrganizaciones.php?accion=listar",
         "columns": [

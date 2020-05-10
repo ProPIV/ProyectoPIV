@@ -1,6 +1,6 @@
 <?php
     require_once("../modeloAbstractoDB.php");
-    class Organizacion extends ModeloAbstractoDB {
+    class Organizaciones extends ModeloAbstractoDB {
 		private $id_unidad_organizacional;
 		private $nombre_unidad_organizacional;
 		private $id_empresa;
@@ -39,9 +39,8 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT id_unidad_organizacional, nombre_unidad_organizacional, m.id_empresa
-			FROM unidad_organizacional as c inner join empresa as m
-			ON (c.id_empresa = m.id_empresa) order by id_unidad_organizacional
+			SELECT *
+			FROM unidad_organizacional
 			";
 			
 			$this->obtener_resultados_query();
