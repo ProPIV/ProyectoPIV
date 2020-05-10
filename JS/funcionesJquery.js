@@ -19,7 +19,7 @@ function inicio() {
     })
     $("#cargarPaises").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../PHP/user/index.php");
+        $("#contenido").load("../PHP/paises/index.php");
     })
     $("#cargarCiudades").click(function(e) {
         e.preventDefault();
