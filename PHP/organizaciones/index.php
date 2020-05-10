@@ -2,7 +2,7 @@
 		<!-- div para cargar el formulario para un nuevo user o editar un user -->
 </div>
 
-<div id="user">
+<div id="organizaciones">
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
      <!-- tools box -->
@@ -19,10 +19,9 @@
 <table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 		<tr>
-			<th>Cedula</th>
-			<th>Nombre</th>
-            <th>Apellido</th>
-			<th>Area</th>
+			<th>ID Organizacion</th>
+			<th>Nombre Organizacion</th>
+            <th>ID Empresa</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -34,4 +33,4 @@
 </table>
 
 </div><!-- /.box-body -->  
-<script src="js/funcionesUser.js"></script>
+<script src="../js/funcionesOrganizaciones.js"></script>

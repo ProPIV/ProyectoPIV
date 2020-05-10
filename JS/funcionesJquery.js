@@ -27,7 +27,7 @@ function inicio() {
     })
     $("#cargarEmpresas").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/index.php");
+        $("#contenido").load("../php/empresas/index.php");
     })
     $("#cargarSucursal").click(function(e) {
         e.preventDefault();
@@ -43,7 +43,7 @@ function inicio() {
     })
     $("#cargarOrganizaciones").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/index.php");
+        $("#contenido").load("../php/organizaciones/index.php");
     })
     $("#opciones a").click(function(e){
         e.preventDefault();
