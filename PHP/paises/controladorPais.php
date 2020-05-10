@@ -1,19 +1,19 @@
 <?php
  
-require_once 'comuna_modelo.php';
+require_once 'modelopais.php';
 $datos = $_GET;
 switch ($_GET['accion']){
     case 'editar':
-        $comuna = new Comuna();
-        $resultado = $comuna->editar($datos);
+        $pais = new Pais();
+        $resultado = $pais->editar($datos);
         $respuesta = array(
                 'respuesta' => $resultado
             );
         echo json_encode($respuesta);
         break;
     case 'nuevo':
-        $comuna = new Comuna();
-		$resultado = $comuna->nuevo($datos);
+        $pais = new Pais();
+		$resultado = $pais->nuevo($datos);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -26,8 +26,8 @@ switch ($_GET['accion']){
         echo json_encode($respuesta);
         break;
     case 'borrar':
-		$comuna = new Comuna();
-		$resultado = $comuna->borrar($datos['codigo']);
+		$pais = new Pais();
+		$resultado = $pais->borrar($datos['id_pais']);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -41,18 +41,17 @@ switch ($_GET['accion']){
         break;
 
     case 'consultar':
-        $comuna = new Comuna();
-        $comuna->consultar($datos['codigo']);
+        $pais = new Pais();
+        $pais->consultar($datos['id_pais']);
 
-        if($comuna->getComu_codi() == null) {
+        if($pais->getid_pais() == null) {
             $respuesta = array(
                 'respuesta' => 'no existe'
             );
         }  else {
             $respuesta = array(
-                'codigo' => $comuna->getComu_codi(),
-                'comuna' => $comuna->getComu_nomb(),
-                'municipio' =>$comuna->getMuni_codi(),
+                'id_pais' => $pais->getid_pais(),
+                'nombre_pais' => $pais->getnombre_pais(),
                 'respuesta' =>'existe'
             );
         }
@@ -60,8 +59,8 @@ switch ($_GET['accion']){
         break;
 
     case 'listar':
-        $comuna = new Comuna();
-        $listado = $comuna->lista();
+        $pais = new Pais();
+        $listado = $pais->lista();
         echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);    
         break;
 }
