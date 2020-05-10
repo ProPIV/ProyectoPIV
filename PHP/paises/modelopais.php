@@ -1,32 +1,29 @@
 <?php
     require_once("../modeloAbstractoDB.php");
-    class Comuna extends ModeloAbstractoDB {
-		private $comu_codi;
-		private $comu_nomb;
-		private $muni_codi;
+    class pais extends ModeloAbstractoDB {
+		private $id_pais;
+		private $nombre_pais;
+
 		
 		function __construct() {
 			//$this->db_name = '';
 		}
 
-		public function getComu_codi(){
-			return $this->comu_codi;
+		public function getid_pais(){
+			return $this->id_pais;
 		}
 
-		public function getComu_nomb(){
-			return $this->comu_nomb;
-		}
-		
-		public function getMuni_codi(){
-			return $this->muni_codi;
+		public function getnombre_pais(){
+			return $this->nombre_pais;
 		}
 
-		public function consultar($comu_codi='') {
-			if($comu_codi !=''):
+
+		public function consultar($id_pais='') {
+			if($id_pais !=''):
 				$this->query = "
-				SELECT comu_codi, comu_nomb, muni_codi
-				FROM tb_comuna
-				WHERE comu_codi = '$comu_codi' order by comu_codi
+				SELECT *
+				FROM pais
+				WHERE id_pais = '$id_pais' order by id_pais
 				";
 				$this->obtener_resultados_query();
 			endif;
@@ -39,27 +36,24 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT comu_codi, comu_nomb, m.muni_nomb
-			FROM tb_comuna as c inner join tb_municipio as m
-			ON (c.muni_codi = m.muni_codi) order by comu_codi
+			SELECT * FROM pais
 			";
-			
 			$this->obtener_resultados_query();
 			return $this->rows;
 			
 		}
 		
 		public function nuevo($datos=array()) {
-			if(array_key_exists('comu_codi', $datos)):
+			if(array_key_exists('id_pais', $datos)):
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
 				$comu_nomb= utf8_decode($comu_nomb);
 				$this->query = "
-					INSERT INTO tb_comuna
-					(comu_codi, comu_nomb, muni_codi)
+					INSERT INTO pais
+					(nombre_pais)
 					VALUES
-					(NULL, '$comu_nomb', '$muni_codi')
+					('$nombre_pais')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -70,21 +64,20 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$comu_nomb= utf8_decode($comu_nomb);
+			$nombre_pais= utf8_decode($nombre_pais);
 			$this->query = "
-			UPDATE tb_comuna
-			SET comu_nomb='$comu_nomb',
-			muni_codi='$muni_codi'
-			WHERE comu_codi = '$comu_codi'
+			UPDATE pais
+			SET nombre_pais='$nombre_pais'
+			WHERE id_pais = '$id_pais'
 			";
 			$resultado = $this->ejecutar_query_simple();
 			return $resultado;
 		}
 		
-		public function borrar($comu_codi='') {
+		public function borrar($id_pais='') {
 			$this->query = "
-			DELETE FROM tb_comuna
-			WHERE comu_codi = '$comu_codi'
+			DELETE FROM pais
+			WHERE id_pais = '$id_pais'
 			";
 			$resultado = $this->ejecutar_query_simple();
 

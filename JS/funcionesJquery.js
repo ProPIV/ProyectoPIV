@@ -19,11 +19,11 @@ function inicio() {
     })
     $("#cargarPaises").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../PHP/user/index.php");
+        $("#contenido").load("../php/paises/index.php");
     })
     $("#cargarCiudades").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/index.php");
+        $("#contenido").load("../php/ciudades/index.php");
     })
     $("#cargarEmpresas").click(function(e) {
         e.preventDefault();
