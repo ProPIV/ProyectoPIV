@@ -125,4 +125,16 @@ margin-left: 0;
 #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
 }
+
+#divContenedor {
+    position:relative;
+   height:124px;
+   width:340px;
+   margin:0 auto;
+   background-color:blue;
+}
+
+#divTitulo, #lbl1, #txt1, #lbl2, #txt2, #btnSubmit {
+    position:absolute;
+}
 }
