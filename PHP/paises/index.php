@@ -3,12 +3,12 @@
 		<!-- div para cargar el formulario para un nuevo user o editar un user -->
 </div>
 
-<div id="Proveedor">
+<div id="pais">
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
      <!-- tools box -->
     <div class="pull-right box-tools">
-    	<button class="btn btn-info btn-sm" id="nuevo"  data-toggle="tooltip" title="Nuevo Proveedor"><i class="fa fa-plus" aria-hidden="true"></i></button> 
+    	<button class="btn btn-info btn-sm" id="nuevo"  data-toggle="tooltip" title="Nuevo Pais"><i class="fa fa-plus" aria-hidden="true"></i></button> 
     	<button class="btn btn-info btn-sm btncerrar"  data-toggle="tooltip" title="Ocultar"><i class="fa fa-times"></i></button>
 
     </div><!-- /. tools -->
@@ -20,8 +20,8 @@
 <table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 		<tr>
-			<th>ID pais</th>
-			<th>Nombre pais</th>
+			<th>id_pais</th>
+			<th>nombre_pais</th>
 
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>

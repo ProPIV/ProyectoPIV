@@ -48,7 +48,7 @@
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$comu_nomb= utf8_decode($comu_nomb);
+				$nombre_pais= utf8_decode($nombre_pais);
 				$this->query = "
 					INSERT INTO pais
 					(nombre_pais)
