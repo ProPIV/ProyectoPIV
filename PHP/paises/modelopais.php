@@ -50,7 +50,7 @@
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$id_pais= utf8_decode($id_pais);
+				$id_pais= utf8_decode($nombre_pais);
 				$this->query = "
 					INSERT INTO pais
 					(id_pais, nombre_pais)
@@ -66,7 +66,7 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$nombre_pais= utf8_decode($nombre_pais);
+			$id_pais= utf8_decode($id_pais);
 			$this->query = "
 			UPDATE pais
 			SET nombre_pais='$nombre_pais'

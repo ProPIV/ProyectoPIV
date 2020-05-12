@@ -42,16 +42,16 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT id_departamento,nombre_departamento,id_pais 
-			FROM departamento ORDER BY id_departamento
-					
+			SELECT id_departamento,nombre_departamento, id_pais 
+			FROM departamento 
+	
 			";
-			
-			
 			$this->obtener_resultados_query();
 			return $this->rows;
 			
 		}
+
+
 		
 		public function nuevo($datos=array()) {
 			if(array_key_exists('id_departamento', $datos)):

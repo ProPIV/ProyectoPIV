@@ -1,3 +1,4 @@
+
 <div id="nuevo-editar" class="hide">
 		<!-- div para cargar el formulario para un nuevo user o editar un user -->
 </div>
@@ -31,5 +32,4 @@
 
 </table>
 
-</div><!-- /.box-body -->  
 <script src="../js/funcionesPais.js"></script>
