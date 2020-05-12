@@ -16,7 +16,7 @@
                 <a href="" id="cargarEmpleados"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Empleados</a>
                 <a href="" id="cargarProveedores"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Proveedores</a>
                 <a href="" id="cargarPaises"><img src="../Imagenes/Edificios.png" class="other" alt="">Paises</a>
-                <a href="" id="cargarCiudades"><img src="../Imagenes/Edificios.png" class="other" alt="">Ciudades</a>
+                <a href="" id="cargarDepartamentos"><img src="../Imagenes/Edificios.png" class="other" alt="">Departamentos</a>
                 <a href="" id="cargarOrganizaciones"><img src="../Imagenes/Edificios.png" class="other" alt="">Organizaciones</a>
                 <a href="" id="cargarEmpresas"><img src="../Imagenes/Edificios.png" class="other" alt="">Empresas</a>
                 <a href="" id="cargarSucursal"><img src="../Imagenes/Sucursal.png" class="other" alt="">Sucursal</a>

@@ -1,9 +1,8 @@
 <?php
     require_once("../modeloAbstractoDB.php");
-    class pais extends ModeloAbstractoDB {
+    class Pais extends ModeloAbstractoDB {
 		private $id_pais;
 		private $nombre_pais;
-
 		
 		function __construct() {
 			//$this->db_name = '';
@@ -16,12 +15,13 @@
 		public function getnombre_pais(){
 			return $this->nombre_pais;
 		}
+		
 
 
 		public function consultar($id_pais='') {
 			if($id_pais !=''):
 				$this->query = "
-				SELECT *
+				SELECT id_pais, nombre_pais
 				FROM pais
 				WHERE id_pais = '$id_pais' order by id_pais
 				";
@@ -36,8 +36,10 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT * FROM pais
+			SELECT *
+			FROM pais
 			";
+			
 			$this->obtener_resultados_query();
 			return $this->rows;
 			
@@ -48,12 +50,12 @@
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$nombre_pais= utf8_decode($nombre_pais);
+				$id_pais= utf8_decode($id_pais);
 				$this->query = "
 					INSERT INTO pais
-					(nombre_pais)
+					(id_pais, nombre_pais)
 					VALUES
-					('$nombre_pais')
+					('$id_pais', '$nombre_pais')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;

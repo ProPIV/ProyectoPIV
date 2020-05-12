@@ -1,4 +1,3 @@
-<div class="col-sm-10">
 <div id="nuevo-editar" class="hide">
 		<!-- div para cargar el formulario para un nuevo user o editar un user -->
 </div>
@@ -15,14 +14,13 @@
                   
 </div><!-- /.box-header -->
 
-<div class="box box-default">
+<div class="box-body">
              
 <table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 		<tr>
-			<th>id_pais</th>
-			<th>nombre_pais</th>
-
+			<th>ID pais</th>
+			<th>Nombre pais</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -34,5 +32,4 @@
 </table>
 
 </div><!-- /.box-body -->  
-<script src="../JS/funcionesPais<.js"></script>
-</div>
+<script src="../js/funcionesPais.js"></script>

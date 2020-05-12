@@ -27,7 +27,7 @@ switch ($_GET['accion']){
         break;
     case 'borrar':
 		$pais = new Pais();
-		$resultado = $pais->borrar($datos['id_pais']);
+		$resultado = $pais->borrar($datos['codigo']);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -42,7 +42,7 @@ switch ($_GET['accion']){
 
     case 'consultar':
         $pais = new Pais();
-        $pais->consultar($datos['id_pais']);
+        $pais->consultar($datos['codigo']);
 
         if($pais->getid_pais() == null) {
             $respuesta = array(
@@ -50,7 +50,7 @@ switch ($_GET['accion']){
             );
         }  else {
             $respuesta = array(
-                'id_pais' => $pais->getid_pais(),
+                'codigo' => $pais->getid_pais(),
                 'nombre_pais' => $pais->getnombre_pais(),
                 'respuesta' =>'existe'
             );
@@ -61,7 +61,7 @@ switch ($_GET['accion']){
     case 'listar':
         $pais = new Pais();
         $listado = $pais->lista();
-        echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);    
+        echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);
         break;
 }
 ?>

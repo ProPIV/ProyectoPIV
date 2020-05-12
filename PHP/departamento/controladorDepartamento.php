@@ -1,19 +1,19 @@
 <?php
  
-require_once 'comuna_modelo.php';
+require_once 'modelo_departamento.php';
 $datos = $_GET;
 switch ($_GET['accion']){
     case 'editar':
-        $comuna = new Comuna();
-        $resultado = $comuna->editar($datos);
+        $departamento = new Departamento();
+        $resultado = $departamento->editar($datos);
         $respuesta = array(
                 'respuesta' => $resultado
             );
         echo json_encode($respuesta);
         break;
     case 'nuevo':
-        $comuna = new Comuna();
-		$resultado = $comuna->nuevo($datos);
+        $departamento = new Departamento();
+		$resultado = $departamento->nuevo($datos);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -26,8 +26,8 @@ switch ($_GET['accion']){
         echo json_encode($respuesta);
         break;
     case 'borrar':
-		$comuna = new Comuna();
-		$resultado = $comuna->borrar($datos['codigo']);
+		$departamento = new Departamento();
+		$resultado = $departamento->borrar($datos['codigo']);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -41,18 +41,18 @@ switch ($_GET['accion']){
         break;
 
     case 'consultar':
-        $comuna = new Comuna();
-        $comuna->consultar($datos['codigo']);
+        $departamento = new Departamento();
+        $departamento->consultar($datos['codigo']);
 
-        if($comuna->getComu_codi() == null) {
+        if($departamento->getid_departamento() == null) {
             $respuesta = array(
                 'respuesta' => 'no existe'
             );
         }  else {
             $respuesta = array(
-                'codigo' => $comuna->getComu_codi(),
-                'comuna' => $comuna->getComu_nomb(),
-                'municipio' =>$comuna->getMuni_codi(),
+                'codigo' => $departamento->getid_departamento(),
+                'nombre_departamento' => $departamento->getnombre_departamento(),
+                'id_pais' => $departamento->getid_pais(),
                 'respuesta' =>'existe'
             );
         }
@@ -60,9 +60,9 @@ switch ($_GET['accion']){
         break;
 
     case 'listar':
-        $comuna = new Comuna();
-        $listado = $comuna->lista();
-        echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);    
+        $departamento = new Departamento();
+        $listado = $departamento->lista();
+        echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);
         break;
 }
 ?>
