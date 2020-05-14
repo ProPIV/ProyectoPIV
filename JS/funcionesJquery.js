@@ -2,7 +2,7 @@ function inicio() {
 
 
 
-    $("#menu-toggle").click(function (e) {
+    $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
         $(".Alin-img").toggleClass("Alin-imgt");
@@ -21,7 +21,7 @@ function inicio() {
         $("#contenido").load("../PHP/proveedores/index.php");
     })
     $("#cargarPaises").click(function(e) {
-        e.preventDefault();        
+        e.preventDefault();
         $("#contenido").load("../php/paises/index.php");
     })
     $("#cargarCiudad").click(function(e) {
@@ -34,7 +34,7 @@ function inicio() {
     })
     $("#cargarSucursal").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/index.php");
+        $("#contenido").load("../php/sucursal/index.php");
     })
     $("#cargarProcesos").click(function(e) {
         e.preventDefault();
@@ -48,14 +48,14 @@ function inicio() {
         e.preventDefault();
         $("#contenido").load("../php/organizaciones/index.php");
     })
-    $("#opciones a").click(function(e){
+    $("#opciones a").click(function(e) {
         e.preventDefault();
         var url = $(this).attr("href");
-        $.post( url,function(resultado) {
-                if(url!="#")
-                    $("#contenedor").removeClass("hide");
-                    $("#contenedor").addClass("show");
-                    $("#contenido").html(resultado);
+        $.post(url, function(resultado) {
+            if (url != "#")
+                $("#contenedor").removeClass("hide");
+            $("#contenedor").addClass("show");
+            $("#contenido").html(resultado);
         });
-     });    
+    });
 }
