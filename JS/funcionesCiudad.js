@@ -1,11 +1,11 @@
 var dt;
 
-function departamento(){
+function ciudad(){
     $("#contenido").on("click","button#actualizar",function(){
-         var datos=$("#fdepartamento").serialize();
+         var datos=$("#fciudad").serialize();
          $.ajax({
             type:"get",
-            url:"../PHP/departamento/controladorDepartamento.php",
+            url:"../PHP/ciudad/controladorCiudad.php",
             data: datos,
             dataType:"json"
           }).done(function( resultado ) {
@@ -16,12 +16,12 @@ function departamento(){
                     'success'
                 )     
                 dt.ajax.reload();
-                $("#titulo").html("Listado departamento");
+                $("#titulo").html("Listado ciudad");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#departamento").removeClass("hide");
-                $("#departamento").addClass("show")
+                $("#ciudad").removeClass("hide");
+                $("#ciudad").addClass("show")
              } else {
                 swal({
                   type: 'error',
@@ -38,7 +38,7 @@ function departamento(){
 
         swal({
               title: '¿Está seguro?',
-              text: "¿Realmente desea borrar la departamento con codigo : " + codigo + " ?",
+              text: "¿Realmente desea borrar la ciudad con codigo : " + codigo + " ?",
               type: 'warning',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
@@ -49,7 +49,7 @@ function departamento(){
 
                     var request = $.ajax({
                         method: "get",
-                        url: "../PHP/departamento/controladorDepartamento.php",
+                        url: "../PHP/ciudad/controladorCiudad.php",
                         data: {codigo: codigo, accion:'borrar'},
                         dataType: "json"
                     })
@@ -58,7 +58,7 @@ function departamento(){
                         if(resultado.respuesta == 'correcto'){
                             swal(
                                 'Borrado!',
-                                'La departamento con codigo : ' + codigo + ' fue borrada',
+                                'La ciudad con codigo : ' + codigo + ' fue borrada',
                                 'success'
                             )     
                             dt.ajax.reload();                            
@@ -84,12 +84,12 @@ function departamento(){
     });
 
     $("#contenido").on("click","button.btncerrar2",function(){
-        $("#titulo").html("Listado departamento");
+        $("#titulo").html("Listado ciudad");
         $("#nuevo-editar").html("");
         $("#nuevo-editar").removeClass("show");
         $("#nuevo-editar").addClass("hide");
-        $("#departamento").removeClass("hide");
-        $("#departamento").addClass("show");
+        $("#ciudad").removeClass("hide");
+        $("#ciudad").addClass("show");
 
     })
 
@@ -100,12 +100,12 @@ function departamento(){
     })
 
     $("#contenido").on("click","button#nuevo",function(){
-        $("#titulo").html("Nuevo departamento");
-        $("#nuevo-editar" ).load("../PHP/departamento/nuevo.php"); 
+        $("#titulo").html("Nuevo ciudad");
+        $("#nuevo-editar" ).load("../PHP/ciudad/nuevo.php"); 
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#departamento").removeClass("show");
-        $("#departamento").addClass("hide");
+        $("#ciudad").removeClass("show");
+        $("#ciudad").addClass("hide");
         $.ajax({
             type:"get",
             url:"../PHP/paises/controladorPais.php",
@@ -124,10 +124,10 @@ function departamento(){
 
     $("#contenido").on("click","button#grabar",function(){
 
-      var datos=$("#fdepartamento").serialize();
+      var datos=$("#fciudad").serialize();
        $.ajax({
             type:"get",
-            url:"../PHP/departamento/controladorDepartamento.php",
+            url:"../PHP/ciudad/controladorCiudad.php",
             data: datos,
             dataType:"json"
           }).done(function( resultado ) {
@@ -138,12 +138,12 @@ function departamento(){
                     'success'
                 )     
                 dt.ajax.reload();
-                $("#titulo").html("Listado departamento");
+                $("#titulo").html("Listado ciudad");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#departamento").removeClass("hide");
-                $("#departamento").addClass("show")
+                $("#ciudad").removeClass("hide");
+                $("#ciudad").addClass("show")
              } else {
                 swal({
                   type: 'error',
@@ -156,31 +156,31 @@ function departamento(){
 
 
     $("#contenido").on("click","a.editar",function(){
-       $("#titulo").html("Editar departamento");
+       $("#titulo").html("Editar ciudad");
        //Recupera datos del fromulario
        var codigo = $(this).data("codigo");
        var pais;
-        $("#nuevo-editar").load("../PHP/departamento/editar.php");
+        $("#nuevo-editar").load("../PHP/ciudad/editar.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#departamento").removeClass("show");
-        $("#departamento").addClass("hide");
+        $("#ciudad").removeClass("show");
+        $("#ciudad").addClass("hide");
        $.ajax({
            type:"get",
-           url:"../PHP/departamento/controladorDepartamento.php",
+           url:"../PHP/ciudad/controladorCiudad.php",
            data: {codigo: codigo, accion:'consultar'},
            dataType:"json"
-           }).done(function( departamento ) {        
-            if(departamento.respuesta === "no existe"){
+           }).done(function( ciudad ) {        
+            if(ciudad.respuesta === "no existe"){
                 swal({
                   type: 'error',
                   title: 'Oops...',
-                  text: 'departamento no existe!!!!!'                         
+                  text: 'ciudad no existe!!!!!'                         
                 })
             } else {
-                $("#id_departamento").val(departamento.codigo);                   
-                $("#nombre_departamento").val(departamento.nombre_departamento);
-                pais=departamento.id_pais;
+                $("#id_ciudad").val(ciudad.codigo);                   
+                $("#nombre_ciudad").val(ciudad.nombre_ciudad);
+                pais=ciudad.id_pais;
               
             }
        });
@@ -210,20 +210,20 @@ $(document).ready(() => {
   $("#contenido").off("click","a.borrar");
   $("#contenido").off("click","button#nuevo");
   $("#contenido").off("click","button#grabar");
-  $("#titulo").html("Listado de departamento");
+  $("#titulo").html("Listado de ciudad");
   dt = $("#tabla").DataTable({
-        "ajax": "../PHP/departamento/controladorDepartamento.php?accion=listar",
+        "ajax": "../PHP/ciudad/controladorCiudad.php?accion=listar",
         "columns": [
-            { "data": "id_departamento"},
-            { "data": "nombre_departamento"},
+            { "data": "id_ciudad"},
+            { "data": "nombre_ciudad"},
             { "data": "id_pais"},
-            { "data": "id_departamento",
+            { "data": "id_ciudad",
                 render: function (data) {
                           return '<a href="#" data-codigo="'+ data + 
                                  '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>' 
                 }
             },
-            { "data": "id_departamento",
+            { "data": "id_ciudad",
                 render: function (data) {
                           return '<a href="#" data-codigo="'+ data + 
                                  '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';
@@ -231,5 +231,5 @@ $(document).ready(() => {
             }
         ]
 });
-departamento();
+ciudad();
 });

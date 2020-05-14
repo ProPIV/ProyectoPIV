@@ -24,9 +24,9 @@ function inicio() {
         e.preventDefault();        
         $("#contenido").load("../php/paises/index.php");
     })
-    $("#cargarDepartamentos").click(function(e) {
+    $("#cargarCiudad").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/departamento/index.php");
+        $("#contenido").load("../php/ciudad/index.php");
     })
     $("#cargarEmpresas").click(function(e) {
         e.preventDefault();
