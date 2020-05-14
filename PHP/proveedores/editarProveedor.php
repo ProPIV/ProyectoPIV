@@ -18,7 +18,7 @@
             <div class="panel-heading">Datos</div>
             <div class="panel-body">
     
-                <form class="form-horizontal" role="form"  id="fcomuna">
+                <form class="form-horizontal" role="form"  id="fproveedor">
 
 
  					<div class="form-group">
