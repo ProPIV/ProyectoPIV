@@ -38,11 +38,11 @@ function inicio() {
     })
     $("#cargarProcesos").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/index.php");
+        $("#contenido").load("../php/procesos/index.php");
     })
     $("#cargarContratos").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/user/index.php");
+        $("#contenido").load("../php/contratos/index.php");
     })
     $("#cargarOrganizaciones").click(function(e) {
         e.preventDefault();
