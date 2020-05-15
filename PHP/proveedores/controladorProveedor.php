@@ -1,6 +1,6 @@
 <?php
  
-require_once 'modeloproveedor.php';
+require_once 'proveedor_modelo.php';
 $datos = $_GET;
 switch ($_GET['accion']){
     case 'editar':
@@ -27,7 +27,7 @@ switch ($_GET['accion']){
         break;
     case 'borrar':
 		$proveedor = new Proveedor();
-		$resultado = $proveedor->borrar($datos['codigo']);
+		$resultado = $proveedor->borrar($datos['id_proveedor']);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -42,7 +42,7 @@ switch ($_GET['accion']){
 
     case 'consultar':
         $proveedor = new Proveedor();
-        $proveedor->consultar($datos['codigo']);
+        $proveedor->consultar($datos['id_proveedor']);
 
         if($proveedor->getid_proveedor() == null) {
             $respuesta = array(
@@ -50,8 +50,10 @@ switch ($_GET['accion']){
             );
         }  else {
             $respuesta = array(
-                'codigo' => $proveedor->getid_proveedor(),
+                'id_proveedor' => $proveedor->getid_proveedor(),
                 'nombre_proveedor' => $proveedor->getnombre_proveedor(),
+                'telefono' =>$proveedor->gettelefono(),
+                'direccion' =>$proveedor->getdireccion(),
                 'respuesta' =>'existe'
             );
         }
@@ -61,7 +63,7 @@ switch ($_GET['accion']){
     case 'listar':
         $proveedor = new Proveedor();
         $listado = $proveedor->lista();
-        echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);
+        echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);    
         break;
 }
 ?>

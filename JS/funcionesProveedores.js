@@ -1,14 +1,15 @@
 var dt;
 
-function proveedor() {
+function Proveedor() {
     $("#contenido").on("click", "button#actualizar", function() {
-        var datos = $("#fproveedor").serialize();
+        var datos = $("#ftitular").serialize();
         $.ajax({
             type: "get",
-            url: "../PHP/proveedores/controladorProveedor.php",
+            url: "./php/Titular/controladorTitular.php",
             data: datos,
             dataType: "json"
         }).done(function(resultado) {
+            console.log(resultado);
             if (resultado.respuesta) {
                 swal(
                     'Actualizado!',
@@ -16,12 +17,12 @@ function proveedor() {
                     'success'
                 )
                 dt.ajax.reload();
-                $("#titulo").html("Listado proveedores");
+                $("#titulo").html("Listado de Titulares");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#proveedor").removeClass("hide");
-                $("#proveedor").addClass("show")
+                $("#municipio").removeClass("hide");
+                $("#municipio").addClass("show")
             } else {
                 swal({
                     type: 'error',
@@ -34,11 +35,10 @@ function proveedor() {
 
     $("#contenido").on("click", "a.borrar", function() {
         //Recupera datos del formulario
-        var codigo = $(this).data("codigo");
-
+        var ID_Titular = $(this).data("id_titular");
         swal({
             title: '¿Está seguro?',
-            text: "¿Realmente desea borrar la proveedor con codigo : " + codigo + " ?",
+            text: "¿Realmente desea borrar el titular el con ID : " + ID_Titular + " ?",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -49,34 +49,18 @@ function proveedor() {
 
                 var request = $.ajax({
                     method: "get",
-                    url: "../PHP/proveedores/controladorProveedor.php",
-                    data: { codigo: codigo, accion: 'borrar' },
+                    url: "./php/Titular/controladorTitular.php",
+                    data: { ID_Titular: ID_Titular, accion: 'borrar' },
                     dataType: "json"
                 })
 
-                request.done(function(resultado) {
-                    if (resultado.respuesta == 'correcto') {
-                        swal(
-                            'Borrado!',
-                            'La proveedor con codigo : ' + codigo + ' fue borrada',
-                            'success'
-                        )
-                        dt.ajax.reload();
-                    } else {
-                        swal({
-                            type: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!'
-                        })
-                    }
-                });
-
                 request.fail(function(jqXHR, textStatus) {
-                    swal({
-                        type: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!' + textStatus
-                    })
+                    swal(
+                        'Borrado!',
+                        'El titular  con el ID : ' + ID_Titular + ' fue borrado',
+                        'success'
+                    )
+                    dt.ajax.reload();
                 });
             }
         })
@@ -84,12 +68,12 @@ function proveedor() {
     });
 
     $("#contenido").on("click", "button.btncerrar2", function() {
-        $("#titulo").html("Listado proveedores");
+        $("#titulo").html("Listado de Titulares");
         $("#nuevo-editar").html("");
         $("#nuevo-editar").removeClass("show");
         $("#nuevo-editar").addClass("hide");
-        $("#proveedor").removeClass("hide");
-        $("#proveedor").addClass("show");
+        $("#municipio").removeClass("hide");
+        $("#municipio").addClass("show");
 
     })
 
@@ -100,28 +84,21 @@ function proveedor() {
     })
 
     $("#contenido").on("click", "button#nuevo", function() {
-        $("#titulo").html("Nuevo proveedor");
-        $("#nuevo-editar").load("../PHP/proveedores/nuevo.php");
+        $("#titulo").html("Nuevo Titular");
+        $("#nuevo-editar").load("./php/Titular/nuevoTitular.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#proveedor").removeClass("show");
-        $("#proveedor").addClass("hide");
-        $.ajax({
-            type: "get",
-            url: "../PHP/proveedores/controladorProveedor.php",
-            data: { accion: 'listar' },
-            dataType: "json"
-        })
-
-
+        $("#titular").removeClass("show");
+        $("#titular").addClass("hide");
     })
 
     $("#contenido").on("click", "button#grabar", function() {
 
-        var datos = $("#fproveedor").serialize();
+        var datos = $("#ftitular").serialize();
+        console.log(datos);
         $.ajax({
             type: "get",
-            url: "../PHP/proveedores/controladorProveedor.php",
+            url: "./php/Titular/controladorTitular.php",
             data: datos,
             dataType: "json"
         }).done(function(resultado) {
@@ -132,12 +109,12 @@ function proveedor() {
                     'success'
                 )
                 dt.ajax.reload();
-                $("#titulo").html("Listado proveedores");
+                $("#titulo").html("Listado de Titulares");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#proveedor").removeClass("hide");
-                $("#proveedor").addClass("show")
+                $("#titular").removeClass("hide");
+                $("#titular").addClass("show")
             } else {
                 swal({
                     type: 'error',
@@ -150,43 +127,43 @@ function proveedor() {
 
 
     $("#contenido").on("click", "a.editar", function() {
-        $("#titulo").html("Editar proveedor");
+        $("#titulo").html("Editar Titular");
         //Recupera datos del fromulario
-        var codigo = $(this).data("codigo");
-
-        $("#nuevo-editar").load("../PHP/proveedores/editar.php");
+        var ID_Titular = $(this).data("id_titular");
+        $("#nuevo-editar").load("./php/Titular/editarTitular.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#proveedor").removeClass("show");
-        $("#proveedor").addClass("hide");
+        $("#titular").removeClass("show");
+        $("#titular").addClass("hide");
         $.ajax({
             type: "get",
-            url: "../PHP/proveedores/controladorProveedor.php",
-            data: { codigo: codigo, accion: 'consultar' },
+            url: "./php/Titular/controladorTitular.php",
+            data: { ID_Titular: ID_Titular, accion: 'consultar' },
             dataType: "json"
-        }).done(function(proveedor) {
-            if (proveedor.respuesta === "no existe") {
+        }).done(function(titular) {
+            if (titular.respuesta === "no existe") {
                 swal({
                     type: 'error',
                     title: 'Oops...',
-                    text: 'proveedor no existe!!!!!'
+                    text: 'El titular no existe!'
                 })
             } else {
-                $("#id_proveedor").val(proveedor.codigo);
-                $("#nombre_proveedor").val(proveedor.nombre_proveedor);
+                ID_Titular = titular.ID_Titular;
+                $("#ID_Titular").val(titular.ID_Titular);
+                $("#NombreT").val(titular.NombreT);
+                $("#ApellidoT").val(titular.ApellidoT);
+                $("#EdadT").val(titular.EdadT);
+                $("#SexoT").val(titular.SexoT);
+                $("#CedulaT").val(titular.CedulaT);
+                $("#EPST").val(titular.EPST);
+                $("#RHT").val(titular.RHT);
+                $("#Estado_CivilT").val(titular.Estado_CivilT);
+                $("#NacionalidadT").val(titular.NacionalidadT);
 
             }
         });
-        $.ajax({
-            type: "get",
-            url: "../PHP/proveedores/controladorProveedor.php",
-            data: { accion: 'listar' },
-            dataType: "json"
-        })
-
     })
 }
-
 
 $(document).ready(() => {
     $("#contenido").off("click", "a.editar");
@@ -194,28 +171,29 @@ $(document).ready(() => {
     $("#contenido").off("click", "a.borrar");
     $("#contenido").off("click", "button#nuevo");
     $("#contenido").off("click", "button#grabar");
-    $("#titulo").html("Listado de proveedores");
+    $("#titulo").html("Listado de Proveedores");
     dt = $("#tabla").DataTable({
-        "ajax": "../PHP/proveedores/controladorProveedor.php?accion=listar",
+        "ajax": "proveedores/controladorProveedor.php?accion=listar",
         "columns": [
             { "data": "id_proveedor" },
             { "data": "nombre_proveedor" },
+            { "data": "telefono" },
+            { "data": "direccion" },
             {
                 "data": "id_proveedor",
                 render: function(data) {
-                    return '<a href="#" data-codigo="' + data +
+                    return '<a href="#" data-id_proveedor="' + data +
                         '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>'
                 }
             },
             {
                 "data": "id_proveedor",
                 render: function(data) {
-                    return '<a href="#" data-codigo="' + data +
+                    return '<a href="#" data-id_proveedor="' + data +
                         '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';
                 }
             }
         ]
     });
-    proveedor();
-
+    Proveedor();
 });

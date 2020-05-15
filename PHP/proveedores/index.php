@@ -1,9 +1,8 @@
-
 <div id="nuevo-editar" class="hide">
 		<!-- div para cargar el formulario para un nuevo user o editar un user -->
 </div>
 
-<div id="proveedor">
+<div id="Proveedor">
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
      <!-- tools box -->
@@ -20,8 +19,10 @@
 <table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 		<tr>
-			<th>Id proveedor</th>
-			<th>Nombre proveedor</th>
+			<th>ID Proveedor</th>
+			<th>Nombre</th>
+            <th>Telefono</th>
+			<th>Direccion</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -32,4 +33,5 @@
 
 </table>
 
-<script src="../js/funcionesProveedor.js"></script>
+</div><!-- /.box-body -->  
+<script src="../js/funcionesProveedores.js"></script>

@@ -3,6 +3,8 @@
     class Proveedor extends ModeloAbstractoDB {
 		private $id_proveedor;
 		private $nombre_proveedor;
+		private $telefono;
+		private $direccion;
 		
 		function __construct() {
 			//$this->db_name = '';
@@ -16,12 +18,18 @@
 			return $this->nombre_proveedor;
 		}
 		
+		public function gettelefono(){
+			return $this->telefono;
+		}
 
+		public function getdireccion(){
+			return $this->direccion;
+		}
 
 		public function consultar($id_proveedor='') {
 			if($id_proveedor !=''):
 				$this->query = "
-				SELECT id_proveedor, nombre_proveedor
+				SELECT *
 				FROM proveedor
 				WHERE id_proveedor = '$id_proveedor' order by id_proveedor
 				";
@@ -36,10 +44,8 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT *
-			FROM proveedor
+			SELECT * FROM proveedor
 			";
-			
 			$this->obtener_resultados_query();
 			return $this->rows;
 			
@@ -50,12 +56,12 @@
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$id_proveedor= utf8_decode($nombre_proveedor);
+				$comu_nomb= utf8_decode($comu_nomb);
 				$this->query = "
 					INSERT INTO proveedor
-					(id_proveedor, nombre_proveedor)
+					(nombre_proveedor, telefono, direccion)
 					VALUES
-					('$id_proveedor', '$nombre_proveedor')
+					('$nombre_proveedor', '$telefono', '$direccion')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -66,10 +72,12 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$id_proveedor= utf8_decode($id_proveedor);
+			$nombre_proveedor= utf8_decode($nombre_proveedor);
 			$this->query = "
 			UPDATE proveedor
-			SET nombre_proveedor='$nombre_proveedor'
+			SET nombre_proveedor='$nombre_proveedor',
+			telefono='$telefono',
+			direccion='$direccion'
 			WHERE id_proveedor = '$id_proveedor'
 			";
 			$resultado = $this->ejecutar_query_simple();
