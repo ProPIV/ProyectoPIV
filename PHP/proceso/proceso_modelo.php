@@ -1,32 +1,32 @@
 <?php
     require_once("../modeloAbstractoDB.php");
     class Comuna extends ModeloAbstractoDB {
-		private $comu_codi;
-		private $comu_nomb;
-		private $muni_codi;
+		private $id_proceso;
+		private $nombre_proceso;
+		private $descripcion;
 		
 		function __construct() {
 			//$this->db_name = '';
 		}
 
-		public function getComu_codi(){
-			return $this->comu_codi;
+		public function getID_PROCESO(){
+			return $this->id_proceso;
 		}
 
-		public function getComu_nomb(){
-			return $this->comu_nomb;
+		public function getNOMBRE_PROCESO(){
+			return $this->nombre_proceso;
 		}
 		
-		public function getMuni_codi(){
-			return $this->muni_codi;
+		public function getDESCRIPCION(){
+			return $this->descripcion;
 		}
 
-		public function consultar($comu_codi='') {
-			if($comu_codi !=''):
+		public function consultar($id_proceso='') {
+			if($id_proceso !=''):
 				$this->query = "
-				SELECT comu_codi, comu_nomb, muni_codi
-				FROM tb_comuna
-				WHERE comu_codi = '$comu_codi' order by comu_codi
+				SELECT id_proceso, nombre_proceso, descripcion
+				FROM proceso
+				WHERE id_proceso = '$id_proceso' order by id_proceso
 				";
 				$this->obtener_resultados_query();
 			endif;
@@ -39,9 +39,8 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT comu_codi, comu_nomb, m.muni_nomb
-			FROM tb_comuna as c inner join tb_municipio as m
-			ON (c.muni_codi = m.muni_codi) order by comu_codi
+			SELECT *
+			FROM proceso
 			";
 			
 			$this->obtener_resultados_query();
@@ -50,16 +49,16 @@
 		}
 		
 		public function nuevo($datos=array()) {
-			if(array_key_exists('comu_codi', $datos)):
+			if(array_key_exists('id_proceso', $datos)):
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$comu_nomb= utf8_decode($comu_nomb);
+				$nombre_proceso= utf8_decode($nombre_proceso);
 				$this->query = "
-					INSERT INTO tb_comuna
-					(comu_codi, comu_nomb, muni_codi)
+					INSERT INTO proceso
+					(id_proceso, nombre_proceso, descripcion)
 					VALUES
-					(NULL, '$comu_nomb', '$muni_codi')
+					(NULL, '$nombre_proceso', '$descripcion')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -70,21 +69,21 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$comu_nomb= utf8_decode($comu_nomb);
+			$nombre_proceso= utf8_decode($nombre_proceso);
 			$this->query = "
-			UPDATE tb_comuna
-			SET comu_nomb='$comu_nomb',
-			muni_codi='$muni_codi'
-			WHERE comu_codi = '$comu_codi'
+			UPDATE proceso
+			SET nombre_proceso='$nombre_proceso',
+			descripcion='$descripcion'
+			WHERE id_proceso = '$id_proceso'
 			";
 			$resultado = $this->ejecutar_query_simple();
 			return $resultado;
 		}
 		
-		public function borrar($comu_codi='') {
+		public function borrar($id_proceso='') {
 			$this->query = "
-			DELETE FROM tb_comuna
-			WHERE comu_codi = '$comu_codi'
+			DELETE FROM proceso
+			WHERE id_proceso = '$id_proceso'
 			";
 			$resultado = $this->ejecutar_query_simple();
 

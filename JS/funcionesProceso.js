@@ -1,11 +1,11 @@
 var dt;
 
-function ciudad(){
+function proceso(){
     $("#contenido").on("click","button#actualizar",function(){
-         var datos=$("#fciudad").serialize();
+         var datos=$("#fproceso").serialize();
          $.ajax({
             type:"get",
-            url:"../PHP/ciudad/controladorCiudad.php",
+            url:"../PHP/proceso/controladorProceso.php",
             data: datos,
             dataType:"json"
           }).done(function( resultado ) {
@@ -16,12 +16,12 @@ function ciudad(){
                     'success'
                 )     
                 dt.ajax.reload();
-                $("#titulo").html("Listado ciudad");
+                $("#titulo").html("Listado proceso");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#ciudad").removeClass("hide");
-                $("#ciudad").addClass("show")
+                $("#proceso").removeClass("hide");
+                $("#proceso").addClass("show")
              } else {
                 swal({
                   type: 'error',
@@ -38,7 +38,7 @@ function ciudad(){
 
         swal({
               title: '¿Está seguro?',
-              text: "¿Realmente desea borrar la ciudad con codigo : " + codigo + " ?",
+              text: "¿Realmente desea borrar el proceso con codigo : " + codigo + " ?",
               type: 'warning',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
@@ -49,7 +49,7 @@ function ciudad(){
 
                     var request = $.ajax({
                         method: "get",
-                        url: "../PHP/ciudad/controladorCiudad.php",
+                        url: "../PHP/proceso/controladorProceso.php",
                         data: {codigo: codigo, accion:'borrar'},
                         dataType: "json"
                     })
@@ -58,7 +58,7 @@ function ciudad(){
                         if(resultado.respuesta == 'correcto'){
                             swal(
                                 'Borrado!',
-                                'La ciudad con codigo : ' + codigo + ' fue borrada',
+                                'El proceso con codigo : ' + codigo + ' fue borrado',
                                 'success'
                             )     
                             dt.ajax.reload();                            
@@ -84,12 +84,12 @@ function ciudad(){
     });
 
     $("#contenido").on("click","button.btncerrar2",function(){
-        $("#titulo").html("Listado ciudad");
+        $("#titulo").html("Listado proceso");
         $("#nuevo-editar").html("");
         $("#nuevo-editar").removeClass("show");
         $("#nuevo-editar").addClass("hide");
-        $("#ciudad").removeClass("hide");
-        $("#ciudad").addClass("show");
+        $("#proceso").removeClass("hide");
+        $("#proceso").addClass("show");
 
     })
 
@@ -100,34 +100,20 @@ function ciudad(){
     })
 
     $("#contenido").on("click","button#nuevo",function(){
-        $("#titulo").html("Nuevo ciudad");
-        $("#nuevo-editar" ).load("../PHP/ciudad/nuevo.php"); 
+        $("#titulo").html("Nuevo proceso");
+        $("#nuevo-editar" ).load("../PHP/proceso/nuevoProceso.php"); 
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#ciudad").removeClass("show");
-        $("#ciudad").addClass("hide");
-        $.ajax({
-            type:"get",
-            url:"../PHP/paises/controladorPais.php",
-            data: {accion:'listar'},
-            dataType:"json"
-          }).done(function( resultado ) {          
-            $("#id_pais option").remove()       
-            $("#id_pais").append("<option selecte value=''>Seleccione un pais</option>")
-            $.each(resultado.data, function (index, value) { 
-              $("#id_pais").append("<option value='" + value.id_pais + "'>" + value.nombre_pais + "</option>")
-            });
-         });
-
-
+        $("#proceso").removeClass("show");
+        $("#proceso").addClass("hide");
     })
 
     $("#contenido").on("click","button#grabar",function(){
 
-      var datos=$("#fciudad").serialize();
+      var datos=$("#fproceso").serialize();
        $.ajax({
             type:"get",
-            url:"../PHP/ciudad/controladorCiudad.php",
+            url:"../PHP/proceso/controladorProceso.php",
             data: datos,
             dataType:"json"
           }).done(function( resultado ) {
@@ -138,12 +124,12 @@ function ciudad(){
                     'success'
                 )     
                 dt.ajax.reload();
-                $("#titulo").html("Listado ciudad");
+                $("#titulo").html("Listado proceso");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#ciudad").removeClass("hide");
-                $("#ciudad").addClass("show")
+                $("#proceso").removeClass("hide");
+                $("#proceso").addClass("show")
              } else {
                 swal({
                   type: 'error',
@@ -156,50 +142,34 @@ function ciudad(){
 
 
     $("#contenido").on("click","a.editar",function(){
-       $("#titulo").html("Editar ciudad");
+       $("#titulo").html("Editar proceso");
        //Recupera datos del fromulario
        var codigo = $(this).data("codigo");
        var pais;
-        $("#nuevo-editar").load("../PHP/ciudad/editar.php");
+        $("#nuevo-editar").load("../PHP/proceso/editarProceso.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#ciudad").removeClass("show");
-        $("#ciudad").addClass("hide");
+        $("#proceso").removeClass("show");
+        $("#proceso").addClass("hide");
        $.ajax({
            type:"get",
-           url:"../PHP/ciudad/controladorCiudad.php",
+           url:"../PHP/proceso/controladorProceso.php",
            data: {codigo: codigo, accion:'consultar'},
            dataType:"json"
-           }).done(function( ciudad ) {        
-            if(ciudad.respuesta === "no existe"){
+           }).done(function( proceso ) {        
+            if(proceso.respuesta === "no existe"){
                 swal({
                   type: 'error',
                   title: 'Oops...',
-                  text: 'ciudad no existe!!!!!'                         
+                  text: 'proceso no existe!!!!!'                         
                 })
             } else {
-                $("#id_ciudad").val(ciudad.codigo);                   
-                $("#nombre_ciudad").val(ciudad.nombre_ciudad);
-                pais=ciudad.id_pais;
+                $("#id_proceso").val(proceso.codigo);                   
+                $("#nombre_proceso").val(proceso.nombre_proceso);
+                pais=proceso.id_pais;
               
             }
-       });
-       $.ajax({
-        type:"get",
-        url:"../PHP/paises/controladorPais.php",
-        data: {accion:'listar'},
-        dataType:"json"
-      }).done(function( resultado ) {                     
-        $("#id_pais option").remove();
-        $.each(resultado.data, function (index, value) { 
-          
-          if(pais === value.id_pais){
-            $("#id_pais").append("<option selected value='" + value.id_pais + "'>" + value.nombre_pais + "</option>")
-          }else {
-            $("#id_pais").append("<option value='" + value.id_pais + "'>" + value.nombre_pais + "</option>")
-          }
-        });
-     });    
+       });         
     
        })
 }
@@ -210,20 +180,20 @@ $(document).ready(() => {
   $("#contenido").off("click","a.borrar");
   $("#contenido").off("click","button#nuevo");
   $("#contenido").off("click","button#grabar");
-  $("#titulo").html("Listado de ciudad");
+  $("#titulo").html("Listado de proceso");
   dt = $("#tabla").DataTable({
-        "ajax": "../PHP/ciudad/controladorCiudad.php?accion=listar",
+        "ajax": "../PHP/proceso/controladorProceso.php?accion=listar",
         "columns": [
-            { "data": "id_ciudad"},
-            { "data": "nombre_ciudad"},
+            { "data": "id_proceso"},
+            { "data": "nombre_proceso"},
             { "data": "id_pais"},
-            { "data": "id_ciudad",
+            { "data": "id_proceso",
                 render: function (data) {
                           return '<a href="#" data-codigo="'+ data + 
                                  '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>' 
                 }
             },
-            { "data": "id_ciudad",
+            { "data": "id_proceso",
                 render: function (data) {
                           return '<a href="#" data-codigo="'+ data + 
                                  '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';
@@ -231,5 +201,5 @@ $(document).ready(() => {
             }
         ]
 });
-ciudad();
+proceso();
 });

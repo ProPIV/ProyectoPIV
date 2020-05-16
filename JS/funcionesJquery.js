@@ -38,7 +38,7 @@ function inicio() {
     })
     $("#cargarProcesos").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/procesos/index.php");
+        $("#contenido").load("../php/proceso/index.php");
     })
     $("#cargarContratos").click(function(e) {
         e.preventDefault();
