@@ -56,7 +56,7 @@
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$comu_nomb= utf8_decode($comu_nomb);
+				$id_proveedor= utf8_decode($id_proveedor);
 				$this->query = "
 					INSERT INTO proveedor
 					(nombre_proveedor, telefono, direccion)
