@@ -1,11 +1,11 @@
 var dt;
 
-function pais(){
+function ciudad(){
     $("#contenido").on("click","button#actualizar",function(){
-         var datos=$("#fpais").serialize();
+         var datos=$("#fciudad").serialize();
          $.ajax({
             type:"get",
-            url:"../PHP/paises/controladorPais.php",
+            url:"../PHP/ciudad/controladorCiudad.php",
             data: datos,
             dataType:"json"
           }).done(function( resultado ) {
@@ -16,12 +16,12 @@ function pais(){
                     'success'
                 )     
                 dt.ajax.reload();
-                $("#titulo").html("Listado paises");
+                $("#titulo").html("Listado ciudad");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#pais").removeClass("hide");
-                $("#pais").addClass("show")
+                $("#ciudad").removeClass("hide");
+                $("#ciudad").addClass("show")
              } else {
                 swal({
                   type: 'error',
@@ -38,7 +38,7 @@ function pais(){
 
         swal({
               title: '¿Está seguro?',
-              text: "¿Realmente desea borrar la pais con codigo : " + codigo + " ?",
+              text: "¿Realmente desea borrar la ciudad con codigo : " + codigo + " ?",
               type: 'warning',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
@@ -49,7 +49,7 @@ function pais(){
 
                     var request = $.ajax({
                         method: "get",
-                        url: "../PHP/paises/controladorPais.php",
+                        url: "../PHP/ciudad/controladorCiudad.php",
                         data: {codigo: codigo, accion:'borrar'},
                         dataType: "json"
                     })
@@ -58,7 +58,7 @@ function pais(){
                         if(resultado.respuesta == 'correcto'){
                             swal(
                                 'Borrado!',
-                                'La pais con codigo : ' + codigo + ' fue borrada',
+                                'La ciudad con codigo : ' + codigo + ' fue borrada',
                                 'success'
                             )     
                             dt.ajax.reload();                            
@@ -84,12 +84,12 @@ function pais(){
     });
 
     $("#contenido").on("click","button.btncerrar2",function(){
-        $("#titulo").html("Listado paises");
+        $("#titulo").html("Listado ciudad");
         $("#nuevo-editar").html("");
         $("#nuevo-editar").removeClass("show");
         $("#nuevo-editar").addClass("hide");
-        $("#pais").removeClass("hide");
-        $("#pais").addClass("show");
+        $("#ciudad").removeClass("hide");
+        $("#ciudad").addClass("show");
 
     })
 
@@ -100,28 +100,34 @@ function pais(){
     })
 
     $("#contenido").on("click","button#nuevo",function(){
-        $("#titulo").html("Nuevo pais");
-        $("#nuevo-editar" ).load("../PHP/paises/nuevo.php"); 
+        $("#titulo").html("Nuevo ciudad");
+        $("#nuevo-editar" ).load("../PHP/ciudad/nuevo.php"); 
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#pais").removeClass("show");
-        $("#pais").addClass("hide");
+        $("#ciudad").removeClass("show");
+        $("#ciudad").addClass("hide");
         $.ajax({
             type:"get",
             url:"../PHP/paises/controladorPais.php",
             data: {accion:'listar'},
             dataType:"json"
-          })
+          }).done(function( resultado ) {          
+            $("#id_pais option").remove()       
+            $("#id_pais").append("<option selecte value=''>Seleccione un pais</option>")
+            $.each(resultado.data, function (index, value) { 
+              $("#id_pais").append("<option value='" + value.id_pais + "'>" + value.nombre_pais + "</option>")
+            });
+         });
 
 
     })
 
     $("#contenido").on("click","button#grabar",function(){
 
-      var datos=$("#fpais").serialize();
+      var datos=$("#fciudad").serialize();
        $.ajax({
             type:"get",
-            url:"../PHP/paises/controladorPais.php",
+            url:"../PHP/ciudad/controladorCiudad.php",
             data: datos,
             dataType:"json"
           }).done(function( resultado ) {
@@ -132,12 +138,12 @@ function pais(){
                     'success'
                 )     
                 dt.ajax.reload();
-                $("#titulo").html("Listado paises");
+                $("#titulo").html("Listado ciudad");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#pais").removeClass("hide");
-                $("#pais").addClass("show")
+                $("#ciudad").removeClass("hide");
+                $("#ciudad").addClass("show")
              } else {
                 swal({
                   type: 'error',
@@ -150,30 +156,31 @@ function pais(){
 
 
     $("#contenido").on("click","a.editar",function(){
-       $("#titulo").html("Editar pais");
+       $("#titulo").html("Editar ciudad");
        //Recupera datos del fromulario
        var codigo = $(this).data("codigo");
-
-        $("#nuevo-editar").load("../PHP/paises/editar.php");
+       var pais;
+        $("#nuevo-editar").load("../PHP/ciudad/editar.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#pais").removeClass("show");
-        $("#pais").addClass("hide");
+        $("#ciudad").removeClass("show");
+        $("#ciudad").addClass("hide");
        $.ajax({
            type:"get",
-           url:"../PHP/paises/controladorPais.php",
+           url:"../PHP/ciudad/controladorCiudad.php",
            data: {codigo: codigo, accion:'consultar'},
            dataType:"json"
-           }).done(function( pais ) {        
-            if(pais.respuesta === "no existe"){
+           }).done(function( ciudad ) {        
+            if(ciudad.respuesta === "no existe"){
                 swal({
                   type: 'error',
                   title: 'Oops...',
-                  text: 'pais no existe!!!!!'                         
+                  text: 'ciudad no existe!!!!!'                         
                 })
             } else {
-                $("#id_pais").val(pais.codigo);                   
-                $("#nombre_pais").val(pais.nombre_pais);
+                $("#id_ciudad").val(ciudad.codigo);                   
+                $("#nombre_ciudad").val(ciudad.nombre_ciudad);
+                pais=ciudad.id_pais;
               
             }
        });
@@ -182,54 +189,47 @@ function pais(){
         url:"../PHP/paises/controladorPais.php",
         data: {accion:'listar'},
         dataType:"json"
-      })
+      }).done(function( resultado ) {                     
+        $("#id_pais option").remove();
+        $.each(resultado.data, function (index, value) { 
+          
+          if(pais === value.id_pais){
+            $("#id_pais").append("<option selected value='" + value.id_pais + "'>" + value.nombre_pais + "</option>")
+          }else {
+            $("#id_pais").append("<option value='" + value.id_pais + "'>" + value.nombre_pais + "</option>")
+          }
+        });
+     });    
     
        })
 }
 
-
 $(document).ready(() => {
-    $("#contenido").off("click", "a.editar");
-    $("#contenido").off("click", "button#actualizar");
-    $("#contenido").off("click","a.borrar");
-    $("#contenido").off("click","button#nuevo");
-    $("#contenido").off("click","button#grabar");
-    $("#titulo").html("Listado de paises");
-    dt = $("#tabla").DataTable({
-
-          "ajax": "../PHP/paises/controladorPais.php?accion=listar",
-          "columns": [
-              { "data": "id_pais"},
-              { "data": "nombre_pais"},
-              { "data": "id_pais",
-                  render: function (data) {
-                            return '<a href="#" data-codigo="'+ data + 
-                                   '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>' 
-                  }
-              },
-              { "data": "id_pais",
-                  render: function (data) {
-                            return '<a href="#" data-codigo="'+ data + 
-                                   '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';
-                  }
-              }
-          ]
-  });
-
-  $(document).ready(function() {
-    $('#tabla').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
+  $("#contenido").off("click", "a.editar");
+  $("#contenido").off("click", "button#actualizar");
+  $("#contenido").off("click","a.borrar");
+  $("#contenido").off("click","button#nuevo");
+  $("#contenido").off("click","button#grabar");
+  $("#titulo").html("Listado de ciudad");
+  dt = $("#tabla").DataTable({
+        "ajax": "../PHP/ciudad/controladorCiudad.php?accion=listar",
+        "columns": [
+            { "data": "id_ciudad"},
+            { "data": "nombre_ciudad"},
+            { "data": "id_pais"},
+            { "data": "id_ciudad",
+                render: function (data) {
+                          return '<a href="#" data-codigo="'+ data + 
+                                 '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>' 
+                }
+            },
+            { "data": "id_ciudad",
+                render: function (data) {
+                          return '<a href="#" data-codigo="'+ data + 
+                                 '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';
+                }
+            }
         ]
-    } );
-} );
-
-
-  pais();
-
-
+});
+ciudad();
 });
