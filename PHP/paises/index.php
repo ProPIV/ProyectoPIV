@@ -17,7 +17,7 @@
 </div><!-- /.box-header -->
 
 
-</script>
+
              
 <table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
@@ -27,31 +27,25 @@
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>
+
 	</thead>
 	<tbody>
-	
-	</tbody>
 
+	</tbody>
 
 </table>
 
-<script>$(document).ready(function() {
-    $('#tabla').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ]
-    } );
-} );</script>
-
-
-
-
-
 <script src="../js/funcionesPais.js"></script>
+
+
+
+
+
+
+
+
+
+
 
 
 
