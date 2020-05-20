@@ -41,8 +41,8 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="Descripcion">Descripcion:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="Descripcion" name="Descripcion">
-							
+                        <textarea type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Ingrese una descripcion del proceso"
+                            value = ""></textarea>					
 							</select>
                         </div>
                     </div>

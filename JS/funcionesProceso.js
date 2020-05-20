@@ -145,7 +145,6 @@ function proceso(){
        $("#titulo").html("Editar proceso");
        //Recupera datos del fromulario
        var codigo = $(this).data("codigo");
-       var pais;
         $("#nuevo-editar").load("../PHP/proceso/editarProceso.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
@@ -166,7 +165,7 @@ function proceso(){
             } else {
                 $("#id_proceso").val(proceso.codigo);                   
                 $("#nombre_proceso").val(proceso.nombre_proceso);
-                pais=proceso.id_pais;
+                $("#Descripcion").val(proceso.Descripcion);
               
             }
        });         
@@ -186,7 +185,7 @@ $(document).ready(() => {
         "columns": [
             { "data": "id_proceso"},
             { "data": "nombre_proceso"},
-            { "data": "id_pais"},
+            { "data": "Descripcion"},
             { "data": "id_proceso",
                 render: function (data) {
                           return '<a href="#" data-codigo="'+ data + 

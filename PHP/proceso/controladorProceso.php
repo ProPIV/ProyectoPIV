@@ -44,15 +44,15 @@ switch ($_GET['accion']){
         $proceso = new Proceso();
         $proceso->consultar($datos['codigo']);
 
-        if($proceso->getComu_codi() == null) {
+        if($proceso->getID_PROCESO() == null) {
             $respuesta = array(
                 'respuesta' => 'no existe'
             );
         }  else {
             $respuesta = array(
-                'codigo' => $proceso->getComu_codi(),
-                'proceso' => $proceso->getComu_nomb(),
-                'municipio' =>$proceso->getMuni_codi(),
+                'codigo' => $proceso->getID_PROCESO(),
+                'nombre_proceso' => $proceso->getNOMBRE_PROCESO(),
+                'Descripcion' =>$proceso->getDESCRIPCION(),
                 'respuesta' =>'existe'
             );
         }

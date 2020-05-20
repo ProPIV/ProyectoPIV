@@ -40,9 +40,10 @@
 					
 					
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="descripcion">Descripcion:</label>
+                        <label class="control-label col-sm-2" for="Descripcion">Descripcion:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="descripcion" name="descripcion">
+                        <textarea type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Ingrese una descripcion del proceso"
+                            value = ""></textarea>
                          
 							</select>	
                         </div>
