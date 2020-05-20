@@ -36,4 +36,4 @@
 </table>
 
 </div><!-- /.box-body -->  
-<script src="js/funcionesUser.js"></script>
+<script src="../js/funcionesContratos.js"></script>

@@ -173,7 +173,25 @@ function Proveedor() {
 
             }
         });
+
+        $.ajax({
+            type:"get",
+            url:"./php/tipoDocumento/controladordocumento.php",
+            data: {accion:'listar'},
+            dataType:"json"
+          }).done(function( resultado ) {                     
+             $("#Docu_Codi option").remove();
+             $.each(resultado.data, function (index, value) { 
+               
+               if(tipo === value.Docu_Codi){
+                 $("#Docu_Codi").append("<option selected value='" + value.Docu_Codi + "'>" + value. Docu_Nomb+ "</option>")
+              }else {
+                $("#Docu_Codi").append("<option value='" + value.Docu_Codi + "'>" + value.Docu_Nomb + "</option>")
+               }
+             });
+          });
     })
+
 }
 
 $(document).ready(() => {

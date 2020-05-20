@@ -1,11 +1,11 @@
 var dt;
 
-function proceso(){
+function contratos(){
     $("#contenido").on("click","button#actualizar",function(){
-         var datos=$("#fproceso").serialize();
+         var datos=$("#fcontrato").serialize();
          $.ajax({
             type:"get",
-            url:"../PHP/proceso/controladorProceso.php",
+            url:"../PHP/contratos/controladorContratos.php",
             data: datos,
             dataType:"json"
           }).done(function( resultado ) {
@@ -16,12 +16,12 @@ function proceso(){
                     'success'
                 )     
                 dt.ajax.reload();
-                $("#titulo").html("Listado proceso");
+                $("#titulo").html("Listado contratos");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#proceso").removeClass("hide");
-                $("#proceso").addClass("show")
+                $("#contratos").removeClass("hide");
+                $("#contratos").addClass("show")
              } else {
                 swal({
                   type: 'error',
@@ -38,7 +38,7 @@ function proceso(){
 
         swal({
               title: '¿Está seguro?',
-              text: "¿Realmente desea borrar el proceso con codigo : " + codigo + " ?",
+              text: "¿Realmente desea borrar el contratos con codigo : " + codigo + " ?",
               type: 'warning',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
@@ -49,7 +49,7 @@ function proceso(){
 
                     var request = $.ajax({
                         method: "get",
-                        url: "../PHP/proceso/controladorProceso.php",
+                        url: "../PHP/contratos/controladorContratos.php",
                         data: {codigo: codigo, accion:'borrar'},
                         dataType: "json"
                     })
@@ -58,7 +58,7 @@ function proceso(){
                         if(resultado.respuesta == 'correcto'){
                             swal(
                                 'Borrado!',
-                                'El proceso con codigo : ' + codigo + ' fue borrado',
+                                'El contratos con codigo : ' + codigo + ' fue borrado',
                                 'success'
                             )     
                             dt.ajax.reload();                            
@@ -84,12 +84,12 @@ function proceso(){
     });
 
     $("#contenido").on("click","button.btncerrar2",function(){
-        $("#titulo").html("Listado proceso");
+        $("#titulo").html("Listado contratos");
         $("#nuevo-editar").html("");
         $("#nuevo-editar").removeClass("show");
         $("#nuevo-editar").addClass("hide");
-        $("#proceso").removeClass("hide");
-        $("#proceso").addClass("show");
+        $("#contratos").removeClass("hide");
+        $("#contratos").addClass("show");
 
     })
 
@@ -100,20 +100,20 @@ function proceso(){
     })
 
     $("#contenido").on("click","button#nuevo",function(){
-        $("#titulo").html("Nuevo proceso");
-        $("#nuevo-editar" ).load("../PHP/proceso/nuevoProceso.php"); 
+        $("#titulo").html("Nuevo contratos");
+        $("#nuevo-editar" ).load("../PHP/contratos/nuevoContrato.php"); 
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#proceso").removeClass("show");
-        $("#proceso").addClass("hide");
+        $("#contratos").removeClass("show");
+        $("#contratos").addClass("hide");
     })
 
     $("#contenido").on("click","button#grabar",function(){
 
-      var datos=$("#fproceso").serialize();
+      var datos=$("#fcontrato").serialize();
        $.ajax({
             type:"get",
-            url:"../PHP/proceso/controladorProceso.php",
+            url:"../PHP/contratos/controladorContratos.php",
             data: datos,
             dataType:"json"
           }).done(function( resultado ) {
@@ -124,12 +124,12 @@ function proceso(){
                     'success'
                 )     
                 dt.ajax.reload();
-                $("#titulo").html("Listado proceso");
+                $("#titulo").html("Listado contratos");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#proceso").removeClass("hide");
-                $("#proceso").addClass("show")
+                $("#contratos").removeClass("hide");
+                $("#contratos").addClass("show")
              } else {
                 swal({
                   type: 'error',
@@ -142,30 +142,33 @@ function proceso(){
 
 
     $("#contenido").on("click","a.editar",function(){
-       $("#titulo").html("Editar proceso");
+       $("#titulo").html("Editar contratos");
        //Recupera datos del fromulario
        var codigo = $(this).data("codigo");
-        $("#nuevo-editar").load("../PHP/proceso/editarProceso.php");
+        $("#nuevo-editar").load("../PHP/contratos/editarContrato.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#proceso").removeClass("show");
-        $("#proceso").addClass("hide");
+        $("#contratos").removeClass("show");
+        $("#contratos").addClass("hide");
        $.ajax({
            type:"get",
-           url:"../PHP/proceso/controladorProceso.php",
+           url:"../PHP/contratos/controladorContratos.php",
            data: {codigo: codigo, accion:'consultar'},
            dataType:"json"
-           }).done(function( proceso ) {        
-            if(proceso.respuesta === "no existe"){
+           }).done(function( contratos ) {        
+            if(contratos.respuesta === "no existe"){
                 swal({
                   type: 'error',
                   title: 'Oops...',
-                  text: 'proceso no existe!!!!!'                         
+                  text: 'contratos no existe!!!!!'                         
                 })
             } else {
-                $("#id_proceso").val(proceso.codigo);                   
-                $("#nombre_proceso").val(proceso.nombre_proceso);
-                $("#Descripcion").val(proceso.Descripcion);
+                $("#id_contrato").val(contratos.codigo);                   
+                $("#id_empleado").val(contratos.id_empleado);
+                $("#fecha_ini").val(contratos.fecha_ini);
+                $("#fecha_fin").val(contratos.fecha_fin);
+                $("#id_tipo_contrato").val(contratos.id_tipo_contrato);
+                $("#id_proveedor").val(contratos.id_proveedor);
               
             }
        });         
@@ -179,20 +182,23 @@ $(document).ready(() => {
   $("#contenido").off("click","a.borrar");
   $("#contenido").off("click","button#nuevo");
   $("#contenido").off("click","button#grabar");
-  $("#titulo").html("Listado de proceso");
+  $("#titulo").html("Listado de contratos");
   dt = $("#tabla").DataTable({
-        "ajax": "../PHP/proceso/controladorProceso.php?accion=listar",
+        "ajax": "../PHP/contratos/controladorContratos.php?accion=listar",
         "columns": [
-            { "data": "id_proceso"},
-            { "data": "nombre_proceso"},
-            { "data": "Descripcion"},
-            { "data": "id_proceso",
+            { "data": "id_contrato"},
+            { "data": "id_empleado"},
+            { "data": "fecha_ini"},
+            { "data": "fecha_fin"},
+            { "data": "id_tipo_contrato"},
+            { "data": "id_proveedor"},
+            { "data": "id_contrato",
                 render: function (data) {
                           return '<a href="#" data-codigo="'+ data + 
                                  '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>' 
                 }
             },
-            { "data": "id_proceso",
+            { "data": "id_contrato",
                 render: function (data) {
                           return '<a href="#" data-codigo="'+ data + 
                                  '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';
@@ -200,5 +206,5 @@ $(document).ready(() => {
             }
         ]
 });
-proceso();
+contratos();
 });

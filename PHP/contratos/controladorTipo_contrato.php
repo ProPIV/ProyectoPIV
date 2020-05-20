@@ -1,19 +1,19 @@
 <?php
  
-require_once 'proceso_modelo.php';
+require_once 'contratos_modelo.php';
 $datos = $_GET;
 switch ($_GET['accion']){
     case 'editar':
-        $proceso = new Proceso();
-        $resultado = $proceso->editar($datos);
+        $contratos = new Contratos();
+        $resultado = $contratos->editar($datos);
         $respuesta = array(
                 'respuesta' => $resultado
             );
         echo json_encode($respuesta);
         break;
     case 'nuevo':
-        $proceso = new Proceso();
-		$resultado = $proceso->nuevo($datos);
+        $contratos = new Contratos();
+		$resultado = $contratos->nuevo($datos);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -26,8 +26,8 @@ switch ($_GET['accion']){
         echo json_encode($respuesta);
         break;
     case 'borrar':
-		$proceso = new Proceso();
-		$resultado = $proceso->borrar($datos['codigo']);
+		$contratos = new Contratos();
+		$resultado = $contratos->borrar($datos['codigo']);
         if($resultado > 0) {
             $respuesta = array(
                 'respuesta' => 'correcto'
@@ -41,18 +41,21 @@ switch ($_GET['accion']){
         break;
 
     case 'consultar':
-        $proceso = new Proceso();
-        $proceso->consultar($datos['codigo']);
+        $contratos = new Contratos();
+        $contratos->consultar($datos['codigo']);
 
-        if($proceso->getID_PROCESO() == null) {
+        if($contratos->getID_CONTRATO() == null) {
             $respuesta = array(
                 'respuesta' => 'no existe'
             );
         }  else {
             $respuesta = array(
-                'codigo' => $proceso->getID_PROCESO(),
-                'nombre_proceso' => $proceso->getNOMBRE_PROCESO(),
-                'Descripcion' =>$proceso->getDESCRIPCION(),
+                'codigo' => $contratos->getID_CONTRATO(),
+                'id_empleado' => $contratos->getID_EMPLEADO(),
+                'fecha_ini' =>$contratos->getFECHA_INI(),
+                'fecha_fin' =>$contratos->getFECHA_FIN(),
+                'id_tipo_contrato' =>$contratos->getID_TIPO_CONTRATO(),
+                'id_proveedor' =>$contratos->getID_PROVEEDOR(),
                 'respuesta' =>'existe'
             );
         }
@@ -60,8 +63,8 @@ switch ($_GET['accion']){
         break;
 
     case 'listar':
-        $proceso = new Proceso();
-        $listado = $proceso->lista();
+        $contratos = new Contratos();
+        $listado = $contratos->lista();
         echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);    
         break;
 }

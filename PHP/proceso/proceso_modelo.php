@@ -1,12 +1,12 @@
 <?php
     require_once("../modeloAbstractoDB.php");
-    class Comuna extends ModeloAbstractoDB {
+    class Proceso extends ModeloAbstractoDB {
 		private $id_proceso;
 		private $nombre_proceso;
-		private $descripcion;
+		private $Descripcion;
 		
 		function __construct() {
-			//$this->db_name = '';
+			
 		}
 
 		public function getID_PROCESO(){
@@ -18,13 +18,13 @@
 		}
 		
 		public function getDESCRIPCION(){
-			return $this->descripcion;
+			return $this->Descripcion;
 		}
 
 		public function consultar($id_proceso='') {
 			if($id_proceso !=''):
 				$this->query = "
-				SELECT id_proceso, nombre_proceso, descripcion
+				SELECT id_proceso, nombre_proceso, Descripcion
 				FROM proceso
 				WHERE id_proceso = '$id_proceso' order by id_proceso
 				";
@@ -56,9 +56,9 @@
 				$nombre_proceso= utf8_decode($nombre_proceso);
 				$this->query = "
 					INSERT INTO proceso
-					(id_proceso, nombre_proceso, descripcion)
+					(id_proceso, nombre_proceso, Descripcion)
 					VALUES
-					(NULL, '$nombre_proceso', '$descripcion')
+					('$id_proceso', '$nombre_proceso', '$Descripcion')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -72,8 +72,7 @@
 			$nombre_proceso= utf8_decode($nombre_proceso);
 			$this->query = "
 			UPDATE proceso
-			SET nombre_proceso='$nombre_proceso',
-			descripcion='$descripcion'
+			SET nombre_proceso='$nombre_proceso', Descripcion='$Descripcion'
 			WHERE id_proceso = '$id_proceso'
 			";
 			$resultado = $this->ejecutar_query_simple();
