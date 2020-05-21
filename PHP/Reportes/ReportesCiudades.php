@@ -6,16 +6,13 @@ class PDF extends FPDF
 // Cabecera de página
 function Header()
 {
+    $this->Cell(190,25,'',1,1,'C',true);
+    $this->Image('Logo.png',75,15,63);
+    $this->Ln(15);
 
-    // Arial bold 15
     $this->SetFont('Arial','B',18);
-    $this->Cell(60);
-    // Movernos a la derecha
-    $this->SetFillColor(224,235,255);
     $this->SetTextColor(77,111,209);
-    $this->SetDrawColor(128,0,0);
-    $this->SetLineWidth(.3);
-    $this->SetFont('','B');
+    $this->Cell(60);
     // T�tulo
     $this->Cell(15,10,'Reportes de Ciudades',0,'C',0);
     // Salto de l�nea

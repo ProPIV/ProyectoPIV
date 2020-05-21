@@ -10,22 +10,21 @@ function Header()
     $this->Cell(190,25,'',1,1,'C',true);
     $this->Image('Logo.png',75,15,63);
     $this->Ln(15);
-
     $this->SetFont('Arial','B',18);
     $this->SetTextColor(77,111,209);
     $this->Cell(60);
-
     // T�tulo
-    $this->Cell(15,10,'Reportes de Paises',0,'C',0);
+    $this->Cell(30,10,'Reportes de Organizaciones',0,'C',0);
     // Salto de l�nea
     $this->Ln(20);
 
-    $this->SetFont('Arial','B',14);
-    $this->Cell(65,10,'Id Pais',1,0,'C',0);
-    $this->Cell(65,10,'Nombre Pais',1,1,'C',0);
+
+    $this->Cell(50,10,'Id Organizacion',1,0,'C',0);
+    $this->Cell(80,10,'Nombre Organizacion',1,0,'C',0);
+    $this->Cell(50,10,'Id empresa',1,1,'C',0);
+
 
 }
-
 
 // Pie de página
 function Footer()
@@ -37,21 +36,26 @@ function Footer()
     // Número de página
     $this->Cell(0,10,('Paginas ').$this->PageNo().'/{nb}',0,0,'C');
 }
+
+
 }
 
+
 require 'ConexionReportes.php';
-$consulta = "SELECT * FROM pais";
+$consulta = "SELECT * FROM unidad_organizacional";
 $resultado = $mysqli->query($consulta);
 
 
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Arial','B',16);
+
 
 while($row =$resultado->fetch_assoc()){
-    $pdf->Cell(65,10,$row['id_pais'],1,0,'C',0);
-    $pdf->Cell(65,10,$row['nombre_pais'],1,1,'C',0);
+    $pdf->Cell(50,10,$row['id_unidad_organizacional'],1,0,'C',0);
+    $pdf->Cell(80,10,$row['nombre_unidad_organizacional'],1,0,'C',0);
+    $pdf->Cell(50,10,$row['id_empresa'],1,1,'C',0);
+
 }
 
 $pdf->Output();

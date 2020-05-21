@@ -35,3 +35,5 @@
 
 </div><!-- /.box-body -->  
 <script src="../js/funcionesEmpresas.js"></script>
+
+<a class="btn btn-primary" href="../php/Reportes/ReportesEmpresa.php" role="button">Reportes Pdf</a>
