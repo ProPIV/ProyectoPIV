@@ -1,11 +1,11 @@
 var dt;
 
-function organizaciones() {
+function sede() {
     $("#contenido").on("click", "button#actualizar", function() {
-        var datos = $("#forganizaciones").serialize();
+        var datos = $("#fsede").serialize();
         $.ajax({
             type: "get",
-            url: "../PHP/organizaciones/controladorOrganizaciones.php",
+            url: "../PHP/sede/controladorSede.php",
             data: datos,
             dataType: "json"
         }).done(function(resultado) {
@@ -16,12 +16,12 @@ function organizaciones() {
                     'success'
                 )
                 dt.ajax.reload();
-                $("#titulo").html("Listado de Organizaciones");
+                $("#titulo").html("Listado de sede");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#organizacion").removeClass("hide");
-                $("#organizacion").addClass("show")
+                $("sede").removeClass("hide");
+                $("sede").addClass("show")
             } else {
                 swal({
                     type: 'error',
@@ -49,7 +49,7 @@ function organizaciones() {
 
                 var request = $.ajax({
                     method: "get",
-                    url: "../PHP/organizaciones/controladorOrganizaciones.php",
+                    url: "../PHP/sede/controladorSede.php",
                     data: { codigo: codigo, accion: 'borrar' },
                     dataType: "json"
                 })
@@ -84,12 +84,12 @@ function organizaciones() {
     });
 
     $("#contenido").on("click", "button.btncerrar2", function() {
-        $("#titulo").html("Listado de Organizaciones");
+        $("#titulo").html("Listado de sede");
         $("#nuevo-editar").html("");
         $("#nuevo-editar").removeClass("show");
         $("#nuevo-editar").addClass("hide");
-        $("#organizacion").removeClass("hide");
-        $("#organizacion").addClass("show");
+        $("sede").removeClass("hide");
+        $("sede").addClass("show");
 
     })
 
@@ -101,21 +101,21 @@ function organizaciones() {
 
     $("#contenido").on("click", "button#nuevo", function() {
         $("#titulo").html("Nueva Organizacion");
-        $("#nuevo-editar").load("../PHP/organizaciones/nuevo.php");
+        $("#nuevo-editar").load("../PHP/sede/nuevo.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#organizacion").removeClass("show");
-        $("#organizacion").addClass("hide");
+        $("sede").removeClass("show");
+        $("sede").addClass("hide");
         $.ajax({
             type: "get",
-            url: "../PHP/empresas/controladorEmpresas.php",
+            url: "../PHP/municipio/controladorMunicipio.php",
             data: { accion: 'listar' },
             dataType: "json"
         }).done(function(resultado) {
-            $("#id_empresa option").remove()
-            $("#id_empresa").append("<option selecte value=''>Seleccione una empresa</option>")
+            $("#id_municipio option").remove()
+            $("#id_municipio").append("<option selecte value=''>Seleccione una empresa</option>")
             $.each(resultado.data, function(index, value) {
-                $("#id_empresa").append("<option value='" + value.id_empresa + "'>" + value.nombre_empresa + "</option>")
+                $("#id_municipio").append("<option value='" + value.id_municipio + "'>" + value.nombre_empresa + "</option>")
             });
         });
 
@@ -124,10 +124,10 @@ function organizaciones() {
 
     $("#contenido").on("click", "button#grabar", function() {
 
-        var datos = $("#forganizaciones").serialize();
+        var datos = $("#fsede").serialize();
         $.ajax({
             type: "get",
-            url: "../PHP/organizaciones/controladorOrganizaciones.php",
+            url: "../PHP/sede/controladorSede.php",
             data: datos,
             dataType: "json"
         }).done(function(resultado) {
@@ -138,12 +138,12 @@ function organizaciones() {
                     'success'
                 )
                 dt.ajax.reload();
-                $("#titulo").html("Listado de Organizaciones");
+                $("#titulo").html("Listado de sede");
                 $("#nuevo-editar").html("");
                 $("#nuevo-editar").removeClass("show");
                 $("#nuevo-editar").addClass("hide");
-                $("#organizacion").removeClass("hide");
-                $("#organizacion").addClass("show")
+                $("sede").removeClass("hide");
+                $("sede").addClass("show")
             } else {
                 swal({
                     type: 'error',
@@ -161,14 +161,14 @@ function organizaciones() {
         var codigo = $(this).data("codigo");
         var empresa
 
-        $("#nuevo-editar").load("../PHP/organizaciones/editar.php");
+        $("#nuevo-editar").load("../PHP/sede/editar.php");
         $("#nuevo-editar").removeClass("hide");
         $("#nuevo-editar").addClass("show");
-        $("#organizacion").removeClass("show");
-        $("#organizacion").addClass("hide");
+        $("sede").removeClass("show");
+        $("sede").addClass("hide");
         $.ajax({
             type: "get",
-            url: "../PHP/organizaciones/controladorOrganizaciones.php",
+            url: "../PHP/sede/controladorSede.php",
             data: { codigo: codigo, accion: 'consultar' },
             dataType: "json"
         }).done(function(organizacion) {
@@ -179,25 +179,25 @@ function organizaciones() {
                     text: 'Organizacion no existe!!!!!'
                 })
             } else {
-                $("#id_unidad_organizacional").val(organizacion.codigo);
-                $("#nombre_unidad_organizacional").val(organizacion.nombre_unidad_organizacional);
-                empresa = organizacion.id_empresa;
+                $("#id_sede").val(organizacion.codigo);
+                $("#nombre_sede").val(organizacion.nombre_sede);
+                empresa = organizacion.id_municipio;
 
             }
         });
         $.ajax({
             type: "get",
-            url: "../PHP/empresas/controladorEmpresas.php",
+            url: "../PHP/municipio/controladorMunicipio.php",
             data: { accion: 'listar' },
             dataType: "json"
         }).done(function(resultado) {
-            $("#id_empresa option").remove();
+            $("#id_municipio option").remove();
             $.each(resultado.data, function(index, value) {
 
-                if (empresa === value.id_empresa) {
-                    $("#id_empresa").append("<option selected value='" + value.id_empresa + "'>" + value.nombre_empresa + "</option>")
+                if (empresa === value.id_municipio) {
+                    $("#id_municipio").append("<option selected value='" + value.id_municipio + "'>" + value.nombre_empresa + "</option>")
                 } else {
-                    $("#id_empresa").append("<option value='" + value.id_empresa + "'>" + value.nombre_empresa + "</option>")
+                    $("#id_municipio").append("<option value='" + value.id_municipio + "'>" + value.nombre_empresa + "</option>")
                 }
             });
         });
@@ -212,23 +212,23 @@ $(document).ready(() => {
     $("#contenido").off("click", "a.borrar");
     $("#contenido").off("click", "button#nuevo");
     $("#contenido").off("click", "button#grabar");
-    $("#titulo").html("Listado de organizaciones");
+    $("#titulo").html("Listado de sede");
     dt = $("#tabla").DataTable({
 
-        "ajax": "../PHP/organizaciones/controladorOrganizaciones.php?accion=listar",
+        "ajax": "../PHP/sede/controladorSede.php?accion=listar",
         "columns": [
-            { "data": "id_unidad_organizacional" },
-            { "data": "nombre_unidad_organizacional" },
-            { "data": "id_empresa" },
+            { "data": "id_sede" },
+            { "data": "nombre_sede" },
+            { "data": "id_municipio" },
             {
-                "data": "id_unidad_organizacional",
+                "data": "id_sede",
                 render: function(data) {
                     return '<a href="#" data-codigo="' + data +
                         '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>'
                 }
             },
             {
-                "data": "id_unidad_organizacional",
+                "data": "id_sede",
                 render: function(data) {
                     return '<a href="#" data-codigo="' + data +
                         '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';
@@ -240,7 +240,7 @@ $(document).ready(() => {
 
 
 
-    organizaciones();
+    sede();
 
 
 });

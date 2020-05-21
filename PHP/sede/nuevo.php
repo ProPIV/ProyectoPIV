@@ -1,7 +1,7 @@
 <!-- quick email widget -->
-<div id="seccion-organizaciones">
+<div id="seccion-sede">
 	<div class="box-header">
-    	<i class="fa fa-building" aria-hidden="true">Gestión de organizaciones</i>
+    	<i class="fa fa-building" aria-hidden="true">Gestión de sede</i>
         <!-- tools box -->
         <div class="pull-right box-tools">
         	<button class="btn btn-info btn-sm btncerrar2" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
@@ -19,29 +19,29 @@
             <div class="panel-heading">Datos</div>
             <div class="panel-body">
     
-                <form class="form-horizontal" role="form"  id="forganizaciones">
+                <form class="form-horizontal" role="form"  id="fsede">
 
 
  					<div class="form-group">
-                        <label class="control-label col-sm-2" for="id_unidad_organizacional">codigo:</label>
+                        <label class="control-label col-sm-2" for="id_sede">codigo:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_unidad_organizacional" name="id_unidad_organizacional" placeholder="Ingrese Codigo"
+                            <input type="text" class="form-control" id="id_sede" name="id_sede" placeholder="Ingrese Codigo"
                             value = "" readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="nombre_unidad_organizacional">nombre_unidad_organizacioanl:</label>
+                        <label class="control-label col-sm-2" for="nombre_sede">nombre_unidad_organizacioanl:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nombre_unidad_organizacional" name="nombre_unidad_organizacional" placeholder="Ingrese Nombre de Organizacion"
+                            <input type="text" class="form-control" id="nombre_sede" name="nombre_sede" placeholder="Ingrese Nombre de Organizacion"
                             value = "">
                         </div>
                     </div>
 					
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="id_empresa">id empresa:</label>
+                        <label class="control-label col-sm-2" for="id_municipio">id empresa:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="id_empresa" name="id_empresa">
+                            <select class="form-control" id="id_municipio" name="id_municipio">
                          
 							</select>	
                         </div>

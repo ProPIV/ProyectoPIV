@@ -1,6 +1,6 @@
-<div id="seccion-organizaciones">
+<div id="seccion-sede">
     <div class="box-header">
-    	<i class="fa fa-building" aria-hidden="true">Gestion de organizaciones</i>
+    	<i class="fa fa-building" aria-hidden="true">Gestion de sede</i>
         
         <!-- tools box -->
         <div class="pull-right box-tools">
@@ -18,29 +18,29 @@
             <div class="panel-heading">Datos</div>
             <div class="panel-body">
     
-                <form class="form-horizontal" role="form"  id="forganizaciones">
+                <form class="form-horizontal" role="form"  id="fsede">
 
 
  					<div class="form-group">
-                        <label class="control-label col-sm-2" for="id_unidad_organizacional">Codigo:</label>
+                        <label class="control-label col-sm-2" for="id_sede">Codigo:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_unidad_organizacional" name="id_unidad_organizacional" placeholder="Ingrese Codigo"
+                            <input type="text" class="form-control" id="id_sede" name="id_sede" placeholder="Ingrese Codigo"
                             value = "" readonly="true">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="nombre_unidad_organizacional">Nombre:</label>
+                        <label class="control-label col-sm-2" for="nombre_sede">Nombre:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nombre_unidad_organizacional" name="nombre_unidad_organizacional" placeholder="Ingrese Nombre de la organizacion"
+                            <input type="text" class="form-control" id="nombre_sede" name="nombre_sede" placeholder="Ingrese Nombre sede"
                             value = "">
                         </div>
                     </div>
 					
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="id_empresa">id empresa:</label>
+                        <label class="control-label col-sm-2" for="id_municipio">id municipio:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="id_empresa" name="id_empresa">
+                            <select class="form-control" id="id_municipio" name="id_municipio">
                          
 							</select>	
                         </div>
@@ -48,7 +48,7 @@
 
 					 <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" id="actualizar" data-toggle="tooltip" title="Actualizar Organizaciones" class="btn btn-primary">Actualizar</button>
+                            <button type="button" id="actualizar" data-toggle="tooltip" title="Actualizar sede" class="btn btn-primary">Actualizar</button>
                             <button type="button" id="cancelar" data-toggle="tooltip" title="Cancelar Edición" class="btn btn-success btncerrar2"> Cancelar </button>
                         </div>
 
