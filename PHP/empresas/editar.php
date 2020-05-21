@@ -1,7 +1,7 @@
-<!-- quick email widget -->
-<div id="seccion-empresas">
-	<div class="box-header">
-    	<i class="fa fa-building" aria-hidden="true">Gestión de Empresas</i>
+   <div id="seccion-empresas">
+    <div class="box-header">
+    	<i class="fa fa-building" aria-hidden="true">Gestion de Empresas</i>
+        
         <!-- tools box -->
         <div class="pull-right box-tools">
         	<button class="btn btn-info btn-sm btncerrar2" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
@@ -14,7 +14,6 @@
 				</div>
 		</div>
 
-
         <div class="panel-group"><div class="panel panel-primary">
             <div class="panel-heading">Datos</div>
             <div class="panel-body">
@@ -26,7 +25,7 @@
                         <label class="control-label col-sm-2" for="id_empresa">ID Empresa:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="id_empresa" name="id_empresa" placeholder="Ingrese ID"
-                            value = "" readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12">
+                            value = "" readonly="true">
                         </div>
                     </div>
 
@@ -40,33 +39,34 @@
 					
 					
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="id_sede">ID Sede:</label>
+                        <label class="control-label col-sm-2" for="id_sede">Id Sede:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="id_sede" name="id_sede">
-							
-							</select>
+                            <input type="text" class="form-control" id="id_sede" name="id_sede" placeholder="Ingrese Id Sede"
+                            value = "">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="id_proveedor">ID Proveedor:</label>
+                        <label class="control-label col-sm-2" for="id_proveedor">Id Proveedor:</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="id_proveedor" name="id_proveedor">
-							
-							</select>
+                         
+							</select>	
                         </div>
                     </div>
 
 					 <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" id="grabar" class="btn btn-primary" data-toggle="tooltip" title="Grabar Empresa">Grabar Empresa</button>
-                            <button type="button" id="cerrar" class="btn btn-success btncerrar2" data-toggle="tooltip" title="Cancelar">Cancelar</button>
+                            <button type="button" id="actualizar" data-toggle="tooltip" title="Actualizar Empresa" class="btn btn-primary">Actualizar</button>
+                            <button type="button" id="cancelar" data-toggle="tooltip" title="Cancelar Edición" class="btn btn-success btncerrar2"> Cancelar </button>
                         </div>
-                    </div>
 
-					<input type="hidden" id="nuevo" value="nuevo" name="accion"/>
+                    </div>                    
+
+					<input type="hidden" id="editar" value="editar" name="accion"/>
 			</fieldset>
 
 		</form>
 	</div>
+    <input type="hidden" id="pagina" value="editar" name="editar"/>
 </div>

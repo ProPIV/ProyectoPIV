@@ -1,6 +1,6 @@
 <?php
  
-require_once 'empresas_modelo.php';
+require_once 'modeloEmpresas.php';
 $datos = $_GET;
 switch ($_GET['accion']){
     case 'editar':
@@ -52,8 +52,8 @@ switch ($_GET['accion']){
             $respuesta = array(
                 'codigo' => $empresas->getid_empresa(),
                 'nombre_empresa' => $empresas->getnombre_empresa(),
-                'id_sede' =>$empresas->getid_sede(),
-                'id_proveedor' =>$empresas->getid_proveedor(),
+                'id_sede' => $empresas->getid_sede(),
+                'id_proveedor'=> $empresas->getid_proveedor(),
                 'respuesta' =>'existe'
             );
         }
@@ -63,7 +63,7 @@ switch ($_GET['accion']){
     case 'listar':
         $empresas = new Empresas();
         $listado = $empresas->lista();
-        echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);    
+        echo json_encode(array('data'=>$listado), JSON_UNESCAPED_UNICODE);
         break;
 }
 ?>

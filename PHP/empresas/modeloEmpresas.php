@@ -58,7 +58,7 @@
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$id_empresa= utf8_decode($id_empresa);
+				$id_empresa= utf8_decode($nombre_empresa);
 				$this->query = "
 					INSERT INTO empresa
 					(id_empresa, nombre_empresa, id_sede, id_proveedor)
@@ -77,9 +77,7 @@
 			$id_empresa= utf8_decode($id_empresa);
 			$this->query = "
 			UPDATE empresa
-			SET nombre_empresa='$nombre_empresa',
-			id_sede='$id_sede',
-			id_proveedor='$id_proveedor'
+			SET nombre_empresa='$nombre_empresa', id_sede='$id_sede', id_proveedor='$id_proveedor'
 			WHERE id_empresa = '$id_empresa'
 			";
 			$resultado = $this->ejecutar_query_simple();
@@ -99,5 +97,8 @@
 		function __destruct() {
 			//unset($this);
 		}
+
+		
 	}
+	
 ?>
