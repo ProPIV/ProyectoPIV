@@ -17,7 +17,7 @@ function Header()
     $this->SetLineWidth(.3);
     $this->SetFont('','B');
     // T�tulo
-    $this->Cell(15,10,'Reportes de Paises',0,'C',0);
+    $this->Cell(15,10,'Reportes de Ciudades',0,'C',0);
     // Salto de l�nea
     $this->Ln(20);
 
@@ -28,10 +28,9 @@ function Header()
 
 
 
-    $this->Cell(65,10,'Id Pais',1,0,'C',0);
-    $this->Cell(65,10,'Nombre Pais',1,1,'C',0);
-
-
+    $this->Cell(65,10,'Id Ciudad',1,0,'C',0);
+    $this->Cell(65,10,'Nombre Ciudad',1,0,'C',0);
+    $this->Cell(65,10,'Id Ciudad',1,1,'C',0);
 }
 
 
@@ -54,7 +53,7 @@ function Footer()
 
 
 require 'ConexionReportes.php';
-$consulta = "SELECT * FROM pais";
+$consulta = "SELECT * FROM ciudad";
 $resultado = $mysqli->query($consulta);
 
 
@@ -64,8 +63,9 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
 
 while($row =$resultado->fetch_assoc()){
-    $pdf->Cell(65,10,$row['id_pais'],1,0,'C',0);
-    $pdf->Cell(65,10,$row['nombre_pais'],1,1,'C',0);
+    $pdf->Cell(65,10,$row['id_ciudad'],1,0,'C',0);
+    $pdf->Cell(65,10,$row['nombre_ciudad'],1,0,'C',0);
+    $pdf->Cell(65,10,$row['id_ciudad'],1,1,'C',0);
 }
 
 $pdf->Output();
