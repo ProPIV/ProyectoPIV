@@ -106,6 +106,17 @@ function contratos(){
         $("#nuevo-editar").addClass("show");
         $("#contratos").removeClass("show");
         $("#contratos").addClass("hide");
+        $.ajax({
+            type:"get",
+            url:"../php/tipo contrato/controladorTipo_contrato.php",
+            data: {accion:'listar'},
+            dataType:"json"
+          }).done(function( resultado ) {                     
+             $("#id_tipo_contrato option").remove();
+             $.each(resultado.data, function (index, value) {  
+             $("#id_tipo_contrato").append("<option value='" + value.id_tipo_contrato + "'>" + value.nombre_tipo_contrato + "</option>")           
+             });
+          });
     })
 
     $("#contenido").on("click","button#grabar",function(){
@@ -166,12 +177,31 @@ function contratos(){
                 $("#id_contrato").val(contratos.codigo);                   
                 $("#id_empleado").val(contratos.id_empleado);
                 $("#fecha_ini").val(contratos.fecha_ini);
-                $("#fecha_fin").val(contratos.fecha_fin);
-                $("#id_tipo_contrato").val(contratos.id_tipo_contrato);
-                $("#id_proveedor").val(contratos.id_proveedor);
+                $("#fecha_fin").val(contratos.fecha_fin);                
+                $("#id_proveedor").val(contratos.id_proveedor);                
+                tipo=contratos.tipo;
               
             }
-       });         
+       });       
+       
+       $.ajax({
+        type:"get",
+        url:"../php/tipo contrato/controladorTipo_contrato.php",
+        data: {accion:'listar'},
+        dataType:"json"
+      }).done(function( resultado ) {                     
+         $("#id_tipo_contrato option").remove();
+         $.each(resultado.data, function (index, value) {  
+         
+            if(tipo === value.id_tipo_contrato){
+                $("#id_tipo_contrato").append("<option value='" + value.id_tipo_contrato + "'>" + value.nombre_tipo_contrato + "</option>") 
+             }else {
+                $("#id_tipo_contrato").append("<option value='" + value.id_tipo_contrato + "'>" + value.nombre_tipo_contrato + "</option>") 
+              }
+            
+                   
+         });
+      });
     
        })
 }
