@@ -1,6 +1,6 @@
 <?php
  
-require_once 'organizaciones_modelo.php';
+require_once 'modeloOrganizaciones.php';
 $datos = $_GET;
 switch ($_GET['accion']){
     case 'editar':
@@ -52,7 +52,7 @@ switch ($_GET['accion']){
             $respuesta = array(
                 'codigo' => $organizaciones->getid_unidad_organizacional(),
                 'nombre_unidad_organizacional' => $organizaciones->getnombre_unidad_organizacional(),
-                'id_empresa' =>$organizaciones->getid_empresa(),
+                'id_empresa' => $organizaciones->getid_empresa(),
                 'respuesta' =>'existe'
             );
         }

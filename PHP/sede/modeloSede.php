@@ -1,37 +1,34 @@
 <?php
     require_once("../modeloAbstractoDB.php");
-    class Empresas extends ModeloAbstractoDB {
-		private $id_empresa;
-		private $nombre_empresa;
+    class Sede extends ModeloAbstractoDB {
 		private $id_sede;
-		private $id_proveedor;
+		private $nombre_sede;
+		private $id_municipio;
 		
 		function __construct() {
 			//$this->db_name = '';
 		}
 
-		public function getid_empresa(){
-			return $this->id_empresa;
-		}
-
-		public function getnombre_empresa(){
-			return $this->nombre_empresa;
-		}
-		
 		public function getid_sede(){
 			return $this->id_sede;
 		}
 
-		public function getid_proveedor(){
-			return $this->id_proveedor;
+		public function getnombre_sede(){
+			return $this->nombre_sede;
 		}
 
-		public function consultar($id_empresa='') {
-			if($id_empresa !=''):
+		public function getid_municipio(){
+			return $this->id_municipio;
+		}
+		
+
+
+		public function consultar($id_sede='') {
+			if($id_sede !=''):
 				$this->query = "
-				SELECT id_empresa, nombre_empresa, id_sede, id_proveedor
-				FROM empresa
-				WHERE id_empresa = '$id_empresa' order by id_empresa
+				SELECT id_sede, nombre_sede, id_municipio
+				FROM sede
+				WHERE id_sede = '$id_sede' order by id_sede
 				";
 				$this->obtener_resultados_query();
 			endif;
@@ -45,7 +42,7 @@
 		public function lista() {
 			$this->query = "
 			SELECT *
-			FROM empresa
+			FROM sede
 			";
 			
 			$this->obtener_resultados_query();
@@ -54,16 +51,16 @@
 		}
 		
 		public function nuevo($datos=array()) {
-			if(array_key_exists('id_empresa', $datos)):
+			if(array_key_exists('id_sede', $datos)):
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$id_empresa= utf8_decode($id_empresa);
+				$id_sede= utf8_decode($nombre_sede);
 				$this->query = "
-					INSERT INTO empresa
-					(id_empresa, nombre_empresa, id_sede, id_proveedor)
+					INSERT INTO sede
+					(id_sede, nombre_sede, id_municipio)
 					VALUES
-					('$id_empresa', '$nombre_empresa', '$id_sede', '$id_proveedor')
+					('$id_sede', '$nombre_sede', '$id_municipio')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -74,22 +71,20 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$id_empresa= utf8_decode($id_empresa);
+			$id_sede= utf8_decode($id_sede);
 			$this->query = "
-			UPDATE empresa
-			SET nombre_empresa='$nombre_empresa',
-			id_sede='$id_sede',
-			id_proveedor='$id_proveedor'
-			WHERE id_empresa = '$id_empresa'
+			UPDATE sede
+			SET nombre_sede='$nombre_sede', id_municipio='$id_municipio'
+			WHERE id_sede = '$id_sede'
 			";
 			$resultado = $this->ejecutar_query_simple();
 			return $resultado;
 		}
 		
-		public function borrar($id_empresa='') {
+		public function borrar($id_sede='') {
 			$this->query = "
-			DELETE FROM empresa
-			WHERE id_empresa = '$id_empresa'
+			DELETE FROM sede
+			WHERE id_sede = '$id_sede'
 			";
 			$resultado = $this->ejecutar_query_simple();
 
@@ -99,5 +94,8 @@
 		function __destruct() {
 			//unset($this);
 		}
+
+		
 	}
+	
 ?>
