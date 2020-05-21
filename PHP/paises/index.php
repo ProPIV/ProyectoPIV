@@ -35,6 +35,8 @@
 
 </table>
 
+<a class="btn btn-primary" href="../php/Reportes/ReportesPais.php" role="button">Reportes Pdf</a>
+
 <script src="../js/funcionesPais.js"></script>
 
 
