@@ -16,10 +16,12 @@
 		public function getnombre_unidad_organizacional(){
 			return $this->nombre_unidad_organizacional;
 		}
-		
+
 		public function getid_empresa(){
 			return $this->id_empresa;
 		}
+		
+
 
 		public function consultar($id_unidad_organizacional='') {
 			if($id_unidad_organizacional !=''):
@@ -53,10 +55,10 @@
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
-				$id_unidad_organizacional= utf8_decode($id_unidad_organizacional);
+				$id_unidad_organizacional= utf8_decode($nombre_unidad_organizacional);
 				$this->query = "
 					INSERT INTO unidad_organizacional
-					(id_unidad_organizacional, nombre_organizacional, id_empresa)
+					(id_unidad_organizacional, nombre_unidad_organizacional, id_empresa)
 					VALUES
 					('$id_unidad_organizacional', '$nombre_unidad_organizacional', '$id_empresa')
 					";
@@ -69,11 +71,10 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$nombre_unidad_organizacional= utf8_decode($nombre_unidad_organizacional);
+			$id_unidad_organizacional= utf8_decode($id_unidad_organizacional);
 			$this->query = "
 			UPDATE unidad_organizacional
-			SET nombre_unidad_organizacional='$nombre_unidad_organizacional',
-			id_empresa='$id_empresa'
+			SET nombre_unidad_organizacional='$nombre_unidad_organizacional', id_empresa='$id_empresa'
 			WHERE id_unidad_organizacional = '$id_unidad_organizacional'
 			";
 			$resultado = $this->ejecutar_query_simple();
@@ -93,5 +94,8 @@
 		function __destruct() {
 			//unset($this);
 		}
+
+		
 	}
+	
 ?>
