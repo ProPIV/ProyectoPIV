@@ -12,7 +12,7 @@
     <div class="list-group list-group-flush">
         <ul>
             <li>
-                <a href="" id="cargarAdmin"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Administrar usuarios</a>
+                
                 <a href="" id="cargarEmpleados"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Empleados</a>
                 <a href="" id="cargarProveedores"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Proveedores</a>
                 <a href="" id="cargarPaises"><img src="../Imagenes/Edificios.png" class="other" alt="">Paises</a>
