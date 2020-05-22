@@ -37,3 +37,5 @@
 </table>
 
 <script src="../js/funcionesSede.js"></script>
+
+<a class="btn btn-primary" href="../php/Reportes/ReportesSedes.php" role="button">Reportes Pdf</a>
