@@ -220,15 +220,13 @@ $(document).ready(() => {
             { "data": "id_sede" },
             { "data": "nombre_sede" },
             { "data": "id_municipio" },
-            {
-                "data": "id_sede",
+            { "data": "id_sede",
                 render: function(data) {
                     return '<a href="#" data-codigo="' + data +
                         '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>'
                 }
             },
-            {
-                "data": "id_sede",
+            { "data": "id_sede",
                 render: function(data) {
                     return '<a href="#" data-codigo="' + data +
                         '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';
@@ -236,8 +234,6 @@ $(document).ready(() => {
             }
         ]
     });
-
-
 
 
     sede();

@@ -34,3 +34,5 @@
 
 </div><!-- /.box-body -->  
 <script src="../js/funcionesProceso.js"></script>
+
+<a class="btn btn-primary" href="../php/Reportes/ReportesProcesos.php" role="button">Reportes Pdf</a>

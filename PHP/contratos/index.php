@@ -37,3 +37,5 @@
 
 </div><!-- /.box-body -->  
 <script src="../js/funcionesContratos.js"></script>
+
+<a class="btn btn-primary" href="../php/Reportes/ReportesContratos.php" role="button">Reportes Pdf</a>
