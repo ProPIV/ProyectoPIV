@@ -44,7 +44,7 @@ switch ($_GET['accion']){
         $sede = new Sede();
         $sede->consultar($datos['codigo']);
 
-        if($sede->getid_sede() == null)
+        if($sede->getid_sede() == null) {
             $respuesta = array(
                 'respuesta' => 'no existe'
             );
