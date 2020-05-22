@@ -79,7 +79,9 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT * FROM empleado
+			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, ciudad, id_unidad_organizacional, id_rol
+            FROM empleado as e inner join ciudad as c
+			ON (e.ciudad = c.id_ciudad) order by id_empleado
 			";
 			$this->obtener_resultados_query();
 			return $this->rows;

@@ -74,9 +74,9 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="ciudad">Ciudad:</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Seleccione Ciudad" value="">
-                            </div>
+                            <select class="form-control" id="ciudad" name="ciudad">
+                            
+                            </select>
                         </div>
                         
                         <div class="form-group">

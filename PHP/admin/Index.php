@@ -42,4 +42,3 @@
 </div><!-- /.box-body -->  
 <script src="../js/funcionesAdmin.js"></script>
 
-<a class="btn btn-primary" href="../php/Reportes/ReportesProvedores.php" role="button">Reportes Pdf</a>
