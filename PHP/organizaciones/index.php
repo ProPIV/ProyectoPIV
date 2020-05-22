@@ -38,6 +38,8 @@
 
 <script src="../js/funcionesOrganizaciones.js"></script>
 
+<a class="btn btn-primary" href="../php/Reportes/ReportesOrganizacion.php" role="button">Reportes Pdf</a>
+
 
 
 

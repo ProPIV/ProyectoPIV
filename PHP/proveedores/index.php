@@ -35,3 +35,5 @@
 
 </div><!-- /.box-body -->  
 <script src="../js/funcionesProveedores.js"></script>
+
+<a class="btn btn-primary" href="../php/Reportes/ReportesProvedores.php" role="button">Reportes Pdf</a>

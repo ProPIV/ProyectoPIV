@@ -34,3 +34,6 @@
 
 </div><!-- /.box-body -->  
 <script src="../js/funcionesciudad.js"></script>
+
+<a class="btn btn-primary" href="../php/Reportes/ReportesCiudades.php" role="button">Reportes Pdf</a>
+

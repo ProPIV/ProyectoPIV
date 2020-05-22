@@ -32,9 +32,9 @@ function inicio() {
         e.preventDefault();
         $("#contenido").load("../php/empresas/index.php");
     })
-    $("#cargarSucursal").click(function(e) {
+    $("#cargarSede").click(function(e) {
         e.preventDefault();
-        $("#contenido").load("../php/sucursal/index.php");
+        $("#contenido").load("../php/sede/index.php");
     })
     $("#cargarProcesos").click(function(e) {
         e.preventDefault();
