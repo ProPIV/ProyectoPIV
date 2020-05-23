@@ -32,10 +32,12 @@
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="tipo_documento">Tipo de documento:</label>
-                            <select id="tipo_documento" name="tipo_documento" placeholder=" Seleccione Tipo de documento">
+                            <div class="col-sm-10">
+                            <select class="form-control" id="tipo_documento" name="tipo_documento" placeholder=" Seleccione Tipo de documento">
                                 <option value="CC">Cedula</option>
                                 <option value="TI">Tarjeta de Identidad</option>
                             </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -73,23 +75,29 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="ciudad">Ciudad:</label>
-                            <select class="form-control" id="ciudad" name="ciudad">
-                            
-                            </select>
+                            <label class="control-label col-sm-2" for="id_ciudad">Ciudad:</label>
+                            <div class="col-sm-10">
+                            <select class="form-control" id="id_ciudad" name="id_ciudad">
+                         
+							</select>	
+                            </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="id_unidad_organizacional">Unidad Organizacional:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="id_unidad_organizacional" name="id_unidad_organizacional" placeholder="Seleccione Unidad Organizacional" value="">
+                            <select class="form-control" id="id_unidad_organizacional" name="id_unidad_organizacional">
+                         
+							</select>	
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="id_rol">Rol:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="id_rol" name="id_rol" placeholder="Seleccione Rol" value="">
+                            <select class="form-control" id="id_rol" name="id_rol">
+                         
+							</select>	
                             </div>
                         </div>
 

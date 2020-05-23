@@ -79,9 +79,12 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, c.nombre_ciudad, id_unidad_organizacional, id_rol
-            FROM empleado as e inner join ciudad as c
-			ON (e.id_ciudad = c.id_ciudad) order by id_empleado
+			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, c.nombre_ciudad, u.nombre_unidad_organizacional, r.nombre_rol
+			FROM empleado as e 
+			inner join ciudad as c ON (e.id_ciudad = c.id_ciudad)
+			inner join unidad_organizacional as u ON (e.id_unidad_organizacional = u.id_unidad_organizacional )
+			inner join rol as r ON (e.id_rol  = r.id_rol ) 
+			order by id_empleado
 			";
 			$this->obtener_resultados_query();
 			return $this->rows;
@@ -132,10 +135,36 @@
 			WHERE id_empleado = '$id_empleado'
 			";
 			$resultado = $this->ejecutar_query_simple();
-
 			return $resultado;
 		}
 		
+		public function ciudad() {
+			$this->query = "
+			SELECT *
+			FROM ciudad 
+			";
+			$this->obtener_resultados_query();
+			return $this->rows;
+		}
+
+		public function unidad() {
+			$this->query = "
+			SELECT *
+			FROM unidad_organizacional 
+			";
+			$this->obtener_resultados_query();
+			return $this->rows;
+		}
+
+		public function rol() {
+			$this->query = "
+			SELECT *
+			FROM rol 
+			";
+			$this->obtener_resultados_query();
+			return $this->rows;
+		}
+
 		function __destruct() {
 			//unset($this);
 		}

@@ -110,15 +110,41 @@ function Admin() {
         $.ajax({
             type:"get",
             url:"../php/admin/controladorAdmin.php",
-            data: {accion:'listar'},
+            data: {accion:'ciudad'},
             dataType:"json"
           }).done(function( resultado ) {   
              console.log(resultado.data)           
-             $("#ciudad option").remove()       
-             $("#ciudad").append("<option selecte value=''>Seleccione una Ciudad</option>")
+             $("#id_ciudad option").remove()       
+             $("#id_ciudad").append("<option selecte value=''>Seleccione una Ciudad</option>")
              $.each(resultado.data, function (index, value) { 
-               $("#ciudad").append("<option value='" + value.id_ciudad + "'>" + value.nombre_ciudad + "</option>")
-             });
+                $("#id_ciudad").append("<option value='" + value.id_ciudad + "'>" + value.nombre_ciudad + "</option>")
+              });
+          });
+          $.ajax({
+            type:"get",
+            url:"../php/admin/controladorAdmin.php",
+            data: {accion:'unidad'},
+            dataType:"json"
+          }).done(function( resultado ) {   
+             console.log(resultado.data)           
+             $("#id_unidad_organizacional option").remove()       
+             $("#id_unidad_organizacional").append("<option selecte value=''>Seleccione una Unidad Organizacional</option>")
+             $.each(resultado.data, function (index, value) { 
+                $("#id_unidad_organizacional").append("<option value='" + value.id_unidad_organizacional + "'>" + value.nombre_unidad_organizacional + "</option>")
+              });
+          });
+          $.ajax({
+            type:"get",
+            url:"../php/admin/controladorAdmin.php",
+            data: {accion:'rol'},
+            dataType:"json"
+          }).done(function( resultado ) {   
+             console.log(resultado.data)           
+             $("#id_rol option").remove()       
+             $("#id_rol").append("<option selecte value=''>Seleccione un Rol</option>")
+             $.each(resultado.data, function (index, value) { 
+                $("#id_rol").append("<option value='" + value.id_rol  + "'>" + value.nombre_rol + "</option>")
+              });
           });
     })
 
@@ -207,9 +233,9 @@ $(document).ready(() => {
             { "data": "apellido" },
             { "data": "direccion" },
             { "data": "telefono" },
-            { "data": "id_ciudad" },
-            { "data": "id_unidad_organizacional" },
-            { "data": "id_rol" },
+            { "data": "nombre_ciudad" },
+            { "data": "nombre_unidad_organizacional" },
+            { "data": "nombre_rol" },
             {
                 "data": "id_empleado",
                 render: function(data) {
