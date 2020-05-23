@@ -8,7 +8,7 @@
 		private $apellido;
 		private $direccion;
 		private $telefono;
-		private $ciudad;
+		private $id_ciudad;
 		private $id_unidad_organizacional;
 		private $id_rol;
 
@@ -45,8 +45,8 @@
 			return $this->telefono;
 		}
 
-		public function getciudad(){
-			return $this->ciudad;
+		public function getid_ciudad(){
+			return $this->id_ciudad;
 		}
 
 		public function getnombre_proveedor(){
@@ -79,9 +79,9 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, ciudad, id_unidad_organizacional, id_rol
+			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, c.nombre_ciudad, id_unidad_organizacional, id_rol
             FROM empleado as e inner join ciudad as c
-			ON (e.ciudad = c.id_ciudad) order by id_empleado
+			ON (e.id_ciudad = c.id_ciudad) order by id_empleado
 			";
 			$this->obtener_resultados_query();
 			return $this->rows;
@@ -96,9 +96,9 @@
 				$id_empleado= utf8_decode($id_empleado);
 				$this->query = "
 					INSERT INTO empleado
-					(tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, ciudad, id_unidad_organizacional, id_rol)
+					(tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, id_ciudad, id_unidad_organizacional, id_rol)
 					VALUES
-					('$tipo_documento','$documento','$nombre_empleado','$apellido','$direccion','$telefono','$ciudad','$id_unidad_organizacional','$id_rol')
+					('$tipo_documento','$documento','$nombre_empleado','$apellido','$direccion','$telefono','$id_ciudad','$id_unidad_organizacional','$id_rol')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -117,7 +117,7 @@
 			nombre_empleado='$nombre_empleado',
 			apellido='$apellido',
 			telefono='$telefono',
-			ciudad='$ciudad',
+			id_ciudad='$id_ciudad',
 			id_unidad_organizacional='$id_unidad_organizacional',
 			id_rol='$id_rol',
 			WHERE id_empleado = '$id_empleado'

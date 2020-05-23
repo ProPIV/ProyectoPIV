@@ -117,7 +117,7 @@ function Admin() {
              $("#ciudad option").remove()       
              $("#ciudad").append("<option selecte value=''>Seleccione una Ciudad</option>")
              $.each(resultado.data, function (index, value) { 
-               $("#ciudad").append("<option value='" + value.id_ciudad + "'>" + value.c.nombre_ciudad + "</option>")
+               $("#ciudad").append("<option value='" + value.id_ciudad + "'>" + value.nombre_ciudad + "</option>")
              });
           });
     })
@@ -207,7 +207,7 @@ $(document).ready(() => {
             { "data": "apellido" },
             { "data": "direccion" },
             { "data": "telefono" },
-            { "data": "ciudad" },
+            { "data": "id_ciudad" },
             { "data": "id_unidad_organizacional" },
             { "data": "id_rol" },
             {

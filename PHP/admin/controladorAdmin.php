@@ -57,7 +57,7 @@ switch ($_GET['accion']){
                 'apellido' =>$id_empleado->getapellido(),
                 'direccion' =>$id_empleado->getdireccion(),
                 'telefono' =>$id_empleado->gettelefono(),
-                'ciudad' =>$id_empleado->getciudad(),
+                'id_ciudad' =>$id_empleado->getid_ciudad(),
                 'id_unidad_organizacional' =>$id_empleado->getid_unidad_organizacional(),
                 'id_rol' =>$id_empleado->getid_rol(),
                 'respuesta' =>'existe'
