@@ -1,3 +1,4 @@
+
 $(document).on('submit','#formlg', function(event){
     event.preventDefault();
 
@@ -14,9 +15,11 @@ $(document).on('submit','#formlg', function(event){
          console.log(resultado);
          if(!resultado.error){
              if(resultado.tipo == '1'){
+                 console.log("asdmk");
                 location.href = 'PHP';
              }else if(resultado.tipo == '2'){
                 location.href = 'PHP';
+                
              }
          }else {
             $('.error').slideDown('slow');
