@@ -62,6 +62,20 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="control-label col-sm-2" for="usuario">Usuario:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese usuario" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="password">Password:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="password" name="password" placeholder="Ingrese password" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="control-label col-sm-2" for="direccion">Direccion:</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese Direccion" value="">
@@ -98,6 +112,20 @@
                             <select class="form-control" id="id_rol" name="id_rol">
                          
 							</select>	
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_empresa">Empresa:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="id_empresa" name="id_empresa" placeholder="Ingrese Empresa" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_permiso">Permiso:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="id_permiso" name="id_permiso" placeholder="Ingrese Permiso" value="">
                             </div>
                         </div>
 

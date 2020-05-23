@@ -6,11 +6,15 @@
 		private $documento;
 		private $nombre_empleado;
 		private $apellido;
+		private $usuario;
+		private $password;
 		private $direccion;
 		private $telefono;
 		private $id_ciudad;
 		private $id_unidad_organizacional;
 		private $id_rol;
+		private $id_empresa;
+		private $id_permiso;
 
 		
 		function __construct() {
@@ -35,6 +39,14 @@
 
 		public function getapellido(){
 			return $this->apellido;
+		}
+		
+		public function getusuario(){
+			return $this->usuario;
+		}
+
+		public function getpassword(){
+			return $this->password;
 		}
 
 		public function getdireccion(){
@@ -61,6 +73,14 @@
 			return $this->id_rol;
 		}
 
+		public function getid_empresa(){
+			return $this->id_empresa;
+		}
+
+		public function getid_permiso(){
+			return $this->id_permiso;
+		}
+
 		public function consultar($id_empleado='') {
 			if($id_empleado !=''):
 				$this->query = "
@@ -79,7 +99,7 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, c.nombre_ciudad, u.nombre_unidad_organizacional, r.nombre_rol
+			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, usuario, password, direccion, telefono, c.nombre_ciudad, u.nombre_unidad_organizacional, r.nombre_rol, e.id_empresa, e.id_permiso
 			FROM empleado as e 
 			inner join ciudad as c ON (e.id_ciudad = c.id_ciudad)
 			inner join unidad_organizacional as u ON (e.id_unidad_organizacional = u.id_unidad_organizacional )
@@ -99,9 +119,9 @@
 				$id_empleado= utf8_decode($id_empleado);
 				$this->query = "
 					INSERT INTO empleado
-					(tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, id_ciudad, id_unidad_organizacional, id_rol)
+					(tipo_documento, documento, nombre_empleado, apellido, usuario, password direccion, telefono, id_ciudad, id_unidad_organizacional, id_rol, id_empresa, id_permiso)
 					VALUES
-					('$tipo_documento','$documento','$nombre_empleado','$apellido','$direccion','$telefono','$id_ciudad','$id_unidad_organizacional','$id_rol')
+					('$tipo_documento','$documento','$nombre_empleado','$apellido','$usuario','$password','$direccion','$telefono','$id_ciudad','$id_unidad_organizacional','$id_rol','$id_empresa','$id_permiso')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
