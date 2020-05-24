@@ -55,15 +55,11 @@ switch ($_GET['accion']) {
                 'documento' => $id_empleado->getdocumento(),
                 'nombre_empleado' => $id_empleado->getnombre_empleado(),
                 'apellido' => $id_empleado->getapellido(),
-                'usuario' => $id_empleado->getusuario(),
-                'password' => $id_empleado->getpassword(),
                 'direccion' => $id_empleado->getdireccion(),
                 'telefono' => $id_empleado->gettelefono(),
                 'id_ciudad' => $id_empleado->getid_ciudad(),
                 'id_unidad_organizacional' => $id_empleado->getid_unidad_organizacional(),
                 'id_rol' => $id_empleado->getid_rol(),
-                'id_empresa' => $id_empleado->getid_empresa(),
-                'id_permiso' => $id_empleado->getid_permiso(),
                 'respuesta' => 'existe'
             );
         }

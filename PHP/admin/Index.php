@@ -24,15 +24,11 @@
 			<th>documento</th>
 			<th>Nombre</th>
 			<th>Apellido</th>
-			<th>usuario</th>
-			<th>password</th>
 			<th>Direccion</th>
             <th>Telefono</th>
 			<th>Ciudad</th>
 			<th>Unidad Organizacional</th>
 			<th>Rol</th>
-			<th>Empresa</th>
-			<th>Permiso</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>

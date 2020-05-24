@@ -1,5 +1,5 @@
 <?php 
-  $rol = "nada";
+  $rol = "admin";
   $navSuperior = file_get_contents('navSuperior.php');
   $sidebarAdmin = file_get_contents('admin/sidebarAdmin.php');
   $sidebar = file_get_contents('sidebar.php');

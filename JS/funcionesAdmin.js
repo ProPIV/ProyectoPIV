@@ -231,15 +231,11 @@ $(document).ready(() => {
             { "data": "documento" },
             { "data": "nombre_empleado" },
             { "data": "apellido" },
-            { "data": "usuario" },
-            { "data": "password" },
             { "data": "direccion" },
             { "data": "telefono" },
             { "data": "nombre_ciudad" },
             { "data": "nombre_unidad_organizacional" },
             { "data": "nombre_rol" },
-            { "data": "id_empresa" },
-            { "data": "id_permiso" },
             {
                 "data": "id_empleado",
                 render: function(data) {
