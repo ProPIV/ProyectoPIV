@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2020 a las 03:35:01
+-- Tiempo de generación: 27-05-2020 a las 23:26:16
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.2
+-- Versión de PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,7 +40,8 @@ CREATE TABLE `ciudad` (
 
 INSERT INTO `ciudad` (`id_ciudad`, `nombre_ciudad`, `id_pais`) VALUES
 (1, 'cali', 1),
-(2, 'bogota DC', 1);
+(2, 'bogota DC', 1),
+(4, 'madrid', 384);
 
 -- --------------------------------------------------------
 
@@ -63,28 +64,8 @@ CREATE TABLE `contrato` (
 
 INSERT INTO `contrato` (`id_contrato`, `id_empleado`, `fecha_ini`, `fecha_fin`, `id_tipo_contrato`, `id_proveedor`) VALUES
 (1, 1, '01-01-2020', '0', 1, 0),
-(2, 2, '01-01-2020', '01-01-2021', 2, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cuenta`
---
-
-CREATE TABLE `cuenta` (
-  `id_cuenta` int(10) UNSIGNED NOT NULL,
-  `nombre_cuenta` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `id_empresa` int(10) UNSIGNED NOT NULL,
-  `id_permiso` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `cuenta`
---
-
-INSERT INTO `cuenta` (`id_cuenta`, `nombre_cuenta`, `id_empresa`, `id_permiso`) VALUES
-(1, 'carvajal@carvajal.com', 1, 1),
-(2, 'colombina@colombina.com', 2, 1);
+(2, 2, '01-01-2020', '01-01-2021', 2, 0),
+(377, 1, '01-01-2020', '01-01-2020', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -95,21 +76,27 @@ INSERT INTO `cuenta` (`id_cuenta`, `nombre_cuenta`, `id_empresa`, `id_permiso`) 
 CREATE TABLE `empleado` (
   `id_empleado` int(10) UNSIGNED NOT NULL,
   `tipo_documento` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `documento` int(15) NOT NULL,
   `nombre_empleado` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `apellido` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `usuario` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `password` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(20) UNSIGNED NOT NULL,
+  `id_ciudad` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `id_unidad_organizacional` int(10) UNSIGNED NOT NULL,
-  `id_rol` int(10) UNSIGNED NOT NULL
+  `id_rol` int(10) UNSIGNED NOT NULL,
+  `id_empresa` int(10) NOT NULL,
+  `id_permiso` int(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `tipo_documento`, `nombre_empleado`, `apellido`, `direccion`, `telefono`, `id_unidad_organizacional`, `id_rol`) VALUES
-(1, 'cedula', 'Sebastian', 'Gutierrez', 'cll 5a 5-45', 3121234567, 1, 1),
-(2, 'cedula', 'Erick', 'Cuellar', 'cll 6 45-33', 3109876543, 2, 2);
+INSERT INTO `empleado` (`id_empleado`, `tipo_documento`, `documento`, `nombre_empleado`, `apellido`, `usuario`, `password`, `direccion`, `telefono`, `id_ciudad`, `id_unidad_organizacional`, `id_rol`, `id_empresa`, `id_permiso`) VALUES
+(378, 'CC', 1107, 'Carlos', 'Aux', 'AuxEsp', '123456789', 'Calle 61', 31839283, '2', 2, 2, 2, 2),
+(377, 'CC', 1107529980, 'Sebastian', 'Gutierrez', 'sebclacl', '123456789', 'Calle 62', 3183892373, '1', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -130,8 +117,8 @@ CREATE TABLE `empresa` (
 --
 
 INSERT INTO `empresa` (`id_empresa`, `nit_empresa`, `nombre_empresa`, `id_sede`, `id_proveedor`) VALUES
-(1, 0, 'Carvajal', 1, 1),
-(2, 0, 'Colombina', 2, 2);
+(2, 0, 'Colombina', 2, 2),
+(377, 0, 'EMI', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -154,7 +141,7 @@ INSERT INTO `pais` (`id_pais`, `nombre_pais`) VALUES
 (378, 'ecuadorr'),
 (379, 'venecia'),
 (380, 'canada'),
-(381, 'panama');
+(384, 'espana');
 
 -- --------------------------------------------------------
 
@@ -183,16 +170,17 @@ INSERT INTO `permiso` (`id_permiso`, `nombre_permiso`) VALUES
 
 CREATE TABLE `proceso` (
   `id_proceso` int(10) UNSIGNED NOT NULL,
-  `nombre_proceso` varchar(30) COLLATE utf8_spanish_ci NOT NULL
+  `nombre_proceso` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `Descripcion` varchar(500) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `proceso`
 --
 
-INSERT INTO `proceso` (`id_proceso`, `nombre_proceso`) VALUES
-(1, 'Penal'),
-(2, 'Tesoreria');
+INSERT INTO `proceso` (`id_proceso`, `nombre_proceso`, `Descripcion`) VALUES
+(1, 'Penal', 'El proceso penal es el procedimiento de caracter juridico que se lleva a cabo para que un organo estatal aplique una ley de tipo penal en un caso especifico.'),
+(2, 'Tesoreria', 'Es el area de una empresa en la cual se organizan y gestionan todas las acciones relacionadas con operaciones de flujo monetario o flujo de caja. ... Esto incluye los cobros por actividades de la empresa, los pagos a proveedores, las gestiones bancarias y cualquier otro movimiento de la caja de una empresa.');
 
 -- --------------------------------------------------------
 
@@ -244,37 +232,16 @@ INSERT INTO `rol` (`id_rol`, `nombre_rol`, `id_proceso`) VALUES
 CREATE TABLE `sede` (
   `id_sede` int(10) UNSIGNED NOT NULL,
   `nombre_sede` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `id_municipio` int(10) UNSIGNED NOT NULL
+  `id_empresa` int(10) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `sede`
 --
 
-INSERT INTO `sede` (`id_sede`, `nombre_sede`, `id_municipio`) VALUES
+INSERT INTO `sede` (`id_sede`, `nombre_sede`, `id_empresa`) VALUES
 (1, 'Norte', 1),
 (2, 'Sur', 2);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `soporte`
---
-
-CREATE TABLE `soporte` (
-  `id_soporte` int(10) UNSIGNED NOT NULL,
-  `nombre_soporte` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `contraseña` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `id_cuenta` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `soporte`
---
-
-INSERT INTO `soporte` (`id_soporte`, `nombre_soporte`, `contraseña`, `id_cuenta`) VALUES
-(1, 'Cuenta bloqueada', 'abc123', 1),
-(2, 'Red inestable', 'abc123', 2);
 
 -- --------------------------------------------------------
 
@@ -315,26 +282,6 @@ INSERT INTO `unidad_organizacional` (`id_unidad_organizacional`, `nombre_unidad_
 (1, 'Juridico', 1),
 (2, 'Financiero', 2);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario_soporte`
---
-
-CREATE TABLE `usuario_soporte` (
-  `id_usuario_soporte` int(10) UNSIGNED NOT NULL,
-  `nombre_usuario_soporte` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `id_soporte` int(10) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `usuario_soporte`
---
-
-INSERT INTO `usuario_soporte` (`id_usuario_soporte`, `nombre_usuario_soporte`, `id_soporte`) VALUES
-(1, 'Carlos', 1),
-(2, 'Alejandro', 2);
-
 --
 -- Índices para tablas volcadas
 --
@@ -350,12 +297,6 @@ ALTER TABLE `ciudad`
 --
 ALTER TABLE `contrato`
   ADD PRIMARY KEY (`id_contrato`);
-
---
--- Indices de la tabla `cuenta`
---
-ALTER TABLE `cuenta`
-  ADD PRIMARY KEY (`id_cuenta`);
 
 --
 -- Indices de la tabla `empleado`
@@ -406,12 +347,6 @@ ALTER TABLE `sede`
   ADD PRIMARY KEY (`id_sede`);
 
 --
--- Indices de la tabla `soporte`
---
-ALTER TABLE `soporte`
-  ADD PRIMARY KEY (`id_soporte`);
-
---
 -- Indices de la tabla `tipo_contrato`
 --
 ALTER TABLE `tipo_contrato`
@@ -424,12 +359,6 @@ ALTER TABLE `unidad_organizacional`
   ADD PRIMARY KEY (`id_unidad_organizacional`);
 
 --
--- Indices de la tabla `usuario_soporte`
---
-ALTER TABLE `usuario_soporte`
-  ADD PRIMARY KEY (`id_usuario_soporte`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -437,37 +366,31 @@ ALTER TABLE `usuario_soporte`
 -- AUTO_INCREMENT de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  MODIFY `id_ciudad` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ciudad` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `contrato`
 --
 ALTER TABLE `contrato`
-  MODIFY `id_contrato` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
-
---
--- AUTO_INCREMENT de la tabla `cuenta`
---
-ALTER TABLE `cuenta`
-  MODIFY `id_cuenta` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
+  MODIFY `id_contrato` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=378;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
+  MODIFY `id_empleado` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=379;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
+  MODIFY `id_empresa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=378;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id_pais` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=383;
+  MODIFY `id_pais` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=385;
 
 --
 -- AUTO_INCREMENT de la tabla `permiso`
@@ -485,7 +408,7 @@ ALTER TABLE `proceso`
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id_proveedor` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
+  MODIFY `id_proveedor` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=382;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -500,12 +423,6 @@ ALTER TABLE `sede`
   MODIFY `id_sede` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
 
 --
--- AUTO_INCREMENT de la tabla `soporte`
---
-ALTER TABLE `soporte`
-  MODIFY `id_soporte` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
-
---
 -- AUTO_INCREMENT de la tabla `tipo_contrato`
 --
 ALTER TABLE `tipo_contrato`
@@ -516,12 +433,6 @@ ALTER TABLE `tipo_contrato`
 --
 ALTER TABLE `unidad_organizacional`
   MODIFY `id_unidad_organizacional` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
-
---
--- AUTO_INCREMENT de la tabla `usuario_soporte`
---
-ALTER TABLE `usuario_soporte`
-  MODIFY `id_usuario_soporte` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
