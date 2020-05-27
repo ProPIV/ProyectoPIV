@@ -54,8 +54,12 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT *
-			FROM contrato 
+			SELECT id_contrato, fecha_ini, fecha_fin, u.nombre_proveedor, r.nombre_tipo_contrato, c.nombre_empleado
+			FROM contrato as e 
+			inner join empleado as c ON (e.id_empleado = c.id_empleado)
+			inner join proveedor as u ON (e.id_proveedor = u.id_proveedor )
+			inner join tipo_contrato as r ON (e.id_tipo_contrato  = r.id_tipo_contrato ) 
+			order by id_contrato
 			";
 			
 			$this->obtener_resultados_query();

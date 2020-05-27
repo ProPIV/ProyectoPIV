@@ -175,7 +175,7 @@ function contratos(){
                 })
             } else {
                 $("#id_contrato").val(contratos.codigo);                   
-                $("#id_empleado").val(contratos.id_empleado);
+                $("#id_empleado").val(contratos.nombre_empleado);
                 $("#fecha_ini").val(contratos.fecha_ini);
                 $("#fecha_fin").val(contratos.fecha_fin);                
                 $("#id_proveedor").val(contratos.id_proveedor);                
@@ -217,11 +217,11 @@ $(document).ready(() => {
         "ajax": "../PHP/contratos/controladorContratos.php?accion=listar",
         "columns": [
             { "data": "id_contrato"},
-            { "data": "id_empleado"},
+            { "data": "nombre_empleado"},
             { "data": "fecha_ini"},
             { "data": "fecha_fin"},
-            { "data": "id_tipo_contrato"},
-            { "data": "id_proveedor"},
+            { "data": "nombre_tipo_contrato"},
+            { "data": "nombre_proveedor"},
             { "data": "id_contrato",
                 render: function (data) {
                           return '<a href="#" data-codigo="'+ data + 
