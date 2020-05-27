@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2020 a las 03:35:01
+-- Tiempo de generación: 27-05-2020 a las 23:33:10
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -62,8 +62,8 @@ CREATE TABLE `contrato` (
 --
 
 INSERT INTO `contrato` (`id_contrato`, `id_empleado`, `fecha_ini`, `fecha_fin`, `id_tipo_contrato`, `id_proveedor`) VALUES
-(1, 1, '01-01-2020', '0', 1, 0),
-(2, 2, '01-01-2020', '01-01-2021', 2, 0);
+(1, 1, '01-01-2020', '0', 1, 2),
+(2, 2, '01-01-2020', '01-01-2021', 2, 1);
 
 -- --------------------------------------------------------
 
