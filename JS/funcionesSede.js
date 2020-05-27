@@ -108,14 +108,14 @@ function sede() {
         $("sede").addClass("hide");
         $.ajax({
             type: "get",
-            url: "../PHP/municipio/controladorMunicipio.php",
+            url: "../PHP/empresa/controladorEmpresa.php",
             data: { accion: 'listar' },
             dataType: "json"
         }).done(function(resultado) {
             $("#id_municipio option").remove()
             $("#id_municipio").append("<option selecte value=''>Seleccione una empresa</option>")
             $.each(resultado.data, function(index, value) {
-                $("#id_municipio").append("<option value='" + value.id_municipio + "'>" + value.nombre_empresa + "</option>")
+                $("#id_municipio").append("<option value='" + value.id_empresa + "'>" + value.nombre_empresa + "</option>")
             });
         });
 
@@ -187,7 +187,7 @@ function sede() {
         });
         $.ajax({
             type: "get",
-            url: "../PHP/municipio/controladorMunicipio.php",
+            url: "../PHP/sede/controladorSede.php",
             data: { accion: 'listar' },
             dataType: "json"
         }).done(function(resultado) {
@@ -219,7 +219,7 @@ $(document).ready(() => {
         "columns": [
             { "data": "id_sede" },
             { "data": "nombre_sede" },
-            { "data": "id_municipio" },
+            { "data": "nombre_empresa" },
             { "data": "id_sede",
                 render: function(data) {
                     return '<a href="#" data-codigo="' + data +

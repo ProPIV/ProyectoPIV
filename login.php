@@ -2,9 +2,9 @@
 require 'conexion.php';
 sleep(2);
 $usuarios = $mysqli->query("
-Select nombre_cuenta, id_permiso
-FROM cuenta
-WHERE nombre_cuenta = '".$_POST['usernamelg']."'
+Select usuario, id_permiso
+FROM empleado
+WHERE usuario = '".$_POST['usernamelg']."'
 AND password = '".$_POST['passwordlg']."'");
 if($usuarios->num_rows == 1):
     $datos = $usuarios->fetch_assoc();

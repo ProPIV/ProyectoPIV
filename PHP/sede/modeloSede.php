@@ -3,7 +3,7 @@
     class Sede extends ModeloAbstractoDB {
 		private $id_sede;
 		private $nombre_sede;
-		private $id_municipio;
+		private $id_empresa;
 		
 		function __construct() {
 			//$this->db_name = '';
@@ -17,8 +17,8 @@
 			return $this->nombre_sede;
 		}
 
-		public function getid_municipio(){
-			return $this->id_municipio;
+		public function getid_empresa(){
+			return $this->id_empresa;
 		}
 		
 
@@ -26,7 +26,7 @@
 		public function consultar($id_sede='') {
 			if($id_sede !=''):
 				$this->query = "
-				SELECT id_sede, nombre_sede, id_municipio
+				SELECT id_sede, nombre_sede, id_empresa
 				FROM sede
 				WHERE id_sede = '$id_sede' order by id_sede
 				";
@@ -41,8 +41,10 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT *
-			FROM sede
+			SELECT e.id_sede, e.nombre_sede, c.nombre_empresa
+			FROM sede as e 
+			inner join empresa as c ON (e.id_empresa = c.id_empresa)
+			order by id_sede
 			";
 			
 			$this->obtener_resultados_query();
@@ -58,9 +60,9 @@
 				$id_sede= utf8_decode($nombre_sede);
 				$this->query = "
 					INSERT INTO sede
-					(id_sede, nombre_sede, id_municipio)
+					(id_sede, nombre_sede, id_empresa)
 					VALUES
-					('$id_sede', '$nombre_sede', '$id_municipio')
+					('$id_sede', '$nombre_sede', '$id_empresa')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -74,7 +76,7 @@
 			$id_sede= utf8_decode($id_sede);
 			$this->query = "
 			UPDATE sede
-			SET nombre_sede='$nombre_sede', id_municipio='$id_municipio'
+			SET nombre_sede='$nombre_sede', id_empresa='$id_empresa'
 			WHERE id_sede = '$id_sede'
 			";
 			$resultado = $this->ejecutar_query_simple();
