@@ -62,6 +62,20 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="control-label col-sm-2" for="usuario">Usuario:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese Usuario" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="password">Contraseña:</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese Contraseña" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="control-label col-sm-2" for="direccion">Direccion:</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese Direccion" value="">
@@ -96,6 +110,24 @@
                             <label class="control-label col-sm-2" for="id_rol">Rol:</label>
                             <div class="col-sm-10">
                             <select class="form-control" id="id_rol" name="id_rol">
+                         
+							</select>	
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_empresa">Empresa:</label>
+                            <div class="col-sm-10">
+                            <select class="form-control" id="id_empresa" name="id_empresa">
+                         
+							</select>	
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_permiso">Permiso:</label>
+                            <div class="col-sm-10">
+                            <select class="form-control" id="id_permiso" name="id_permiso">
                          
 							</select>	
                             </div>

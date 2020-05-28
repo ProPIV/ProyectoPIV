@@ -146,6 +146,32 @@ function Admin() {
                 $("#id_rol").append("<option value='" + value.id_rol  + "'>" + value.nombre_rol + "</option>")
               });
           });
+          $.ajax({
+            type:"get",
+            url:"../php/admin/controladorAdmin.php",
+            data: {accion:'empresa'},
+            dataType:"json"
+          }).done(function( resultado ) {   
+             console.log(resultado.data)           
+             $("#id_empresa option").remove()       
+             $("#id_empresa").append("<option selecte value=''>Seleccione un Empresa</option>")
+             $.each(resultado.data, function (index, value) { 
+                $("#id_empresa").append("<option value='" + value.id_empresa  + "'>" + value.nombre_empresa + "</option>")
+              });
+          });
+          $.ajax({
+            type:"get",
+            url:"../php/admin/controladorAdmin.php",
+            data: {accion:'permiso'},
+            dataType:"json"
+          }).done(function( resultado ) {   
+             console.log(resultado.data)           
+             $("#id_permiso option").remove()       
+             $("#id_permiso").append("<option selecte value=''>Seleccione un Permiso</option>")
+             $.each(resultado.data, function (index, value) { 
+                $("#id_permiso").append("<option value='" + value.id_permiso  + "'>" + value.nombre_permiso + "</option>")
+              });
+          });
     })
 
     $("#contenido").on("click", "button#grabar", function() {
@@ -226,6 +252,7 @@ $(document).ready(() => {
     dt = $("#tabla").DataTable({
         "ajax": "admin/controladorAdmin.php?accion=listar",
         "columns": [
+            
             { "data": "id_empleado" },
             { "data": "tipo_documento" },
             { "data": "documento" },
@@ -238,6 +265,8 @@ $(document).ready(() => {
             { "data": "nombre_ciudad" },
             { "data": "nombre_unidad_organizacional" },
             { "data": "nombre_rol" },
+            { "data": "nombre_empresa" },
+            { "data": "nombre_permiso" },
             {
                 "data": "id_empleado",
                 render: function(data) {

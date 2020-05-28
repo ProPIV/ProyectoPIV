@@ -55,11 +55,15 @@ switch ($_GET['accion']) {
                 'documento' => $id_empleado->getdocumento(),
                 'nombre_empleado' => $id_empleado->getnombre_empleado(),
                 'apellido' => $id_empleado->getapellido(),
+                'usuario' => $id_empleado->getusuario(),
+                'password' => $id_empleado->getpassword(),
                 'direccion' => $id_empleado->getdireccion(),
                 'telefono' => $id_empleado->gettelefono(),
                 'id_ciudad' => $id_empleado->getid_ciudad(),
                 'id_unidad_organizacional' => $id_empleado->getid_unidad_organizacional(),
                 'id_rol' => $id_empleado->getid_rol(),
+                'id_empresa' => $id_empleado->getid_empresa(),
+                'id_permiso' => $id_empleado->getid_permiso(),
                 'respuesta' => 'existe'
             );
         }
@@ -87,6 +91,19 @@ switch ($_GET['accion']) {
     case 'rol':
         $id_empleado = new Admin();
         $listado = $id_empleado->rol();
+        echo json_encode(array('data' => $listado), JSON_UNESCAPED_UNICODE);
+        break;
+
+    case 'empresa':
+        $id_empleado = new Admin();
+        $listado = $id_empleado->empresa();
+        echo json_encode(array('data' => $listado), JSON_UNESCAPED_UNICODE);
+        break;
+        
+
+    case 'permiso':
+        $id_empleado = new Admin();
+        $listado = $id_empleado->permiso();
         echo json_encode(array('data' => $listado), JSON_UNESCAPED_UNICODE);
         break;
 }

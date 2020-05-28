@@ -13,7 +13,9 @@
 		private $id_ciudad;
 		private $id_unidad_organizacional;
 		private $id_rol;
-
+		private $id_empresa;
+		private $id_permiso;
+		private $pass_cifrado;
 		
 		function __construct() {
 			//$this->db_name = '';
@@ -71,6 +73,14 @@
 			return $this->id_rol;
 		}
 
+		public function getid_empresa(){
+			return $this->id_empresa;
+		}
+
+		public function getid_permiso(){
+			return $this->id_permiso;
+		}
+		
 		public function consultar($id_empleado='') {
 			if($id_empleado !=''):
 				$this->query = "
@@ -89,11 +99,13 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, usuario, password, direccion, telefono, c.nombre_ciudad, u.nombre_unidad_organizacional, r.nombre_rol
+			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, usuario, password, direccion, telefono, c.nombre_ciudad, u.nombre_unidad_organizacional, r.nombre_rol, em.nombre_empresa, p.nombre_permiso
 			FROM empleado as e 
 			inner join ciudad as c ON (e.id_ciudad = c.id_ciudad)
 			inner join unidad_organizacional as u ON (e.id_unidad_organizacional = u.id_unidad_organizacional )
 			inner join rol as r ON (e.id_rol  = r.id_rol ) 
+			inner join empresa as em ON (e.id_empresa  = em.id_empresa ) 
+            inner join permiso as p ON (e.id_permiso  = p.id_permiso ) 
 			order by id_empleado
 			";
 			$this->obtener_resultados_query();
@@ -106,12 +118,13 @@
 				foreach ($datos as $campo=>$valor):
 					$$campo = $valor;
 				endforeach;
+				$pass_cifrado=password_hash($password, PASSWORD_DEFAULT);
 				$id_empleado= utf8_decode($id_empleado);
 				$this->query = "
 					INSERT INTO empleado
-					(tipo_documento, documento, nombre_empleado, apellido, usuario, password direccion, telefono, id_ciudad, id_unidad_organizacional, id_rol)
+					(tipo_documento, documento, nombre_empleado, apellido, usuario, password, direccion, telefono, id_ciudad, id_unidad_organizacional, id_rol, id_empresa, id_permiso)
 					VALUES
-					('$tipo_documento','$documento','$nombre_empleado','$apellido','$usuario','$password','$direccion','$telefono','$id_ciudad','$id_unidad_organizacional','$id_rol')
+					('$tipo_documento','$documento','$nombre_empleado','$apellido','$usuario','$pass_cifrado','$direccion','$telefono','$id_ciudad','$id_unidad_organizacional','$id_rol','$id_empresa','$id_permiso')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -170,6 +183,24 @@
 			$this->query = "
 			SELECT *
 			FROM rol 
+			";
+			$this->obtener_resultados_query();
+			return $this->rows;
+		}
+
+		public function empresa() {
+			$this->query = "
+			SELECT *
+			FROM empresa 
+			";
+			$this->obtener_resultados_query();
+			return $this->rows;
+		}
+
+		public function permiso() {
+			$this->query = "
+			SELECT *
+			FROM permiso 
 			";
 			$this->obtener_resultados_query();
 			return $this->rows;

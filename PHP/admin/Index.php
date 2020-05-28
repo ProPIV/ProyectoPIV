@@ -1,7 +1,6 @@
 <div id="nuevo-editar" class="hide">
 		<!-- div para cargar el formulario para un nuevo user o editar un user -->
 </div>
-
 <div id="Usuarios">
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
@@ -16,7 +15,7 @@
 
 <div class="box-body">
              
-<table id="tabla" class="table table-striped table-bordered" style="width:100%">
+<table id="tabla" class="table table-striped table-bordered" >
 	<thead>
 		<tr>
 			<th>ID Usuario</th>
@@ -25,12 +24,14 @@
 			<th>Nombre</th>
 			<th>Apellido</th>
 			<th>Usuario</th>
-			<th>Contraseña</th>
+			<th class="col-sm-1">Contraseña</th>
 			<th>Direccion</th>
             <th>Telefono</th>
 			<th>Ciudad</th>
 			<th>Unidad Organizacional</th>
 			<th>Rol</th>
+			<th>Empresa</th>
+			<th>Permiso</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>
