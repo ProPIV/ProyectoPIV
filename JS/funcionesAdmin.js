@@ -231,6 +231,8 @@ $(document).ready(() => {
             { "data": "documento" },
             { "data": "nombre_empleado" },
             { "data": "apellido" },
+            { "data": "usuario" },
+            { "data": "password" },
             { "data": "direccion" },
             { "data": "telefono" },
             { "data": "nombre_ciudad" },

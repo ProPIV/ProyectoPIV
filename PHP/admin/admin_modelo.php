@@ -6,6 +6,8 @@
 		private $documento;
 		private $nombre_empleado;
 		private $apellido;
+		private $usuario;
+		private $password;
 		private $direccion;
 		private $telefono;
 		private $id_ciudad;
@@ -35,6 +37,14 @@
 
 		public function getapellido(){
 			return $this->apellido;
+		}
+
+		public function getusuario(){
+			return $this->usuario;
+		}
+
+		public function getpassword(){
+			return $this->password;
 		}
 
 		public function getdireccion(){
@@ -79,7 +89,7 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, c.nombre_ciudad, u.nombre_unidad_organizacional, r.nombre_rol
+			SELECT id_empleado, tipo_documento, documento, nombre_empleado, apellido, usuario, password, direccion, telefono, c.nombre_ciudad, u.nombre_unidad_organizacional, r.nombre_rol
 			FROM empleado as e 
 			inner join ciudad as c ON (e.id_ciudad = c.id_ciudad)
 			inner join unidad_organizacional as u ON (e.id_unidad_organizacional = u.id_unidad_organizacional )
@@ -99,9 +109,9 @@
 				$id_empleado= utf8_decode($id_empleado);
 				$this->query = "
 					INSERT INTO empleado
-					(tipo_documento, documento, nombre_empleado, apellido, direccion, telefono, id_ciudad, id_unidad_organizacional, id_rol)
+					(tipo_documento, documento, nombre_empleado, apellido, usuario, password direccion, telefono, id_ciudad, id_unidad_organizacional, id_rol)
 					VALUES
-					('$tipo_documento','$documento','$nombre_empleado','$apellido','$direccion','$telefono','$id_ciudad','$id_unidad_organizacional','$id_rol')
+					('$tipo_documento','$documento','$nombre_empleado','$apellido','$usuario','$password','$direccion','$telefono','$id_ciudad','$id_unidad_organizacional','$id_rol')
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;

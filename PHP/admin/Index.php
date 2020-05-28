@@ -24,6 +24,8 @@
 			<th>documento</th>
 			<th>Nombre</th>
 			<th>Apellido</th>
+			<th>Usuario</th>
+			<th>Contraseña</th>
 			<th>Direccion</th>
             <th>Telefono</th>
 			<th>Ciudad</th>
