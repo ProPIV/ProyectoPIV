@@ -8,10 +8,10 @@
   $contenidoEmpleados = file_get_contents('empleados/Index.php');
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8">
+  <meta charset="utf-8" l>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">

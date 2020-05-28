@@ -18,7 +18,9 @@ body {
     padding: 0%;
 }
 .Alin-usert{
-    left: 11% !important;  
+    left: 8% !important;  
+    padding-left: 0%;
+    padding-right: 0%;
 }
 .dropdown-user{
     left: -70%;
@@ -31,13 +33,14 @@ body {
     border-left: 5px solid #ffffff;
 }
 .Alin-imgt{
-    left: 7.6% !important;
+    left: 6.9% !important;
+    padding-left: 0;
 }
 .Alin-user{
-    left: 6%;  
+    left: 11%;  
 }
 .Alin-img{
-    left: 5.6%;
+    left: 7.6%;
 }
 .boton_menu{
     background: transparent;
