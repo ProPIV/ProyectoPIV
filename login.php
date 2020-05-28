@@ -1,6 +1,6 @@
 <?php
 require 'conexion.php';
-sleep(1);
+sleep(2);
 $usuarios = $mysqli->query("
 Select usuario, id_permiso
 FROM empleado
