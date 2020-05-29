@@ -14,11 +14,6 @@
             <li>
                 
                 <a href="" id="cargarAdmin"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Usuarios</a>
-                <a href="" id="cargarProveedores"><img src="../Imagenes/Usuarios.png" class="usuarios" alt="">Proveedores</a>
-                <a href="" id="cargarPaises"><img src="../Imagenes/Edificios.png" class="other" alt="">Paises</a>
-                <a href="" id="cargarCiudad"><img src="../Imagenes/Edificios.png" class="other" alt="">Ciudades</a>
-                <a href="" id="cargarOrganizaciones"><img src="../Imagenes/Edificios.png" class="other" alt="">Organizaciones</a>
-                <a href="" id="cargarEmpresas"><img src="../Imagenes/Edificios.png" class="other" alt="">Empresas</a>
                 <a href="" id="cargarSede"><img src="../Imagenes/Sucursal.png" class="other" alt="">Sucursal</a>
                 <a href="" id="cargarProcesos"><img src="../Imagenes/inicio.png" class="other" alt="">Procesos</a>                
                 <a href="" id="cargarContratos"><img src="../Imagenes/Contratos.png" class="other" alt="">Contratos</a>
