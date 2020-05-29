@@ -142,10 +142,14 @@
 			documento='$documento',
 			nombre_empleado='$nombre_empleado',
 			apellido='$apellido',
+			usuario='$usuario',
+			password='$password',
 			telefono='$telefono',
 			id_ciudad='$id_ciudad',
 			id_unidad_organizacional='$id_unidad_organizacional',
 			id_rol='$id_rol',
+			id_empresa='$id_empresa',
+			id_permiso='$id_permiso',
 			WHERE id_empleado = '$id_empleado'
 			";
 			$resultado = $this->ejecutar_query_simple();
