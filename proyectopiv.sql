@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-05-2020 a las 08:15:06
+-- Tiempo de generación: 29-05-2020 a las 04:22:25
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.2
+-- Versión de PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -63,8 +63,8 @@ CREATE TABLE `contrato` (
 --
 
 INSERT INTO `contrato` (`id_contrato`, `id_empleado`, `fecha_ini`, `fecha_fin`, `id_tipo_contrato`, `id_proveedor`) VALUES
-(1, 1, '01-01-2020', '0', 1, 0),
-(2, 2, '01-01-2020', '01-01-2021', 2, 0),
+(1, 378, '01-01-2020', '01-02-2020', 1, 1),
+(2, 377, '01-01-2020', '01-01-2021', 2, 2),
 (377, 1, '01-01-2020', '01-01-2020', 2, 1);
 
 -- --------------------------------------------------------
@@ -170,16 +170,17 @@ INSERT INTO `permiso` (`id_permiso`, `nombre_permiso`) VALUES
 
 CREATE TABLE `proceso` (
   `id_proceso` int(10) UNSIGNED NOT NULL,
-  `nombre_proceso` varchar(30) COLLATE utf8_spanish_ci NOT NULL
+  `nombre_proceso` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `Descripcion` varchar(500) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `proceso`
 --
 
-INSERT INTO `proceso` (`id_proceso`, `nombre_proceso`) VALUES
-(1, 'Penal'),
-(2, 'Tesoreria');
+INSERT INTO `proceso` (`id_proceso`, `nombre_proceso`, `Descripcion`) VALUES
+(1, 'Penal', 'El proceso penal es el procedimiento de caracter juridico que se lleva a cabo para que un organo estatal aplique una ley de tipo penal en un caso especifico.'),
+(2, 'Tesoreria', 'Es el area de una empresa en la cual se organizan y gestionan todas las acciones relacionadas con operaciones de flujo monetario o flujo de caja.');
 
 -- --------------------------------------------------------
 
