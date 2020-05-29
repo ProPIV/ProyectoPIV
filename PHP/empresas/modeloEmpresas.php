@@ -3,7 +3,7 @@
     class Empresas extends ModeloAbstractoDB {
 		private $id_empresa;
 		private $nombre_empresa;
-		private $id_sede;
+		private $nombre_sede;
 		private $id_proveedor;
 		
 		function __construct() {
@@ -18,8 +18,8 @@
 			return $this->nombre_empresa;
 		}
 		
-		public function getid_sede(){
-			return $this->id_sede;
+		public function getnombre_sede(){
+			return $this->nombre_sede;
 		}
 
 		public function getid_proveedor(){
@@ -44,8 +44,10 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT *
-			FROM empresa
+			SELECT id_empresa, nombre_empresa, em.nombre_sede, id_proveedor
+			FROM empresa as e 
+            inner join sede as em ON (e.id_sede  = em.id_sede ) 
+			order by id_empresa			
 			";
 			
 			$this->obtener_resultados_query();

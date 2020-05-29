@@ -219,7 +219,7 @@ $(document).ready(() => {
           "columns": [
               { "data": "id_empresa"},
               { "data": "nombre_empresa"},
-              { "data": "id_sede"},
+              { "data": "nombre_sede"},
               { "data": "id_proveedor"},
               { "data": "id_empresa",
                   render: function (data) {

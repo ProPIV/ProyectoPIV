@@ -21,7 +21,7 @@
 		<tr>
 			<th>ID Empresa</th>
 			<th>Nombre Empresa</th>
-            <th>ID Sede</th>
+            <th>Sede</th>
 			<th>ID Proveedor</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>

@@ -41,8 +41,10 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT *
-			FROM unidad_organizacional
+			SELECT id_unidad_organizacional, nombre_unidad_organizacional, em.nombre_empresa
+			FROM unidad_organizacional as e 
+            inner join empresa as em ON (em.id_empresa  = e.id_empresa ) 
+			order by id_unidad_organizacional
 			";
 			
 			$this->obtener_resultados_query();

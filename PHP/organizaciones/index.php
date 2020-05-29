@@ -24,7 +24,7 @@
 		<tr>
 			<th>ID organizacion</th>
 			<th>Nombre organizacion</th>
-			<th>ID empresa</th>
+			<th>Empresa</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>

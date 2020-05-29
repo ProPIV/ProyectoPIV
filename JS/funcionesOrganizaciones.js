@@ -219,7 +219,7 @@ $(document).ready(() => {
         "columns": [
             { "data": "id_unidad_organizacional" },
             { "data": "nombre_unidad_organizacional" },
-            { "data": "id_empresa" },
+            { "data": "nombre_empresa" },
             {
                 "data": "id_unidad_organizacional",
                 render: function(data) {

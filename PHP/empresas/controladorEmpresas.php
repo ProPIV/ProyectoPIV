@@ -52,7 +52,7 @@ switch ($_GET['accion']){
             $respuesta = array(
                 'codigo' => $empresas->getid_empresa(),
                 'nombre_empresa' => $empresas->getnombre_empresa(),
-                'id_sede' => $empresas->getid_sede(),
+                'nombre_sede' => $empresas->getnombre_sede(),
                 'id_proveedor'=> $empresas->getid_proveedor(),
                 'respuesta' =>'existe'
             );
