@@ -22,12 +22,10 @@
   <div class="d-flex toggled" id="wrapper">
     <?php 
       if ($rol=="admin") {
-          echo $sidebarAdmin;
+          echo $sidebar;
       }elseif ($rol=="user") {
           echo $sidebarUser;
-      }elseif ($rol=="nada") {
-          echo $sidebar;
-      } 
+      }
     ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
