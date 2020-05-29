@@ -3,9 +3,7 @@
   $navSuperior = file_get_contents('navSuperior.php');
   $sidebarAdmin = file_get_contents('admin/sidebarAdmin.php');
   $sidebar = file_get_contents('sidebar.php');
-  $sidebarEmpleados = file_get_contents('empleados/sidebarUser.php');
-  $contenidoAdmin = file_get_contents('admin/Index.php');
-  $contenidoEmpleados = file_get_contents('empleados/Index.php');
+  $sidebarEmpleados = file_get_contents('sidebarUser.php');
 ?>
 <!doctype html>
 <html lang="es">
