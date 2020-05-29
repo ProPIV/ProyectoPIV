@@ -230,11 +230,20 @@ function Admin() {
                     text: 'El titular no existe!'
                 })
             } else {
-                id_proveedor = usuario.id_proveedor;
-                $("#id_proveedor").val(usuario.id_proveedor);
-                $("#nombre_proveedor").val(usuario.nombre_proveedor);
-                $("#telefono").val(usuario.telefono);
+                id_empleado = usuario.id_empleado;
+                $("#id_empleado").val(usuario.id_proveedor);
+                $("#documento").val(usuario.documento);
+                $("#nombre_empleado").val(usuario.nombre_empleado);
+                $("#apellido").val(usuario.apellido);
+                $("#usuario").val(usuario.usuario);
+                $("#password").val(usuario.password);
                 $("#direccion").val(usuario.direccion);
+                $("#telefono").val(usuario.telefono);
+                $("#id_ciudad").val(usuario.id_ciudad);
+                $("#id_unidad_organizacional").val(usuario.id_unidad_organizacional);
+                $("#id_rol").val(usuario.id_rol);
+                $("#id_empresa").val(usuario.id_empresa);
+                $("#id_permiso").val(usuario.id_permiso);
 
             }
         });
