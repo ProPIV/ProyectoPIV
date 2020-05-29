@@ -52,7 +52,7 @@ switch ($_GET['accion']){
             $respuesta = array(
                 'codigo' => $organizaciones->getid_unidad_organizacional(),
                 'nombre_unidad_organizacional' => $organizaciones->getnombre_unidad_organizacional(),
-                'id_empresa' => $organizaciones->getid_empresa(),
+                'nombre_empresa' => $organizaciones->getnombre_empresa(),
                 'respuesta' =>'existe'
             );
         }

@@ -3,7 +3,7 @@
     class Organizaciones extends ModeloAbstractoDB {
 		private $id_unidad_organizacional;
 		private $nombre_unidad_organizacional;
-		private $id_empresa;
+		private $nombre_empresa;
 		
 		function __construct() {
 			//$this->db_name = '';
@@ -17,8 +17,8 @@
 			return $this->nombre_unidad_organizacional;
 		}
 
-		public function getid_empresa(){
-			return $this->id_empresa;
+		public function getnombre_empresa(){
+			return $this->nombre_empresa;
 		}
 		
 
