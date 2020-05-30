@@ -1,5 +1,4 @@
 <?php
-require_once 'dmin_modelo.php'; 
 try{
 $login=$_POST['usernamelg'];
 $password=$_POST['passwordlg'];
@@ -19,9 +18,7 @@ $resultado->execute(array(":login"=>$login));
         //echo "Usuario: " . $registro['usuario'] . " Contraseña: " . $registro['password'] . "<br>";
 
         if(password_verify($password, $registro['password'])){
-            session_start();
-            $_SESSION['nombre'] = $usuario->getnombre_empleado();
-            $_SESSION['apellido'] = $usuario->getapellido();
+            
             $contador++;        
         }
     }
