@@ -9,7 +9,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Carlos Aux
+              <input>Aux</input>
               </a>
               <div class="dropdown-menu dropdown-user" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#"><img src="../Imagenes/inicio.png" class="inicio" alt="">Mi

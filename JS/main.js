@@ -15,21 +15,18 @@ $(document).on('submit','#formlg', function(event){
          console.log(resultado);
          if(!resultado.error){
              if(resultado.tipo == '1'){
-                location.href = 'PHP';
+                location.href = 'PHP/index1.php';
              }else if(resultado.tipo == '2'){
-                location.href = 'PHP';
+                location.href = 'PHP/index2.php';
                 
              }else if(resultado.tipo == '3'){
-                location.href = 'PHP';
+                location.href = 'PHP/index3.php';
                 
              }else if(resultado.tipo == '4'){
-                location.href = 'PHP';
+                location.href = 'PHP/index4.php';
                 
              }else if(resultado.tipo == '5'){
-                location.href = 'PHP';
-                
-             }else if(resultado.tipo == '6'){
-                location.href = 'PHP';
+                location.href = 'PHP/index5.php';
                 
              }
          }else {

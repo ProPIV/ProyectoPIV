@@ -1,8 +1,6 @@
 <?php 
-  $rol = "admin";
   $navSuperior = file_get_contents('navSuperior.php');
-  $sidebar = file_get_contents('sidebar.php');
-  $sidebarEmpleados = file_get_contents('sidebarUser.php');
+  $sidebar = file_get_contents('sidebar3.php');
 ?>
 <!doctype html>
 <html lang="es">
@@ -20,11 +18,7 @@
 <body>
   <div class="d-flex toggled" id="wrapper">
     <?php 
-      if ($rol=="admin") {
           echo $sidebar;
-      }elseif ($rol=="user") {
-          echo $sidebarUser;
-      }
     ?>
     <div id="page-content-wrapper">
       <?php echo $navSuperior; ?>
