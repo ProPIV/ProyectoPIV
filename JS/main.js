@@ -14,20 +14,21 @@ $(document).on('submit','#formlg', function(event){
       .done(function( resultado ) {
          console.log(resultado);
          if(!resultado.error){
-             if(resultado.tipo == '1'){
+             if(resultado.tipo == '1'){                
                 location.href = 'PHP/index1.php';
              }else if(resultado.tipo == '2'){
-                location.href = 'PHP/index2.php';
-                
-             }else if(resultado.tipo == '3'){
-                location.href = 'PHP/index3.php';
-                
-             }else if(resultado.tipo == '4'){
-                location.href = 'PHP/index4.php';
-                
-             }else if(resultado.tipo == '5'){
-                location.href = 'PHP/index5.php';
-                
+                location.href = 'PHP/index2.php';                
+             }else{
+                swal({
+                    position: 'center',
+                    type: 'error',
+                    title: 'Usuario y/o Password incorrecto',
+                    showConfirmButton: false,
+                    timer: 1500
+                }),
+                function() {
+                    $("#usuario").focus().select();
+                };  
              }
          }else {
             $('.error').slideDown('slow');
