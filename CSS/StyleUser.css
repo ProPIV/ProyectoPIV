@@ -1,5 +1,5 @@
 body {
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 .navbar-color{
     background-color: #161212 !important;    
@@ -17,11 +17,6 @@ body {
 .Alineacion{
     padding: 0%;
 }
-.Alin-usert{
-    left: 8% !important;  
-    padding-left: 0%;
-    padding-right: 0%;
-}
 .dropdown-user{
     left: -70%;
     width: 170%;
@@ -31,10 +26,6 @@ body {
     background: #302D2D;
     color: #ffffff;
     border-left: 5px solid #ffffff;
-}
-.Alin-imgt{
-    left: 6.9% !important;
-    padding-left: 0;
 }
 .Alin-user{
     left: 11%;  

@@ -1,5 +1,5 @@
 <?php 
-  $navSuperior = file_get_contents('navSuperior.php');
+  include_once ('navSuperior.php');
   $sidebar = file_get_contents('sidebarAdmin.php');
 ?>
 <!doctype html>
@@ -21,7 +21,6 @@
           echo $sidebar;
     ?>
     <div id="page-content-wrapper">
-      <?php echo $navSuperior; ?>
       <div class="panel-group hide" id="contenedor"><div class="panel panel-primary">
             <div class="panel-heading" id="titulo"></div>
             <div class="panel-body">
