@@ -108,14 +108,14 @@ function sede() {
         $("sede").addClass("hide");
         $.ajax({
             type: "get",
-            url: "../PHP/empresa/controladorEmpresa.php",
+            url: "../PHP/sede/controladorSede.php",
             data: { accion: 'listar' },
             dataType: "json"
         }).done(function(resultado) {
-            $("#id_municipio option").remove()
-            $("#id_municipio").append("<option selecte value=''>Seleccione un municipio</option>")
+            $("#id_ciudad option").remove()
+            $("#id_ciudad").append("<option selecte value=''>Seleccione una ciudad</option>")
             $.each(resultado.data, function(index, value) {
-                $("#id_municipio").append("<option value='" + value.id_municipio + "'>" + value.id_municipio + "</option>")
+                $("#id_ciudad").append("<option value='" + value.id_ciudad + "'>" + value.id_ciudad + "</option>")
             });
         });
 

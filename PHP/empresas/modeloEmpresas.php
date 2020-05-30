@@ -44,7 +44,7 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT id_empresa, nombre_empresa, em.nombre_sede, id_proveedor
+			SELECT e.id_empresa, e.nombre_empresa, em.nombre_sede, id_proveedor
 			FROM empresa as e 
             inner join sede as em ON (e.id_sede  = em.id_sede ) 
 			order by id_empresa			
