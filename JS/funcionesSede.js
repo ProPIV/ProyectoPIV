@@ -113,9 +113,9 @@ function sede() {
             dataType: "json"
         }).done(function(resultado) {
             $("#id_municipio option").remove()
-            $("#id_municipio").append("<option selecte value=''>Seleccione una empresa</option>")
+            $("#id_municipio").append("<option selecte value=''>Seleccione un municipio</option>")
             $.each(resultado.data, function(index, value) {
-                $("#id_municipio").append("<option value='" + value.id_empresa + "'>" + value.nombre_empresa + "</option>")
+                $("#id_municipio").append("<option value='" + value.id_municipio + "'>" + value.id_municipio + "</option>")
             });
         });
 
@@ -220,13 +220,15 @@ $(document).ready(() => {
             { "data": "id_sede" },
             { "data": "nombre_sede" },
             { "data": "nombre_empresa" },
-            { "data": "id_sede",
+            {
+                "data": "id_sede",
                 render: function(data) {
                     return '<a href="#" data-codigo="' + data +
                         '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>'
                 }
             },
-            { "data": "id_sede",
+            {
+                "data": "id_sede",
                 render: function(data) {
                     return '<a href="#" data-codigo="' + data +
                         '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>';

@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="nombre_sede">nombre_unidad_organizacioanl:</label>
+                        <label class="control-label col-sm-2" for="nombre_sede">Nombre sede:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="nombre_sede" name="nombre_sede" placeholder="Ingrese Nombre de Organizacion"
                             value = "">
@@ -39,7 +39,7 @@
                     </div>
 					
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="id_municipio">id empresa:</label>
+                        <label class="control-label col-sm-2" for="id_municipio">id municipio:</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="id_municipio" name="id_municipio">
                          
