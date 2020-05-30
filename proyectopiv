@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2020 a las 04:22:25
+-- Tiempo de generación: 30-05-2020 a las 04:11:37
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.1
+-- Versión de PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -80,7 +80,7 @@ CREATE TABLE `empleado` (
   `nombre_empleado` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `apellido` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `usuario` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `password` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(20) UNSIGNED NOT NULL,
   `id_ciudad` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
@@ -95,8 +95,7 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id_empleado`, `tipo_documento`, `documento`, `nombre_empleado`, `apellido`, `usuario`, `password`, `direccion`, `telefono`, `id_ciudad`, `id_unidad_organizacional`, `id_rol`, `id_empresa`, `id_permiso`) VALUES
-(378, 'CC', 1107, 'Carlos', 'Aux', 'AuxEsp', '123456789', 'Calle 61', 31839283, '2', 2, 2, 2, 2),
-(377, 'CC', 1107529980, 'Sebastian', 'Gutierrez', 'sebclacl', '123456789', 'Calle 62', 3183892373, '1', 1, 1, 1, 1);
+(1, 'CC', 1107529980, 'Sebastian', 'Gutierrez', 'sebclacl', '$2y$10$4NyATTeUjwDw/m7UMjvh0OkcxOIdZiis7wDmbMSxqpDW4acW6tk5G', 'Calle 62', 3183892373, '1', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -160,7 +159,10 @@ CREATE TABLE `permiso` (
 
 INSERT INTO `permiso` (`id_permiso`, `nombre_permiso`) VALUES
 (1, 'admin'),
-(2, 'limitado');
+(2, 'limitado'),
+(3, 'limitado3'),
+(4, 'limitado4'),
+(5, 'limitado5');
 
 -- --------------------------------------------------------
 
@@ -378,7 +380,7 @@ ALTER TABLE `contrato`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=379;
+  MODIFY `id_empleado` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
